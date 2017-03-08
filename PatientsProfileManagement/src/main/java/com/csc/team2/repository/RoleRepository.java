@@ -7,6 +7,6 @@ import com.csc.team2.model.Role;
 
 @Repository("roleRepository")
 public interface RoleRepository extends JpaRepository<Role, Integer>{
-	Role findByRole(String role);
+	Role findByRoles(String roles);
 
 }

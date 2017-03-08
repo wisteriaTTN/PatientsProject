@@ -7,5 +7,6 @@ import com.csc.team2.model.User;
 
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<User, Long> {
-	 User findByEmail(String email);
+	 //User findByEmail(String email);
+	User findByUsername(String username);
 }
