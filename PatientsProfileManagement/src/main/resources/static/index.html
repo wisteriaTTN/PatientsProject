@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" class="no-js">
+<head>
+		<meta charset="ISO-8859-1">
+		<title>Patient Management</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="/patientprofile/css/bootstrap-theme.css">
+	    <link rel="stylesheet" href="/patientprofile/css/bootstrap.css">
+	    <link rel="stylesheet" href="/patientprofile/css/app.css">
+	    <link rel="stylesheet" href="/patientprofile/css/animate.min.css">
+	    
+	    <script src="/patientprofile/js/jquery.js"></script>
+	    <script src="/patientprofile/js/bootstrap.js"></script>
+	    <script src="/patientprofile/js/handle.js"></script>
+	    <script src="/patientprofile/js/wow.min.js"></script>
+	    
+	   
+	    
+	    
+	    
+</head>
+<body>
+	
+	<!-- Navigation Bar -->
+	<div class="example3">
+	  <nav class="navbar navbar-default navbar-fixed-top">
+	    <div class="container">
+	      <div class="navbar-header">
+	        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+	          <span class="sr-only">Toggle navigation</span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" href="http://disputebills.com">
+	        	<img src="/patientprofile/images/icon.png" alt="icon">
+	        	HealthCare
+	        </a>
+	      </div>
+	      <div id="navbar3" class="navbar-collapse collapse">
+	        <ul class="nav navbar-nav navbar-right">
+	          <li>
+	          	<a href="#">
+		          	Sign In
+	          	</a>
+	          </li>
+	        </ul>
+	      </div>
+	      <!--/.nav-collapse -->
+	    </div>
+	    <!--/.container-fluid -->
+	  </nav>
+	</div>
+	
+	<div ng-view></div>
+		<script src="/patientprofile/js/lib/angular-1.4.9/angular.js"></script>
+		<script src="/patientprofile/js/lib/angular-1.4.9/angular-resource.js"></script>
+		<script src="/patientprofile/js/lib/angular-1.4.9/angular-route.js"></script>
+		
+		<script src="/patientprofile/js/app.js"></script>
+		
+		<script src="/patientprofile/js/controller/Another.js"></script>
+	
+	
+  
+      
+      <!-- Login Form -->
+      <!-- Modal Login-->
+<div class="modal fade" id="LoginModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content login-content">
+            <div class="modal-header login-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <label>Login Form</label>
+            </div>
+            <div class="modal-body">
+                <div class="mar-item">
+                    <div class="inner-addon right-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <input id="User-lg" type="text" class="form-control" placeholder="Username" />
+                    </div>
+                </div>              
+                <div class="mar-item">
+                    <div class="inner-addon right-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        <input id="Pass-lg" type="password" class="form-control" placeholder="Password" />
+                    </div>
+                </div>    
+                <div class="mar-item">
+                    <button type="button" class="btn btn-loginform" id="btn-lg">Login</button>
+                    <button type="button" class="btn btn-loginform" id="btn-callReg">Register</button>
+                </div>
+                <div class="mar-item">
+                    <p>Lost your password ?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+      
+  
+</body>
+</html>
