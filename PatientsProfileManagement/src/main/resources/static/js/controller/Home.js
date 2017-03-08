@@ -1,5 +1,5 @@
 var app = angular.module('myApp');
-app.controller('AnotherController', function(
+app.controller('HomeController', function(
         $scope, $interval, $location) {
           
 
