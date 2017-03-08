@@ -1,8 +1,62 @@
 @CHARSET "ISO-8859-1";
-nav > a > img{
-	with: 100px;
-	height: 100px;
+
+/* Navigation Bar */
+
+.example3 .navbar-brand {
+  height: 70px;
 }
+.navbar-brand, .navbar-nav > li > a {
+    text-shadow: none;
+
+}
+
+/* width, height nav */
+.example3 .nav >li >a {
+      padding-top: 35px;
+    padding-bottom: 15px;
+    color: #ffffff;
+    font-size: 18px;
+  
+}
+.example3 .nav >li> a:hover{
+	background-color: #20606D;
+	display: block;
+	color: #ffffff;
+}
+
+
+.example3 .navbar-toggle {
+  padding: 10px;
+  margin: 25px 15px 25px 0;
+}
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  width: auto;
+  float: left;
+}
+.navbar-default .navbar-brand{
+	color: #fff;
+}
+.navbar-default .navbar-brand:hover{
+	color: #fff;
+}
+.navbar-default .navbar-brand > span{
+	font-size: 25px;
+    line-height: 80px;
+    font-weight: lighter;
+}
+.navbar-default {
+    background-color: #46a1b4;
+    border: 0px;
+    background-image: none;
+}
+
+
+
+/* Login Form  */
 .mar-item{
     margin-bottom: 20px;
     text-align:center;
@@ -56,152 +110,47 @@ nav > a > img{
 }
 
 /*************************
-********Home CSS**********
+********Slider CSS**********
 **************************/
-#home-slider {
-  overflow: hidden;
-  position: relative;
-}
-
-#home-slider .caption {
-  position: absolute;
-  top: 50%;
-  margin-top: -104px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  text-transform: uppercase;
-  z-index: 15;
-  font-size: 18px;
-  font-weight: 300;
-  color: #fff;
-}
-
-#home-slider .caption h1 {
-  color: #fff;
-  font-size: 60px;
-  font-weight: 700;
-  margin-bottom: 30px;
-}
-
-.caption .btn-start {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  padding:14px 40px;
-  border: 1px solid #6e6d6c;
-  border-radius: 4px;
-  margin-top: 40px;
-}
-
-.caption .btn-start:hover {
-  color: #fff
-}
-
-.carousel-fade .carousel-inner .item {
-  opacity: 0;
-  -webkit-transition-property: opacity;
-  transition-property: opacity;
-  background-repeat: no-repeat;
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+      height: 825px;
+  }
+  
+ #myCarousel{
+  	margin-top: 70px;
+  }
+.full-screen {
   background-size: cover;
-  height: 2037px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
-.carousel-fade .carousel-inner .item:after {
-  content: " ";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,.7);
+.blur-slider{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.4;
 }
-
-.carousel-fade .carousel-inner .active {
-  opacity: 1;
+.carousel-control.left, .carousel-control.right{
+	background-image: none;
 }
-.carousel-fade .carousel-inner .active.left,
-.carousel-fade .carousel-inner .active.right {
-  left: 0;
-  opacity: 0;
-  z-index: 1;
+.carousel-caption{
+	right: inherit;
+	left: 7%;
+	font-size: 20px;
+	margin-bottom: 100px;
 }
-.carousel-fade .carousel-inner .next.left,
-.carousel-fade .carousel-inner .prev.right {
-  opacity: 1;
+.carousel-caption > div{
+	font-size: 50px;
+	font-weight: bold;
 }
-.carousel-fade .carousel-control {
-  z-index: 2;
+.carousel-caption > p{
+	font-size: 30px;
+	font-weight: bold;
 }
-
-.left-control, .right-control {
-  position: absolute;
-  top: 50%;
-  height: 51px;
-  width: 51px;
-  line-height: 48px;
-  border-radius: 50%;
-  border:1px solid #fff;  
-  z-index: 20;
-  font-size: 24px;
-  color: #fff;
-  text-align: center;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-.left-control {
-  left: -51px
-} 
-
-.right-control {
-  right: -51px;
-}
-
-.left-control:hover, 
-.right-control:hover {
-  color: #fff;
-}
-
-#home-slider:hover .left-control {
-  left:30px
-} 
-
-#home-slider:hover .right-control {
-  right:30px
-}
-
-#home-slider .fa-angle-down {
-  position: absolute;
-  left: 50%;
-  bottom: 50px;
-  color: #fff;
-  display: inline-block;
-  width: 24px;
-  margin-left: -12px;
-  font-size: 24px;
-  line-height: 24px;
-  z-index: 999;
-  -webkit-animation: bounce 3000ms infinite;
-  animation: bounce 3000ms infinite;
-}
-
-.navbar-right li a {
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 600;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.navbar-right li.active a {
-  background-color: rgba(0,0,0,.2);
-}
-
-.navbar-brand h1 {
-  margin-top: 5px;
+.animated{
+	animation-duration: 2s;
 }

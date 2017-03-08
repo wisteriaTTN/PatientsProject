@@ -1,28 +1,36 @@
-<div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="item active" style="background-image: url(/patientprofile/images/hinh1.jpg)">
-          <div class="caption">
-            <h1 class="animated fadeInLeftBig">Welcome to <span>Oxygen</span></h1>
-            <p class="animated fadeInRightBig">Bootstrap - Responsive Design - Retina Ready - Parallax</p>
-            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Start now</a>
-          </div>
-        </div>
-        <div class="item" style="background-image: url(/patientprofile/images/hinh2.jpg)">
-          <div class="caption">
-            <h1 class="animated fadeInLeftBig">Say Hello to <span>Oxygen</span></h1>
-            <p class="animated fadeInRightBig">Bootstrap - Responsive Design - Retina Ready - Parallax</p>
-            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Start now</a>
-          </div>
-        </div>
-        <div class="item" style="background-image: url(/patientprofile/images/hinh3.jpg)">
-          <div class="caption">
-            <h1 class="animated fadeInLeftBig">We are <span>Creative</span></h1>
-            <p class="animated fadeInRightBig">Bootstrap - Responsive Design - Retina Ready - Parallax</p>
-            <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Start now</a>
-          </div>
-        </div>
-      </div>
-      <a class="left-control" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-      <a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+   
+   <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
 
- <a id="tohash" href="#services"><i class="fa fa-angle-down"></i></a>
+    <!-- Wrapper for slides -->
+    <div ng-mouseover="open = true" ng-mouseleave="open = false" class="carousel-inner" role="listbox">
+	      <div class="item active">
+		         <div class="carousel-caption">
+		            <div class="animated fadeInRighttBig">WE'RE RESPONSIBLE</div>
+		            <p class="animated fadeInUp">First & Friendly Family Urgent</p>
+		         </div>
+		      	<div class="blur-slider"></div>
+		        <img src="/patientprofile/images/hinh1.jpg" alt="Chania">
+	      </div>
+	      
+	      <div class="item">
+		      <div class="carousel-caption">
+		            <div class="animated fadeInRightBig">WE'RE PROFFESSIONAL</div>
+		         </div>
+		      	<div class="blur-slider"></div>
+		        <img src="/patientprofile/images/hinh2.jpg" alt="Chania">
+	      </div>
+	      
+	      <div class="item">
+		      <div class="carousel-caption">
+		            <div class="animated fadeInRightBig">WE'RE CARING</div>
+		         </div>
+		      	<div class="blur-slider"></div>
+		        <img src="/patientprofile/images/hinh3.jpg" alt="Flower">
+	      </div>
+
+    </div>
