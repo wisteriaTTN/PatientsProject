@@ -20,13 +20,19 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/","/login"}, method = RequestMethod.GET)
 	public ModelAndView login(){
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("login");
 		return modelAndView;
 	}
 	
+	@RequestMapping(value={"/test"}, method = RequestMethod.GET)
+	public ModelAndView test(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("test");
+		return modelAndView;
+	}
 	
 	@RequestMapping(value="/registration", method = RequestMethod.GET)
 	public ModelAndView registration(){
@@ -49,7 +55,7 @@ public class LoginController {
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("registration");
 		} else {
-			userService.saveUser(user);
+			userService.saveAdmin(user);
 			modelAndView.addObject("successMessage", "User has been registered successfully");
 			modelAndView.addObject("user", new User());
 			modelAndView.setViewName("registration");
