@@ -101,4 +101,12 @@ private static final long serialVersionUD =1L;
 		this.producer = medicine.producer;
 		this.dosage = medicine.dosage;
 	}
+	public Medicine(){
+		this.medicineId = 0;
+		this.typeId = 0;
+		this.name = "";
+		this.mfg = "";
+		this.producer = "";
+		this.dosage = "";
+	}
 }

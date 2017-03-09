@@ -54,7 +54,7 @@ public class MedicineServiceImpl implements IMedicineService {
 	}
 
 	@Override
-	public boolean isPatientExist(Medicine medicine) {
+	public boolean isMedicineExist(Medicine medicine) {
 		// TODO Auto-generated method stub
 		return false;
 	}

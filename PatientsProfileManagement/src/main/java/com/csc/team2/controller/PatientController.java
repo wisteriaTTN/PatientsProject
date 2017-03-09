@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.csc.team2.model.Patient;
@@ -20,6 +21,7 @@ import com.csc.team2.service.PatientServiceImpl;
 
 
 @Controller
+//@RequestMapping("/patient")
 public class PatientController {
 	
 	@Autowired
@@ -29,7 +31,14 @@ public class PatientController {
 	
 	// -------------------Retrieve All Patient---------------------------------------------
 	 
-    @RequestMapping(value = "/patient/", method = RequestMethod.GET)
+//	@RequestMapping(value={"/patient"}, method = RequestMethod.GET)
+//	public ModelAndView login(){
+//		ModelAndView modelAndView = new ModelAndView();
+//		modelAndView.setViewName("patient");
+//		return modelAndView;
+//	}
+	
+    @RequestMapping(value = "/patient", method = RequestMethod.GET)
     public ResponseEntity<List<Patient>> listAllPatients() {
         List<Patient> patients = patientService.findAllPatients();
         if (patients.isEmpty()) {
@@ -37,6 +46,7 @@ public class PatientController {
             // You many decide to return HttpStatus.NOT_FOUND
         }
         return new ResponseEntity<List<Patient>>(patients, HttpStatus.OK);
+        
     }
  // -------------------Retrieve Single Patient------------------------------------------
     
@@ -53,7 +63,7 @@ public class PatientController {
  
     // -------------------Create a Patient-------------------------------------------
  
-    @RequestMapping(value = "/patient/", method = RequestMethod.POST)
+    @RequestMapping(value = "/patient", method = RequestMethod.POST)
     public ResponseEntity<?> createPatient(@RequestBody Patient patient, UriComponentsBuilder ucBuilder) {
         logger.info("Creating Patient : {}", patient);
  
@@ -109,8 +119,8 @@ public class PatientController {
     }
  
     // ------------------- Delete All Patient-----------------------------
- 
-    @RequestMapping(value = "/patient/", method = RequestMethod.DELETE)
+    //detele patient-detail table before delete patient table
+    @RequestMapping(value = "/patient", method = RequestMethod.DELETE)
     public ResponseEntity<Patient> deleteAllPatients() {
         logger.info("Deleting All Patient");
  
