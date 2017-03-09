@@ -11,40 +11,39 @@
 </head>
 
 <body>
-	<div class="loginform">
-		<form  th:action="@{/login}" method="POST" class="form-signin">
-			<label class="form-signin-heading" th:text="Login"></label>
-                
-                
-                <div class="input-group mar-item">
-                	<input type="text" class="form-control" placeholder="Username" id="email" 
-                    name="email"  th:placeholder="Username"/>
-                    <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-user"></i>
-                    </span>
-               </div>
-               <div class="input-group mar-item">
-                    <input type="password"  th:placeholder="Password" id="password" name="password" 
-                   class="form-control"/>
-                    <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-lock"></i>
-                    </span>
-                </div>
-                <div class="input-group mar-item">
-                    <button type="Submit"  name="Submit" value="Login" class="btn btn-login" id="btn-lg">Sign In</button>
-                </div>
-				
-			<div align="center" th:if="${param.error}">
-				<p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
+	<div class="wrapper">
+		<div class="loginform">
+			<div class="label-login">
+				<label class="form-signin-heading" th:text="Login"></label>
 			</div>
-		</form>
-		
-		<form th:action="@{/registration}" method="get">
-			<button class="btn btn-lock" type="Submit">Go To Registration Page</button>
-		</form>	
+			<form  th:action="@{/login}" method="POST" class="form-signin">
+	               <div class="input-group mar-item">
+	                	<input type="text" class="form-control" placeholder="Username" id="email" 
+	                    name="email"  th:placeholder="Username"/>
+	                    <span class="input-group-addon">
+	                        <i class="glyphicon glyphicon-user"></i>
+	                    </span>
+	               </div>
+	               <div class="input-group mar-item">
+	                    <input type="password"  th:placeholder="Password" id="password" name="password" 
+	                   class="form-control"/>
+	                    <span class="input-group-addon">
+	                        <i class="glyphicon glyphicon-lock"></i>
+	                    </span>
+	                </div>
+	                <div class="input-group mar-item">
+	                    <button type="Submit"  name="Submit" value="Login" class="btn btn-login" id="btn-lg">Sign In</button>
+	                </div>
+				
+			</form>
+			
+			<form th:action="@{/registration}" method="get" class="form-btn-reg">
+				<button class="btn btn-lock" type="Submit">Go To Registration Page</button>
+			</form>	
+			<div align="center" th:if="${param.error}">
+					<p style="font-size: 20; color: #FF1C19; padding-bottom: 20px;">Email or Password invalid, please verify</p>
+				</div>
+		</div>
 	</div>
-	
-
-  
 </body>
 </html>
