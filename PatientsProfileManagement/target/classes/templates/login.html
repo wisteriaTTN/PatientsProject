@@ -29,6 +29,22 @@
                 <div class="mar-item">
                     <button type="Submit"  name="Submit" value="Login" class="btn btn-loginform" id="btn-lg">Login</button>
                 </div>
+			<label class="form-signin-heading" th:text="Login"></label>
+			 <div class="mar-item">
+                    <div class="inner-addon right-addon">
+                        <span><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" id="email" name="email"  th:placeholder="Username" class="form-control" />
+                    </div>
+                </div>              
+                <div class="mar-item">
+                    <div class="inner-addon right-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        <input type="password"  th:placeholder="Password" id="password" name="password" class="form-control" />
+                    </div>
+                </div>    
+                <div class="mar-item">
+                    <button type="Submit"  name="Submit" value="Login" class="btn btn-loginform" id="btn-lg">Login</button>
+                </div>
 				
 			<div align="center" th:if="${param.error}">
 				<p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
