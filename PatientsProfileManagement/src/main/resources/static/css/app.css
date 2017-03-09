@@ -55,60 +55,6 @@
 }
 
 
-
-/* Login Form  */
-.mar-item{
-    margin-bottom: 20px;
-    text-align:center;
-}
-.mar-item > .inner-addon > input{
-    margin-left: auto;
-    margin-right: auto;
-    height:45px;
-    font-size:13px;
-    font-weight:bold;
-    background-color:#f0eef1;
-}
-.mar-item > div > i{
-    margin-top: 2px;
-}
-.mar-item > button{
-    width: 40%;
-    color: white;
-    font-weight: bold;
-    height: 40px;
-}
-.mar-item > p {
-    color: #929292;
-    font-weight:bold;
-}
-.login-header, .btn-loginform{
-    background: #6f4b71;
-    background: -webkit-linear-gradient(#77517a, #6f4b71);
-    background:    -moz-linear-gradient(#77517a, #6f4b71);
-    background:         linear-gradient(#77517a, #6f4b71);
-}
-.login-header{
-    color: white;
-}
-.login-header > .close{
-    color: white;
-    opacity: 1;
-}
-#LoginModalForm > .modal-dialog{
-    width: 32%;
-}
-.login-content{
-    border-radius: unset;
-    /*width:75%;*/
-}
-.login-content > .modal-body{
-    background-color:#f2f2f2;
-}
-.btn-loginform{
-    margin-left:20px;
-}
-
 /*************************
 ********Slider CSS**********
 **************************/

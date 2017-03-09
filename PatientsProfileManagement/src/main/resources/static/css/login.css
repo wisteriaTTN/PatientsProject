@@ -1,63 +1,63 @@
 .loginform {    
 	margin-left: 35%;
-	margin-right: 35%;
+	margin-right: 33%;
 	margin-top: 8%;
+	padding: 40px;
+	background-color: #eee;
 }
 .btn-md{
-	background-color:#20606D;
+	background-color:#008080;
 }
-.form-signin {
-  padding: 30px;
-  background-color: #eee;
-  }
+
 
 .form-signin-heading {
   text-align:center;
   font-size: 25px;
   margin-bottom: 30px;
-  color: #20606D;
+  color: #008080;
 }
 
 .form-control {
   position: relative;
   font-size: 16px;
   height: auto;
-  padding: 10px;
 }
 
 input[type="text"] {
   margin-bottom: 0px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 input[type="password"] {
   margin-bottom: 20px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 .mar-item{
     margin-bottom: 20px;
     text-align:center;
 }
-.mar-item > .inner-addon > input{
-    margin-left: auto;
-    margin-right: auto;
-    height:45px;
+.mar-item > input{
+	height:45px;
     font-size:13px;
     font-weight:bold;
     background-color:#f0eef1;
 }
-.mar-item > div > i{
-    margin-top: 2px;
+.btn-login{
+	background-color: #008080;
+	height: 45px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #fff;
+	width: 400%;
+	margin-left: 30%;
 }
-.mar-item > button{
-    width: 40%;
-    color: white;
-    font-weight: bold;
-    height: 40px;
+.btn-login:hover{
+	color: #fff;
 }
-.mar-item > p {
-    color: #929292;
-    font-weight:bold;
+.btn-lock{
+	background-color: #ff9900;
+	height: 45px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #fff;
+	width: 83%;
+	margin-left: 7%;
 }
