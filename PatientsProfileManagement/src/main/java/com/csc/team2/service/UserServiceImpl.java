@@ -1,7 +1,5 @@
 package com.csc.team2.service;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -25,28 +23,35 @@ public class UserServiceImpl implements UserService{
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
     @Override
-	/*public User findUserByEmail(String email) {
-		return userRepository.findByEmail(email);
-	}*/
-    
 	public User findUserByUsername(String username){
 		return userRepository.findByUsername(username);
 	}
 	
 	@Override
-	/*public void saveUser(User user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setActive(1);
-        Role userRole = roleRepository.findByRole("ADMIN");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-		userRepository.save(user);
-	}*/
-	public void saveUser(User user) {
+	public void saveAdmin(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setActive(1);
 	    Role userRole = roleRepository.findByRoles("admin");
 	    user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
 	    userRepository.save(user);
 	}
-
+	
+	@Override
+	public void saveDoctor(User user){
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setActive(1);
+		Role userRole = roleRepository.findByRoles("doctor");
+		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+		userRepository.save(user);
+	}
+	
+	@Override
+	public void saveNurse(User user){
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setActive(1);
+		Role userRole = roleRepository.findByRoles("nurse");
+		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+		userRepository.save(user);
+	}
+	
 }

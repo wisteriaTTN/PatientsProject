@@ -20,13 +20,19 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/","/login"}, method = RequestMethod.GET)
 	public ModelAndView login(){
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("login");
 		return modelAndView;
 	}
 	
+	@RequestMapping(value={"/test"}, method = RequestMethod.GET)
+	public ModelAndView test(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("test");
+		return modelAndView;
+	}
 	
 	@RequestMapping(value="/registration", method = RequestMethod.GET)
 	public ModelAndView registration(){
@@ -40,6 +46,8 @@ public class LoginController {
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
+		
+		
 		User userExists = userService.findUserByUsername(user.getUsername());
 		if (userExists != null) {
 			bindingResult
@@ -49,7 +57,7 @@ public class LoginController {
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("registration");
 		} else {
-			userService.saveUser(user);
+			userService.saveAdmin(user);
 			modelAndView.addObject("successMessage", "User has been registered successfully");
 			modelAndView.addObject("user", new User());
 			modelAndView.setViewName("registration");
@@ -59,7 +67,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/admin/home", method = RequestMethod.GET)
-	public ModelAndView home(){
+	public ModelAndView adminHome(){
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByUsername(auth.getName());
@@ -69,5 +77,26 @@ public class LoginController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value="/doctor/home", method = RequestMethod.GET)
+	public ModelAndView doctorHome(){
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByUsername(auth.getName());
+		modelAndView.addObject("userName", "Welcome " + user.getName()  + " (" + user.getUsername() + ")");
+		modelAndView.addObject("doctorMessage","Content Available Only for Users with Doctor Role");
+		modelAndView.setViewName("doctor/home");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/nurse/home", method = RequestMethod.GET)
+	public ModelAndView nurseHome(){
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByUsername(auth.getName());
+		modelAndView.addObject("userName", "Welcome " + user.getName()  + " (" + user.getUsername() + ")");
+		modelAndView.addObject("nurseMessage","Content Available Only for Users with Nurse Role");
+		modelAndView.setViewName("nurse/home");
+		return modelAndView;
+	}
 
 }

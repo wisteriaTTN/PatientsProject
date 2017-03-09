@@ -43,22 +43,71 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		http.
-			authorizeRequests()
+		http
+			.authorizeRequests()
 				.antMatchers("/").permitAll()
 				.antMatchers("/login").permitAll()
+				.antMatchers("/patient/**").permitAll()
 				.antMatchers("/api/**").permitAll()
 				.antMatchers("/registration").permitAll()
-				.antMatchers("/admin/**").hasAuthority("admin").anyRequest()
+				.antMatchers("/test").permitAll()			
+				.antMatchers("/admin/**").hasAuthority("admin")
+				.anyRequest()
+				.authenticated()
+				.and()
+			.formLogin()
+				.loginPage("/login")
+				.failureUrl("/login?error=true")
+				.usernameParameter("username")
+				.passwordParameter("password")
+				.defaultSuccessUrl("/admin/home")
+				.and()
+			.logout()
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.logoutSuccessUrl("/")
+				.and()
+			.exceptionHandling()
+				.accessDeniedPage("/access-denied");
+		
+		
+		http
+		.authorizeRequests()		
+			.antMatchers("/doctor/**").hasAuthority("doctor")
+			.anyRequest()
+			.authenticated()
+			.and()
+		.formLogin()
+			.loginPage("/login")
+			.failureUrl("/login?error=true")
+			.usernameParameter("username")
+			.passwordParameter("password")
+			.defaultSuccessUrl("/doctor/home");
+			
+		http
+		.authorizeRequests()		
+			.antMatchers("/nurse/**").hasAuthority("nurse")
+			.anyRequest()
+			.authenticated()
+			.and()
+		.formLogin()
+			.loginPage("/login")
+			.failureUrl("/login?error=true")
+			.usernameParameter("username")
+			.passwordParameter("password")
+			.defaultSuccessUrl("/nurse/home");
+			
+			
+				/*.antMatchers("/admin/**").hasAuthority("admin").anyRequest()
 				.authenticated().and().csrf().disable().formLogin()
 				.loginPage("/login").failureUrl("/login?error=true")
 				.defaultSuccessUrl("/admin/home")
-				.usernameParameter("email")
+				.usernameParameter("username")
 				.passwordParameter("password")
 				.and().logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				.logoutSuccessUrl("/").and().exceptionHandling()
-				.accessDeniedPage("/access-denied");
+				.accessDeniedPage("/access-denied");*/
+
 	}
 	
 	@Override

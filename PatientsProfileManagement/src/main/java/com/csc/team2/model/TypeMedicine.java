@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="type-of-medicine")
+@Table(name="type_of_medicine")
 public class TypeMedicine implements Serializable {
 	
 	private static final long serialVersionUD =1L;
@@ -47,5 +47,10 @@ public class TypeMedicine implements Serializable {
 	public TypeMedicine(TypeMedicine typeMedicine){
 		this.typeId = typeMedicine.typeId;
 		this.typeName = typeMedicine.typeName;
+	}
+	
+	public TypeMedicine(){
+		this.typeId = 0;
+		this.typeName = "";
 	}
 }

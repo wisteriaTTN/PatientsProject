@@ -88,5 +88,12 @@ public class Patient implements Serializable {
 		this.sex = patient.sex;
 		this.dob = patient.dob;
 	}
-
+	public Patient()
+	{
+		this.patienId = 0;
+		this.name = "";
+		this.address = "";
+		this.sex = "";
+		this.dob = null;
+	}
 }
