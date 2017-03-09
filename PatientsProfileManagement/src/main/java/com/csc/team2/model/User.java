@@ -119,7 +119,7 @@ public class User {
 	@NotEmpty(message = "*Please provide your name")
 	private String name;
 	@Column(name = "username")
-	@NotEmpty(message = "*Please provide an email")
+	@NotEmpty(message = "*Please provide an username")
 	private String username;
 	@Column(name = "password")
 	@Length(min = 5, message = "*Your password must have at least 5 characters")
@@ -134,6 +134,8 @@ public class User {
 	private String address;
 	@Column(name="sex")
 	private String sex;
+	@Column(name = "active")
+	private int active;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
@@ -179,6 +181,12 @@ public class User {
 	}
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+	public int getActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
 	}
 	public Set<Role> getRoles() {
 		return roles;

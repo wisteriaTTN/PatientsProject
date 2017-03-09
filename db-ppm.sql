@@ -57,7 +57,7 @@ COLLATE = utf8_unicode_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_ppm`.`roles` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `roles` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
+  `roles` VARCHAR(255) CHARACTER SET 'utf8' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 5
@@ -70,11 +70,12 @@ COLLATE = utf8_unicode_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_ppm`.`user` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
-  `username` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
-  `password` VARCHAR(250) CHARACTER SET 'utf8' NOT NULL,
-  `specialist` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
-  `address` VARCHAR(50) CHARACTER SET 'utf8' NOT NULL,
+  `active` int(11) DEFAULT NULL,
+  `name` VARCHAR(255) CHARACTER SET 'utf8' NOT NULL,
+  `username` VARCHAR(255) CHARACTER SET 'utf8' NOT NULL,
+  `password` VARCHAR(255) CHARACTER SET 'utf8' NOT NULL,
+  `specialist` VARCHAR(255) CHARACTER SET 'utf8' NOT NULL,
+  `address` VARCHAR(255) CHARACTER SET 'utf8' NOT NULL,
   `sex` VARCHAR(7) CHARACTER SET 'utf8' NOT NULL,  
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
