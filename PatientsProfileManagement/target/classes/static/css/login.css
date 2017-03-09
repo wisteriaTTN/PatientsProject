@@ -1,19 +1,21 @@
-.wrapper {    
-	margin-top: 80px;
-	margin-bottom: 20px;
+.loginform {    
+	margin-left: 35%;
+	margin-right: 35%;
+	margin-top: 8%;
 }
-
+.btn-md{
+	background-color:#20606D;
+}
 .form-signin {
-  max-width: 420px;
-  padding: 30px 38px 66px;
-  margin: 0 auto;
+  padding: 30px;
   background-color: #eee;
-  border: 3px dotted rgba(0,0,0,0.1);  
   }
 
 .form-signin-heading {
   text-align:center;
+  font-size: 25px;
   margin-bottom: 30px;
+  color: #20606D;
 }
 
 .form-control {
@@ -34,4 +36,28 @@ input[type="password"] {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
+.mar-item{
+    margin-bottom: 20px;
+    text-align:center;
+}
+.mar-item > .inner-addon > input{
+    margin-left: auto;
+    margin-right: auto;
+    height:45px;
+    font-size:13px;
+    font-weight:bold;
+    background-color:#f0eef1;
+}
+.mar-item > div > i{
+    margin-top: 2px;
+}
+.mar-item > button{
+    width: 40%;
+    color: white;
+    font-weight: bold;
+    height: 40px;
+}
+.mar-item > p {
+    color: #929292;
+    font-weight:bold;
+}

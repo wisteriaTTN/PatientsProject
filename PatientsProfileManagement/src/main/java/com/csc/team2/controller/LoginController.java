@@ -46,6 +46,8 @@ public class LoginController {
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
+		
+		
 		User userExists = userService.findUserByUsername(user.getUsername());
 		if (userExists != null) {
 			bindingResult
@@ -65,7 +67,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/admin/home", method = RequestMethod.GET)
-	public ModelAndView home(){
+	public ModelAndView adminHome(){
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByUsername(auth.getName());
@@ -75,5 +77,26 @@ public class LoginController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value="/doctor/home", method = RequestMethod.GET)
+	public ModelAndView doctorHome(){
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByUsername(auth.getName());
+		modelAndView.addObject("userName", "Welcome " + user.getName()  + " (" + user.getUsername() + ")");
+		modelAndView.addObject("doctorMessage","Content Available Only for Users with Doctor Role");
+		modelAndView.setViewName("doctor/home");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/nurse/home", method = RequestMethod.GET)
+	public ModelAndView nurseHome(){
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByUsername(auth.getName());
+		modelAndView.addObject("userName", "Welcome " + user.getName()  + " (" + user.getUsername() + ")");
+		modelAndView.addObject("nurseMessage","Content Available Only for Users with Nurse Role");
+		modelAndView.setViewName("nurse/home");
+		return modelAndView;
+	}
 
 }
