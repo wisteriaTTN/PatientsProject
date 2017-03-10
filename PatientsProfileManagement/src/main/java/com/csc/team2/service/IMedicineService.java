@@ -19,5 +19,5 @@ public interface IMedicineService {
  
     List<Medicine> findAllMedicines();
  
-    boolean isPatientExist(Medicine medicine);
+    boolean isMedicineExist(Medicine medicine);
 }

@@ -43,21 +43,43 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		http.
-			authorizeRequests()
-				.antMatchers("/").permitAll()
-				.antMatchers("/login").permitAll()
-				.antMatchers("/registration").permitAll()
-				.antMatchers("/admin/**").hasAuthority("admin").anyRequest()
+		http
+		.authorizeRequests()
+			.antMatchers("/").permitAll()
+			.antMatchers("/login").permitAll()
+			.antMatchers("/patient/**").permitAll()
+			.antMatchers("/api/**").permitAll()
+			//.antMatchers("/registration").permitAll()
+			.antMatchers("/test").permitAll()			
+			.antMatchers("/admin/**").hasAuthority("admin")
+			.antMatchers("/nurse/**").hasAuthority("nurse")
+			.antMatchers("/doctor/**").hasAuthority("doctor")
+			.and()
+		.formLogin()
+			.loginPage("/login")
+			.failureUrl("/login?error=true")
+			.usernameParameter("username")
+			.passwordParameter("password")
+			.defaultSuccessUrl("/")
+			.and()
+		.logout()
+			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+			.logoutSuccessUrl("/")
+			.and()
+		.exceptionHandling()
+			.accessDeniedPage("/access-denied");
+			
+				/*.antMatchers("/admin/**").hasAuthority("admin").anyRequest()
 				.authenticated().and().csrf().disable().formLogin()
 				.loginPage("/login").failureUrl("/login?error=true")
 				.defaultSuccessUrl("/admin/home")
-				.usernameParameter("email")
+				.usernameParameter("username")
 				.passwordParameter("password")
 				.and().logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				.logoutSuccessUrl("/").and().exceptionHandling()
-				.accessDeniedPage("/access-denied");
+				.accessDeniedPage("/access-denied");*/
+
 	}
 	
 	@Override
