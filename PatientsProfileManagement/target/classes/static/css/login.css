@@ -1,20 +1,25 @@
+body{
+	background: -webkit-radial-gradient(rgb(58, 149, 70), rgb(18, 203, 189));
+  	background: radial-gradient(rgb(58, 149, 70), rgb(18, 203, 189));
+}
 .loginform {    
-	margin-left: 35%;
-	margin-right: 35%;
-	margin-top: 8%;
+	background-color: #eee;
+	-webkit-box-shadow: 6px 0px 70px -11px rgba(0,0,0,0.75);
+	-moz-box-shadow: 6px 0px 70px -11px rgba(0,0,0,0.75);
+	box-shadow: 6px 0px 70px -11px rgba(0,0,0,0.75);
+	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
-.btn-md{
-	background-color:#20606D;
+.label-login{
+	text-align: center;
+    background-color: #02C252;
+    color: #fff;
+    margin-bottom: 40px;
 }
-.form-signin {
-  padding: 30px;
-  background-color: #eee;
-  }
 
 .form-signin-heading {
-  text-align:center;
-  font-size: 25px;
-  margin-bottom: 30px;
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 20px;
   color: #20606D;
 }
 
@@ -22,42 +27,52 @@
   position: relative;
   font-size: 16px;
   height: auto;
-  padding: 10px;
 }
 
 input[type="text"] {
   margin-bottom: 0px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 input[type="password"] {
   margin-bottom: 20px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 .mar-item{
-    margin-bottom: 20px;
+    margin: 0px 40px 20px 40px;
     text-align:center;
 }
-.mar-item > .inner-addon > input{
-    margin-left: auto;
-    margin-right: auto;
-    height:45px;
+.mar-item > input{
+	height:45px;
     font-size:13px;
     font-weight:bold;
     background-color:#f0eef1;
 }
-.mar-item > div > i{
-    margin-top: 2px;
+.btn-login{
+	background-color: #02C252;
+	color: #fff;
+	height: 45px;
+	font-size: 15px;
+	font-weight: bold;
+	width: 500%;
 }
-.mar-item > button{
-    width: 40%;
-    color: white;
+.btn-lock{
+	margin-bottom: 30px;
+    background-color: transparent;
+    color: #097A16;
     font-weight: bold;
-    height: 40px;
 }
-.mar-item > p {
-    color: #929292;
-    font-weight:bold;
+.form-btn-reg{
+	padding-bottom: 30px;
+	text-align: center;
+}
+.wrapper{
+	/* background-image:
+    linear-gradient(
+      red, #f06d06
+    );  
+    background: -webkit-radial-gradient(rgb(58, 149, 70), rgb(18, 203, 189));
+  	background: radial-gradient(rgb(58, 149, 70), rgb(18, 203, 189));*/
+    padding-left: 35%;
+    padding-right: 33%;
+    padding-top: 8%;
+    padding-bottom: 11.5%;
 }
