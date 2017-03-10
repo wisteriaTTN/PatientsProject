@@ -58,7 +58,7 @@ public class TreatmentController {
     // -------------------Create a Treatment-------------------------------------------
  
     @RequestMapping(value = "/treatment/", method = RequestMethod.POST)
-    public ResponseEntity<?> createUser(@RequestBody Treatment treatment, UriComponentsBuilder ucBuilder) {
+    public ResponseEntity<?> createTreatment(@RequestBody Treatment treatment, UriComponentsBuilder ucBuilder) {
         logger.info("Creating Treatment : {}", treatment);
  
         if (treatmentService.isTreatmentExist(treatment)) {
@@ -115,9 +115,9 @@ public class TreatmentController {
         return new ResponseEntity<Treatment>(HttpStatus.NO_CONTENT);
     }
  
-    // ------------------- Delete All Users-----------------------------
+    // ------------------- Delete All Treatment-----------------------------
  
-    @RequestMapping(value = "/user/", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/treatment/", method = RequestMethod.DELETE)
     public ResponseEntity<Treatment> deleteAllTreatment() {
         logger.info("Deleting All Treatment");
  
