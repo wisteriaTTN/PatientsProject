@@ -9,92 +9,165 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form th:action="@{/}" method="get">
-		<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
-	</form>	
 	
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<form autocomplete="off" action="#" th:action="@{/admin/NurseRegistration}"
-					th:object="${user}" method="post" class="form-horizontal"
-					role="form">
-					<h2>Registration Form</h2>
-					<div class="form-group">
-						<div class="col-sm-9">
-						<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-								class="validation-message"></label>
-						<input type="text" th:field="*{name}" placeholder="Name"
-								class="form-control" /> 
-						</div>
-					</div>
-
-					<!-- <div class="form-group">
-						<div class="col-sm-9">
-						<label	th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
-								class="validation-message"></label>
-							<input type="text" th:field="*{lastName}"
-								placeholder="Last Name" class="form-control" /> 
-						</div> 
-					</div>-->
-					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="text" th:field="*{username}" placeholder="Username"
-								class="form-control" /> <label
-								th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
-								class="validation-message"></label>
-						</div>
-					</div> 
-					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="password" th:field="*{password}"
-								placeholder="Password" class="form-control" /> <label
-								th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-								class="validation-message"></label>
-						</div>
-					</div>
+	
+	<div class="wrapper-reg">
+	<div class="regis-form">
+		<div class="label-regis">
+			<label class="lable-regis" th:text="Registration"></label>
+			<hr style="margin-bottom: 0; margin-top: 0;">
+		</div>
+		<form class="form-horizontal form-mar" autocomplete="off" action="#" th:action="@{/registration}"
+					th:object="${user}" method="post" role="form">
 					
-					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="text" th:field="*{specialist}"
-								placeholder="specialist" class="form-control" /> <label
-								th:if="${#fields.hasErrors('specialist')}" th:errors="*{specialist}"
-								class="validation-message"></label>
-						</div>
+			  <div class="form-group">
+					<label class="col-sm-2 control-label">Email</label>
+					<div class="col-sm-10">
+					  <input type="text" th:field="*{name}" placeholder="Name"
+									class="form-control transparent-input"
+					style=" background-color:rgba(0,0,0,0) !important;
+							border:none; box-shadow:none !important;
+							border-bottom: 1px #fff solid";
+							color: #C3C0C0; />
 					</div>
-					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="text" th:field="*{address}"
-								placeholder="address" class="form-control" /> <label
-								th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
-								class="validation-message"></label>
-						</div>
+			  </div>
+			  <div class="row">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-10">
+					  <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+									class="validation-message"></label>
 					</div>
-					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="text" th:field="*{sex}"
-								placeholder="sex" class="form-control" /> <label
-								th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}"
-								class="validation-message"></label>
-						</div>
+			  </div>
+			  
+			  
+			  <div class="form-group">
+					<label class="col-sm-2 control-label">Username</label>
+					<div class="col-sm-10">
+					  <input type="text" th:field="*{username}" placeholder="Username"
+									class="form-control transparent-input"
+					style=" background-color:rgba(0,0,0,0) !important;
+							border:none; box-shadow:none !important;
+							border-bottom: 1px #fff solid"; />
 					</div>
-					<!-- <div class="form-group">
-						<div class="col-sm-9">
-							<input type="date" th:field="*{dob}"
-								 class="form-control" /> 
+			  </div>
+			  <div class="row">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-10">
+					  <label th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+									class="validation-message"></label>
+					</div>
+			  </div>
+			  
+			  <div class="form-group">
+					<label class="col-sm-2 control-label">Password</label>
+					<div class="col-sm-10">
+					  <input type="password" th:field="*{password}" placeholder="Password"
+									class="form-control transparent-input"
+					style=" background-color:rgba(0,0,0,0) !important;
+							border:none; box-shadow:none !important;
+							border-bottom: 1px #fff solid;color: #C3C0C0;" />
+					</div>
+			  </div>
+			  <div class="row">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-10">
+					  <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+									class="validation-message"></label>
+					</div>
+			  </div>
+			  
+			  
+			  <div class="form-group">
+					<label class="col-sm-2 control-label">Specialist</label>
+					<div class="col-sm-10">
+					  <input type="text" th:field="*{specialist}"
+									placeholder="specialist" class="form-control transparent-input"
+					style=" background-color:rgba(0,0,0,0) !important;
+							border:none; box-shadow:none !important;
+							border-bottom: 1px #fff solid;color: #C3C0C0;" /> 
+					</div>
+			  </div>
+			  <div class="row">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-10">
+					  <label th:if="${#fields.hasErrors('specialist')}" th:errors="*{specialist}"
+									class="validation-message"></label>
+					</div>
+			  </div>
+			  
+			  <div class="form-group">
+					<label class="col-sm-2 control-label">Address</label>
+					<div class="col-sm-10">
+					  <input type="text" th:field="*{address}"
+									placeholder="address" class="form-control transparent-input"
+					style=" background-color:rgba(0,0,0,0) !important;
+							border:none; box-shadow:none !important;
+							border-bottom: 1px #fff solid;color: #C3C0C0;" />
+					</div>
+			  </div>
+			  <div class="row">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-10">
+					  <label th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
+									class="validation-message"></label>
+					</div>
+			  </div>
+			  
+			  
+			  <div class="form-group">
+					<label class="col-sm-2 control-label">Sex</label>
+					<div class="col-sm-10">
+						<div class="btn-radio">
+						  <ul>
+								<li>
+									<input type="radio" id="f-option" name="selector">
+									<label for="f-option">Male</label>
+						
+									<div class="check"></div>
+								</li>
+						  
+								<li>
+									<input type="radio" id="s-option" name="selector">
+									<label for="s-option">Female</label>
+						
+									<div class="check"><div class="inside"></div></div>
+								</li>
+						
+							</ul>
 						</div>
+<<<<<<< .mine
+
+
+
+
+
+
+=======
 					</div> -->
 					
 					<div class="form-group">
 						<div class="col-sm-9">
 							<button type="submit" class="btn btn-primary btn-block">Register Nurse</button>
 						</div>
+>>>>>>> .theirs
 					</div>
-					
-					<span th:utext="${successMessage}"></span>
-					
-					
-				</form>
+			  </div>
+			  <div class="row">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-10">
+					  <label th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}"
+									class="validation-message"></label>
+					</div>
+			  </div>
+			  
+			  <div class="row btn-center">
+				  <button type="submit" class="btn btn-primary">Register User</button>
+			  </div>
+		</form>
+		
+		<form th:action="@{/}" method="get">
+			<div class="btn-center">
+				<button class="btn btn-md btn-warning " type="Submit">Login</button>
 				
 				<!-- <form>
 					 <div>
@@ -106,8 +179,11 @@
 				</form> -->
 				
 			</div>
-		</div>
+		</form>	
+		
+		<span th:utext="${successMessage}"></span>
 	</div>
-
+	
+	</div>
 </body>
 </html>
