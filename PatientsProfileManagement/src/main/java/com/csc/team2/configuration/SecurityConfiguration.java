@@ -44,57 +44,30 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http
-			.authorizeRequests()
-				.antMatchers("/").permitAll()
-				.antMatchers("/login").permitAll()
-				.antMatchers("/patient/**").permitAll()
-				.antMatchers("/api/**").permitAll()
-				.antMatchers("/registration").permitAll()
-				.antMatchers("/test").permitAll()			
-				.antMatchers("/admin/**").hasAuthority("admin")
-				.anyRequest()
-				.authenticated()
-				.and()
-			.formLogin()
-				.loginPage("/login")
-				.failureUrl("/login?error=true")
-				.usernameParameter("username")
-				.passwordParameter("password")
-				.defaultSuccessUrl("/admin/home")
-				.and()
-			.logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/")
-				.and()
-			.exceptionHandling()
-				.accessDeniedPage("/access-denied");
-		
-		
-		http
-		.authorizeRequests()		
-			.antMatchers("/doctor/**").hasAuthority("doctor")
-			.anyRequest()
-			.authenticated()
-			.and()
-		.formLogin()
-			.loginPage("/login")
-			.failureUrl("/login?error=true")
-			.usernameParameter("username")
-			.passwordParameter("password")
-			.defaultSuccessUrl("/doctor/home");
-			
-		http
-		.authorizeRequests()		
+		.authorizeRequests()
+			.antMatchers("/").permitAll()
+			.antMatchers("/login").permitAll()
+			.antMatchers("/patient/**").permitAll()
+			.antMatchers("/api/**").permitAll()
+			//.antMatchers("/registration").permitAll()
+			.antMatchers("/test").permitAll()			
+			.antMatchers("/admin/**").hasAuthority("admin")
 			.antMatchers("/nurse/**").hasAuthority("nurse")
-			.anyRequest()
-			.authenticated()
+			.antMatchers("/doctor/**").hasAuthority("doctor")
 			.and()
 		.formLogin()
 			.loginPage("/login")
 			.failureUrl("/login?error=true")
 			.usernameParameter("username")
 			.passwordParameter("password")
-			.defaultSuccessUrl("/nurse/home");
+			.defaultSuccessUrl("/")
+			.and()
+		.logout()
+			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+			.logoutSuccessUrl("/")
+			.and()
+		.exceptionHandling()
+			.accessDeniedPage("/access-denied");
 			
 			
 				/*.antMatchers("/admin/**").hasAuthority("admin").anyRequest()
