@@ -1,3 +1,7 @@
+body{
+	background: -webkit-radial-gradient(rgb(58, 149, 70), rgb(18, 203, 189));
+  	background: radial-gradient(rgb(58, 149, 70), rgb(18, 203, 189));
+}
 .loginform {    
 	background-color: #eee;
 	-webkit-box-shadow: 6px 0px 70px -11px rgba(0,0,0,0.75);
@@ -63,9 +67,9 @@ input[type="password"] {
 	/* background-image:
     linear-gradient(
       red, #f06d06
-    );  */
+    );  
     background: -webkit-radial-gradient(rgb(58, 149, 70), rgb(18, 203, 189));
-  	background: radial-gradient(rgb(58, 149, 70), rgb(18, 203, 189));
+  	background: radial-gradient(rgb(58, 149, 70), rgb(18, 203, 189));*/
     padding-left: 35%;
     padding-right: 33%;
     padding-top: 8%;

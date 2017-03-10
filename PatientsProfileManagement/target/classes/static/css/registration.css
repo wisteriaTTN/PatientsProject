@@ -1,9 +1,11 @@
 @CHARSET "ISO-8859-1";
-
-.wrapper-reg{
-	/* background-image: url('../images/background_login.jpg'); */
+body{
 	background: -webkit-linear-gradient(167deg, rgb(32, 220, 213), rgb(198, 127, 17));
   	background: linear-gradient(167deg, rgb(32, 220, 213), rgb(198, 127, 17));
+}
+.wrapper-reg{
+	/* background-image: url('../images/background_login.jpg'); */
+	
     padding-left: 30%;
     padding-right: 30%;
     padding-top: 8%;

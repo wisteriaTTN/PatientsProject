@@ -6,7 +6,7 @@ app.config(function($routeProvider){
 	        controller: 'AnotherController'
 	    })*/
 	    .when('/',{
-	        templateUrl: '/views/index.html',
+	        templateUrl: '/views/homepage.html',
 	        controller: 'HomeController'
 	    });
     	
