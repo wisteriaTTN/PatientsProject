@@ -41,7 +41,7 @@ public class MedicineController {
 	
 	//--------------------Select One Medicine-----------------------------------------
 	
-	@RequestMapping(value="/Medicien/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/Medicine/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getMedicine(@PathVariable("id") int id){
 		logger.info("Fetching Medicine with id {}", id);
 		Medicine medicine = medicineService.findById(id);
