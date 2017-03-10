@@ -36,6 +36,10 @@ hr{
 .form-mar{
 	margin-left: 6%;
     margin-right: 6%;
+   
+}
+.form-mar > .form-control{
+	border-radius: 0;
 }
 .form-mar > .form-group > label{
 	color: #fff;
@@ -112,3 +116,4 @@ input[type=radio]:checked ~ .check::before{
 input[type=radio]:checked ~ label{
   color: #C3C0C0;
 }
+
