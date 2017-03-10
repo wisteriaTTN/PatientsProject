@@ -9,6 +9,7 @@ app.config(function($routeProvider){
 	        templateUrl: '/views/homepage.html',
 	        controller: 'HomeController'
 	    });
+    	
         /*.otherwise(
             { redirectTo: '/'}
         );*/
