@@ -131,8 +131,10 @@ public class User {
 	@NotEmpty(message = "*Please provide your specialist")
 	private String specialist;
 	@Column(name = "address")
+	@NotEmpty(message = "*Please provide your address")
 	private String address;
 	@Column(name="sex")
+	@NotEmpty(message = "*Please provide your sex")
 	private String sex;
 	@Column(name = "active")
 	private int active;
