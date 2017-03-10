@@ -69,7 +69,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.exceptionHandling()
 			.accessDeniedPage("/access-denied");
 			
-			
 				/*.antMatchers("/admin/**").hasAuthority("admin").anyRequest()
 				.authenticated().and().csrf().disable().formLogin()
 				.loginPage("/login").failureUrl("/login?error=true")
