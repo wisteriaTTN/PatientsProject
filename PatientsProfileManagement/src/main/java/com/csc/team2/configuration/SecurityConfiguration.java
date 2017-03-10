@@ -47,14 +47,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.authorizeRequests()
 			.antMatchers("/").permitAll()
 			.antMatchers("/login").permitAll()
-			.antMatchers("/patient/**").permitAll()
+			.antMatchers("/patient/**").hasAnyAuthority("admin", "doctor")
 			.antMatchers("/api/**").permitAll()
 			//.antMatchers("/registration").permitAll()
 			.antMatchers("/test").permitAll()			
 			.antMatchers("/admin/**").hasAuthority("admin")
 			.antMatchers("/nurse/**").hasAuthority("nurse")
 			.antMatchers("/doctor/**").hasAuthority("doctor")
-			.and()
+			.and().csrf().disable()
 		.formLogin()
 			.loginPage("/login")
 			.failureUrl("/login?error=true")
@@ -67,7 +67,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.logoutSuccessUrl("/")
 			.and()
 		.exceptionHandling()
-			.accessDeniedPage("/access-denied");
+			.accessDeniedPage("/error");
 			
 				/*.antMatchers("/admin/**").hasAuthority("admin").anyRequest()
 				.authenticated().and().csrf().disable().formLogin()
