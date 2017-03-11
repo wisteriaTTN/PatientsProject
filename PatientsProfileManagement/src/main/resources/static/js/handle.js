@@ -1,7 +1,7 @@
 /**
  * 
  */
-( function() {
+
 	new WOW().init();
 	
 	var $item = $('.carousel .item'); 
@@ -22,4 +22,3 @@
 	});
 	
 	
-} );

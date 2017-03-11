@@ -60,7 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.failureUrl("/login?error=true")
 			.usernameParameter("username")
 			.passwordParameter("password")
-			.defaultSuccessUrl("/")
+			.defaultSuccessUrl("/adim/home")
 			.and()
 		.logout()
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
