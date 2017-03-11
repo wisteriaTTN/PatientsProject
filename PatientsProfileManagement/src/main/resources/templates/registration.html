@@ -2,6 +2,9 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Admin Registration Form</title>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -9,8 +12,10 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="wrapper-reg">
-	<div class="regis-form">
+	
+<div class=" container ">
+	<div class="row">
+		<div class="regis-form">
 		<div class="label-regis">
 			<label class="lable-regis" th:text="Registration"></label>
 			<hr style="margin-bottom: 0; margin-top: 0;">
@@ -25,8 +30,8 @@
 									class="form-control transparent-input"
 					style=" background-color:rgba(0,0,0,0) !important;
 							border:none; box-shadow:none !important;
-							border-bottom: 1px #fff solid";
-							color: #C3C0C0; />
+							border-bottom: 1px #fff solid;color: #C3C0C0;"
+							 />
 					</div>
 			  </div>
 			  <div class="row">
@@ -45,7 +50,7 @@
 									class="form-control transparent-input"
 					style=" background-color:rgba(0,0,0,0) !important;
 							border:none; box-shadow:none !important;
-							border-bottom: 1px #fff solid"; />
+							border-bottom: 1px #fff solid;color: #C3C0C0;" />
 					</div>
 			  </div>
 			  <div class="row">
@@ -144,7 +149,7 @@
 			  </div>
 			  
 			  <div class="row btn-center">
-				  <button type="submit" class="btn btn-primary">Register User</button>
+				  <button type="submit" class="btn btn-success">Register User</button>
 			  </div>
 		</form>
 		
@@ -158,5 +163,7 @@
 	</div>
 	
 	</div>
+</div>
+	
 </body>
 </html>
