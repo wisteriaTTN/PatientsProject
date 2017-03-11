@@ -94,7 +94,7 @@ public class PatientController {
         }
  
         currentPatient.setName(patient.getName());
-        currentPatient.setSex(patient.getSex());
+        currentPatient.setMale(patient.getMale());
         currentPatient.setAddress(patient.getAddress());
         currentPatient.setDob(patient.getDob());
  

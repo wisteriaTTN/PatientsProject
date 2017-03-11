@@ -27,8 +27,8 @@ public class Patient implements Serializable {
 	@Column(name="address")
 	private String address;
 	
-	@Column(name="sex")
-	private String sex;
+	@Column(name="male")
+	private String male;
 	
 	@Column(name="dob")
 	private Date dob;
@@ -57,12 +57,12 @@ public class Patient implements Serializable {
 		this.address = address;
 	}
 
-	public String getSex() {
-		return sex;
+	public String getMale() {
+		return male;
 	}
 
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setMale(String male) {
+		this.male = male;
 	}
 
 	public Date getDob() {
@@ -73,11 +73,11 @@ public class Patient implements Serializable {
 		this.dob = dob;
 	}
 
-	public Patient(Integer patienId, String name, String address, String sex, Date dob) {
+	public Patient(Integer patienId, String name, String address, String male, Date dob) {
 		this.patienId = patienId;
 		this.name = name;
 		this.address = address;
-		this.sex = sex;
+		this.male = male;
 		this.dob = dob;
 	}
 	
@@ -85,7 +85,7 @@ public class Patient implements Serializable {
 		this.patienId = patient.patienId;
 		this.name = patient.name;
 		this.address = patient.address;
-		this.sex = patient.sex;
+		this.male = patient.male;
 		this.dob = patient.dob;
 	}
 	public Patient()
@@ -93,7 +93,7 @@ public class Patient implements Serializable {
 		this.patienId = 0;
 		this.name = "";
 		this.address = "";
-		this.sex = "";
+		this.male = "";
 		this.dob = null;
 	}
 }
