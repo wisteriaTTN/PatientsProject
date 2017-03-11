@@ -22,11 +22,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Bootstrap</strong> Login Form</h1>
+                            <h1>Welcom to<strong> CSC Clinic!!!</strong></h1>
                             <div class="description">
                             	<p>
-	                            	This is a free responsive login form made with Bootstrap. 
-	                            	Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
+	                            	Patient Profile Management
                             	</p>
                             </div>
                         </div>
@@ -41,7 +40,7 @@
                         		
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" th:action="@{/login}" method="POST" class="login-form">
+			                    <form role="form" th:action="@{/login}" method="POST">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
 										<div class="input-group">
@@ -64,9 +63,13 @@
 			                    </form>
 								<br>
 								<form th:action="@{/registration}" method="get" class="form-btn-reg">
-									<button class="btn btn-lock" type="submit">Go To Registration Page</button>
+									<button class="btn btn-lock" style="background-color: transparent;
+    									color: #00b2f9;" type="submit">Go To Registration Page</button>
 								</form>
-		                    </div>
+								<div align="center" th:if="${param.error}">
+									<p style="font-size: 20; color: #FF1C19; padding-bottom: 20px;">Username or Password invalid, please verify</p>
+								</div>
+		                    </div> 
                         </div>
                     </div>
                     
