@@ -1,0 +1,32 @@
+<div style="margin-top:100px"></div>
+<div>
+
+
+asdadadasdadad
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Year</th>
+			<th>Price</th>
+			<th>Producer</th>
+			<th>Available</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="patient in patients">
+			<td>{{patient.name | uppercase}}</td>
+			<td>{{patient.address}}</td>
+			<td>{{patient.sex }}</td>
+			<td>{{patient.dob}}</td>
+			<td><button ng-click="increaseData(product.id)"
+				class="glyphicon glyphicon-plus btn btn-sm btn-success"></button>
+				<div>{{patient.id| number}}</div> 
+				<button ng-click="decreaseData(product.id)"
+				class="glyphicon glyphicon-minus btn btn-sm btn-warning"></button>
+			<td><button ng-click="" class="glyphicon glyphicon-trash btn btn-danger"></button></td>
+		</tr>
+	</tbody>
+</table>
+</div>
