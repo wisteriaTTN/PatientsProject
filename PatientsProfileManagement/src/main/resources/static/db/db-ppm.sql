@@ -132,9 +132,9 @@ COLLATE = utf8_unicode_ci;
 -- Table `db_ppm`.`type-of-medicine`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_ppm`.`type_of_medicine` (
-  `idType` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `typeName` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
-  PRIMARY KEY (`idType`))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8
@@ -145,17 +145,17 @@ COLLATE = utf8_unicode_ci;
 -- Table `db_ppm`.`medicine`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_ppm`.`medicine` (
-  `idMedicine` INT(11) NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `idType` INT(11) NOT NULL,
   `name` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
   `mfg` DATE NOT NULL,
   `producer` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
   `dosage` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
-  PRIMARY KEY (`idMedicine`),
+  PRIMARY KEY (`id`),
   INDEX `fk_type_idx` (`idType` ASC),
   CONSTRAINT `fk_type`
     FOREIGN KEY (`idType`)
-    REFERENCES `db_ppm`.`type_of_medicine` (`idType`)
+    REFERENCES `db_ppm`.`type_of_medicine` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
