@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `db_ppm`.`treatment_detail` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_detail_medicine`
     FOREIGN KEY (`idMedicine`)
-    REFERENCES `db_ppm`.`medicine` (`idMedicine`)
+    REFERENCES `db_ppm`.`medicine` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -266,31 +266,31 @@ INSERT INTO `history` (`id`,`idTreatment`,`dateTime`,`contentChange`) VALUES (1,
 LIMIT 0, 1000
 -- Date: 2017-03-07 16:33
 */
-INSERT INTO `type_of_medicine` (`idType`,`typeName`) VALUES (1,'thuoc khang sinh');
-INSERT INTO `type_of_medicine` (`idType`,`typeName`) VALUES (2,'thuoc gay te, gay me, phuc hoi');
-INSERT INTO `type_of_medicine` (`idType`,`typeName`) VALUES (3,'thuoc ha sot, giam dau, chong co giat');
-INSERT INTO `type_of_medicine` (`idType`,`typeName`) VALUES (4,'thuoc chong di ung');
-INSERT INTO `type_of_medicine` (`idType`,`typeName`) VALUES (5,'thuoc tai mui hong');
-INSERT INTO `type_of_medicine` (`idType`,`typeName`) VALUES (6,'thuoc dieu tri da day');
-INSERT INTO `type_of_medicine` (`idType`,`typeName`) VALUES (7,'thuoc dieu tri xuong khop');
-INSERT INTO `type_of_medicine` (`idType`,`typeName`) VALUES (8,'thuoc dieu tri tim mach');
-INSERT INTO `type_of_medicine` (`idType`,`typeName`) VALUES (9,'vitamin');
-INSERT INTO `type_of_medicine` (`idType`,`typeName`) VALUES (10,'thuoc than kinh');
+INSERT INTO `type_of_medicine` (`id`,`typeName`) VALUES (1,'thuoc khang sinh');
+INSERT INTO `type_of_medicine` (`id`,`typeName`) VALUES (2,'thuoc gay te, gay me, phuc hoi');
+INSERT INTO `type_of_medicine` (`id`,`typeName`) VALUES (3,'thuoc ha sot, giam dau, chong co giat');
+INSERT INTO `type_of_medicine` (`id`,`typeName`) VALUES (4,'thuoc chong di ung');
+INSERT INTO `type_of_medicine` (`id`,`typeName`) VALUES (5,'thuoc tai mui hong');
+INSERT INTO `type_of_medicine` (`id`,`typeName`) VALUES (6,'thuoc dieu tri da day');
+INSERT INTO `type_of_medicine` (`id`,`typeName`) VALUES (7,'thuoc dieu tri xuong khop');
+INSERT INTO `type_of_medicine` (`id`,`typeName`) VALUES (8,'thuoc dieu tri tim mach');
+INSERT INTO `type_of_medicine` (`id`,`typeName`) VALUES (9,'vitamin');
+INSERT INTO `type_of_medicine` (`id`,`typeName`) VALUES (10,'thuoc than kinh');
 
 /*
 -- Query: SELECT * FROM db_ppm.medicine
 LIMIT 0, 1000
 -- Date: 2017-03-07 16:33
 */
-INSERT INTO `medicine` (`idMedicine`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (1,4,'Abenin Tab','2016-12-31','	Kyung Dong Pharm Co., Ltd','Viên nén bao phim-10mg');
-INSERT INTO `medicine` (`idMedicine`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (2,3,'Tryox','2017-01-31','Suzhou Xinbao Pharmaceuticals Co., Ltd.','Bột đông khô để pha tiêm');
-INSERT INTO `medicine` (`idMedicine`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (3,8,'Accupril','2016-12-31','	Godecke GmbH','Viên nén bao phim');
-INSERT INTO `medicine` (`idMedicine`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (4,5,'Accutob','2016-10-12','Accure Labs Pvt., Ltd','Thuốc nhỏ mắt 0,3%');
-INSERT INTO `medicine` (`idMedicine`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (5,5,'Accutob-D','2016-10-12','Accure Labs Pvt., Ltd','Thuốc nhỏ mắt Tobramycin 15mg/5ml');
-INSERT INTO `medicine` (`idMedicine`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (6,10,'Aeyerop injection','2016-10-12','Huons Co., Ltd','Thuốc tiêm-1g/5ml');
-INSERT INTO `medicine` (`idMedicine`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (7,10,'Alepsal','2016-10-12','Laboratoires Genevrier','Viên nén');
-INSERT INTO `medicine` (`idMedicine`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (8,9,'4B with ginseng','2017-01-31','Robinson Pharma Inc USA ','Viên nang mềm');
-INSERT INTO `medicine` (`idMedicine`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (9,7,'Alenta 70mg','2016-10-23','	Getz Pharma Pakistan (Pvt) Ltd','	Viên nén');
+INSERT INTO `medicine` (`id`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (1,4,'Abenin Tab','2016-12-31','	Kyung Dong Pharm Co., Ltd','Viên nén bao phim-10mg');
+INSERT INTO `medicine` (`id`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (2,3,'Tryox','2017-01-31','Suzhou Xinbao Pharmaceuticals Co., Ltd.','Bột đông khô để pha tiêm');
+INSERT INTO `medicine` (`id`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (3,8,'Accupril','2016-12-31','	Godecke GmbH','Viên nén bao phim');
+INSERT INTO `medicine` (`id`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (4,5,'Accutob','2016-10-12','Accure Labs Pvt., Ltd','Thuốc nhỏ mắt 0,3%');
+INSERT INTO `medicine` (`id`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (5,5,'Accutob-D','2016-10-12','Accure Labs Pvt., Ltd','Thuốc nhỏ mắt Tobramycin 15mg/5ml');
+INSERT INTO `medicine` (`id`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (6,10,'Aeyerop injection','2016-10-12','Huons Co., Ltd','Thuốc tiêm-1g/5ml');
+INSERT INTO `medicine` (`id`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (7,10,'Alepsal','2016-10-12','Laboratoires Genevrier','Viên nén');
+INSERT INTO `medicine` (`id`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (8,9,'4B with ginseng','2017-01-31','Robinson Pharma Inc USA ','Viên nang mềm');
+INSERT INTO `medicine` (`id`,`idType`,`name`,`mfg`,`producer`,`dosage`) VALUES (9,7,'Alenta 70mg','2016-10-23','	Getz Pharma Pakistan (Pvt) Ltd','	Viên nén');
 
 /*
 -- Query: SELECT * FROM db_ppm.`treatment-detail`
