@@ -13,7 +13,6 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/animate.min.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/app.css}" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/content.css}" />
 	
 	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
@@ -45,6 +44,10 @@
 	      
 	      <ul class="nav navbar-nav navbar-right">
 	      
+	      	<li>
+	        	<a href="#/medicine">Medicine</a>
+	        </li>
+	        
 	        <li>
 	        	<a href="#/patient">Patient</a>
 	        </li>
@@ -74,7 +77,7 @@
 	</nav>
 	
 	
-	<div ng-view></div>
+	<div ng-view style="margin-top: 70px;"></div>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular.js}"></script>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-resource.js}"></script>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-route.js}"></script>
@@ -82,7 +85,8 @@
 		<script type="text/javascript" th:src="@{/js/app.js}"></script>
 		
 		<script type="text/javascript" th:src="@{/js/controller/Home.js}"></script>
-		<script type="text/javascript" th:src="@{/js/controller/Patient.js}"></script>
+		<script type="text/javascript" th:src="@{/js/controller/PatientController.js}"></script>
+		<script type="text/javascript" th:src="@{/js/controller/MedicineController.js}"></script>
 		
 	
 </body>
