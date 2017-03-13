@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Spring Security Tutorial</title>
+	<title>Patients Profile Management</title>
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}" />
@@ -13,7 +13,6 @@
 </head>
 <body>
 	
-	</div
 <!-- Top content -->
         <div class="top-content">
         	
@@ -21,7 +20,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>Welcom to<strong> CSC Clinic!!!</strong></h1>
+                            <h1>Welcome to<strong> CSC Clinic!!!</strong></h1>
                             <div class="description">
                             	<p>
 	                            	Patient Profile Management
@@ -38,7 +37,8 @@
                         		
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" autocomplete="off" action="#" th:action="@{/registration}" th:object="${user}" class="form-horizontal">
+			                    <form role="form" autocomplete="off" action="#" th:action="@{/registration}" th:object="${user}" 
+			                    method="post" class="form-horizontal">
 								
 			                    	<div class="form-group">
 			                    		<label class="col-sm-2 control-label">Email</label>
@@ -114,12 +114,12 @@
 										<div class="col-sm-10">
 											<div class="btn-radio">
 											  
-												<input type="radio" id="f-option" name="selector">
+												<input type="radio" id="f-option" name="sex" value="Male">
 												<label for="f-option">Male</label>
 									
 												<div class="check"></div>
 											
-												<input type="radio" id="s-option" name="selector">
+												<input type="radio" id="s-option" name="sex" value="Female">
 												<label for="s-option">Female</label>
 									
 												<div class="check"><div class="inside"></div></div>
@@ -135,15 +135,11 @@
 								  </div>
 								  
 								  
-			                        <button type="submit" class="btn">Register User!</button>
+			                        <button type="submit" class="btn">Register Admin!</button>
+			                        <span th:utext="${successMessage}"></span>
 			                    </form>
 								<br>
-								<form th:action="@{/}" method="get">
-									<div class="btn-center">
-										<button class="btn " style="background-color: transparent;
-    									color: #00b2f9;" type="Submit">Login</button>
-									</div>
-								</form>	
+								
 		                    </div>
                         </div>
                     </div>
