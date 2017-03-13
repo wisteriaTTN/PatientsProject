@@ -9,6 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Type;
+
+
+
 
 @Entity
 @Table(name="patient")
@@ -30,6 +37,7 @@ public class Patient implements Serializable {
 	@Column(name="male")
 	private String male;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name="dob")
 	private Date dob;
 	

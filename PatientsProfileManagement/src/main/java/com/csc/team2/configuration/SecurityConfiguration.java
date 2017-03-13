@@ -47,10 +47,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.authorizeRequests()
 			.antMatchers("/").permitAll()
 			.antMatchers("/login").permitAll()
-			.antMatchers("/patient/**").hasAnyAuthority("admin", "doctor")
-			.antMatchers("/api/**").permitAll()
-			//.antMatchers("/registration").permitAll()
 			.antMatchers("/test").permitAll()			
+			.antMatchers("/uploadfile").permitAll()
 			.antMatchers("/admin/**").hasAuthority("admin")
 			.antMatchers("/nurse/**").hasAuthority("nurse")
 			.antMatchers("/doctor/**").hasAuthority("doctor")
@@ -60,7 +58,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.failureUrl("/login?error=true")
 			.usernameParameter("username")
 			.passwordParameter("password")
-			.defaultSuccessUrl("/adim/home")
+			.defaultSuccessUrl("/admin/home")
 			.and()
 		.logout()
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
@@ -86,7 +84,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 	    web
 	       .ignoring()
-	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**,/patient/**,/medicine/**");
 	}
 
 }

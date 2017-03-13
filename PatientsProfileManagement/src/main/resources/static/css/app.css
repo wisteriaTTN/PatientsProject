@@ -1,6 +1,4 @@
-@CHARSET "ISO-8859-1";
-
-/* Navigation Bar */
+* Navigation Bar */
 
 .container-fluid {
     margin-left: 20px;
@@ -38,6 +36,7 @@ button.navbar-toggle {
 	    overflow: visible!important;
 	}
 }
+
 
 .navbar-fixed-top .navbar-collapse {
     /* max-height: 415px; */
@@ -150,7 +149,6 @@ ul li {
       margin: auto;
       height: 825px;
   }
-
 .full-screen {
   background-size: cover;
   background-position: center;
@@ -183,6 +181,7 @@ ul li {
 .animated{
 	animation-duration: 2s;
 }
+
 .dropdown-menu>li>a {
     color:#fff;
 } 

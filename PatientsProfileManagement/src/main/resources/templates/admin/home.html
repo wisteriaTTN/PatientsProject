@@ -37,7 +37,7 @@
 	      <a class="navbar-brand logo" href="index.html">
  					<span><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
  					HealthCare
- 				</a>
+			</a>
 	    </div>
 	
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,6 +45,10 @@
 	      
 	      <ul class="nav navbar-nav navbar-right">
 	      
+	      	<li>
+	        	<a href="#/medicine">Medicine</a>
+	        </li>
+	        
 	        <li>
 	        	<a href="#/patient">Patient</a>
 	        </li>
@@ -74,7 +78,7 @@
 	</nav>
 	
 	
-	<div ng-view></div>
+	<div ng-view style="margin-top: 70px;"></div>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular.js}"></script>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-resource.js}"></script>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-route.js}"></script>
@@ -82,7 +86,8 @@
 		<script type="text/javascript" th:src="@{/js/app.js}"></script>
 		
 		<script type="text/javascript" th:src="@{/js/controller/Home.js}"></script>
-		<script type="text/javascript" th:src="@{/js/controller/Patient.js}"></script>
+		<script type="text/javascript" th:src="@{/js/controller/PatientController.js}"></script>
+		<script type="text/javascript" th:src="@{/js/controller/MedicineController.js}"></script>
 		
 	
 </body>

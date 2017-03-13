@@ -4,19 +4,21 @@
 	<thead>
 		<tr>
 			<th>Name</th>
-			<th>address</th>
-			<th>sex</th>
-			<th>dob</th>
-			<th>id</th>
-			<th>Action</th>
+			<th>Name</th>
+			<th>type</th>
+			<th>mfg</th>
+			<th>producer</th>
+			<th>dosage</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="patient in patients">
-			<td><a ng-href="#/patient/{{patient.id}}"></a>{{patient.name | uppercase}}</td>
-			<td>{{patient.address}}</td>
-			<td>{{patient.sex }}</td>
-			<td>{{patient.dob}}</td>
+		<tr ng-repeat="medicine in medicines">
+			<td><a ng-href="#/patient/{{patient.id}}"></a>{{medicine.name | uppercase}}</td>
+			<td>{{medicine.typename}}</td>
+			<td>{{medicine.typeId }}</td>
+			<td>{{medicine.mfg }}</td>
+			<td>{{medicine.producer}}</td>
+			<td>{{medicine.dosage}}</td>
 			<td><button ng-click="increaseData(product.id)"
 				class="glyphicon glyphicon-plus btn btn-sm btn-success"></button>
 				<div>{{patient.id}}</div> 
