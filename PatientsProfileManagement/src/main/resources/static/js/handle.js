@@ -1,7 +1,7 @@
 /**
  * 
  */
-jQuery(document).ready(function() {
+
 	new WOW().init();
 	
 	var $item = $('.carousel .item'); 
@@ -21,8 +21,4 @@ jQuery(document).ready(function() {
 	  pause: "false"
 	});
 	
-	$('.nav li').click(function(){ 
-	      $(this).addClass('active').siblings().removeClass('active');
-	   }); 
 	
-});

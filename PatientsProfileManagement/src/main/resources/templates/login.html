@@ -6,9 +6,9 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Spring Security Tutorial</title>
+	<title>Patient Profile Management</title>
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
   	
@@ -22,7 +22,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>Welcom to<strong> CSC Clinic!!!</strong></h1>
+                            <h1>Welcome to<strong> CSC Clinic!!!</strong></h1>
                             <div class="description">
                             	<p>
 	                            	Patient Profile Management
@@ -37,6 +37,7 @@
                         			<h3>Login to our site</h3>
                             		<p>Enter your username and password to log on:</p>
                         		</div>
+                        		
                             </div>
                             <div class="form-bottom">
 			                    <form role="form" th:action="@{/login}" method="POST">
@@ -54,16 +55,18 @@
 										<div class="input-group">
 											<input type="password" name="password" placeholder="Password..." class="password form-control" id="password">
 											<span class="input-group-addon">
-													<i class="glyphicon glyphicon-lock"></i>
+													<i class="glyphicon glyphicon-user"></i>
 											</span>
 										</div>
 			                        </div>
 			                        <button type="submit" class="btn" name="Submit" value="Login">Sign in!</button>
+			                        <span th:utext="${successMessage}"></span>
 			                    </form>
 								<br>
 								<form th:action="@{/registration}" method="get" class="form-btn-reg">
 									<button class="btn btn-lock" style="background-color: transparent;
     									color: #00b2f9;" type="submit">Go To Registration Page</button>
+    									
 								</form>
 								<div align="center" th:if="${param.error}">
 									<p style="font-size: 20; color: #FF1C19; padding-bottom: 20px;">Username or Password invalid, please verify</p>
@@ -79,8 +82,8 @@
 
 
 
-	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
-  	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script type="text/javascript" th:src="@{/js/jquery.backstretch.min.js}"></script>
   	<script type="text/javascript" th:src="@{/js/scripts.js}"></script>
 </body>

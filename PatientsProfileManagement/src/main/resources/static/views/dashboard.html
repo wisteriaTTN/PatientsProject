@@ -1,10 +1,97 @@
+<style>
+.side-nav li a {
+	color: #F2F5F7 !important;
+	text-decoration: none;
+}
+
+#wrapper{
+	background-color:white;
+}
+
+.side-nav {
+	background: #2A3F54;
+}
+
+.side-nav li a:hover, .side-nav li a:focus {
+	outline: none;
+	background-color: #73879C !important;
+}
+
+.icon-down {
+	float: right
+}
+</style>
+
+<div id="wrapper">
+	<!-- Navigation -->
+	<nav role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+
+
+		<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav side-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Inbox</a></li>
+                            <li><a href="#">Drafts</a></li>
+                            <li><a href="#">Sent Items</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Trash</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav side-nav">
+                    <li class="dropdown">
+                        <a data-target="#bs-example-navbar-collapse-2" href="#" data-toggle="collapse" class="dropdown-toggle">Admin <b class="caret"></b></a>
+                       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                        </div>
+                    </li>
+                </ul>
+			<ul style="top: 70px" class="nav navbar-nav side-nav">
+				<li>
+					<a href="#"><i
+						class="glyphicon glyphicon-user fa fa-fw fa-bar-chart-o"></i>
+						Patient<span class="icon-down glyphicon glyphicon-chevron-down"></span>
+				</a>
+				</li>
+				<li><a href="#"><i
+						class="glyphicon glyphicon-tag fa fa-fw fa-table"></i> Medicine<span
+						class="icon-down glyphicon glyphicon-chevron-down"></span></a></li>
+				<li><a href="#"><i
+						class="glyphicon glyphicon-edit fa fa-fw fa-edit"></i> Account<span
+						class="icon-down glyphicon glyphicon-chevron-down"></span></a></li>
+				<li class="dropdown">
+                        <a data-target="#bs-example-navbar-collapse-2" href="#" data-toggle="collapse" class="dropdown-toggle">Admin <b class="caret"></b></a>
+                       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                        <ul class="nav child_menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                        </div>
+                    </li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</nav>
 
 	<div id="page-wrapper">
 
 		<div class="container-fluid">
+
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
-				
 					<div class="x_panel">
 						<div class="x_title">
 							<h2>Add Patient</h2>
