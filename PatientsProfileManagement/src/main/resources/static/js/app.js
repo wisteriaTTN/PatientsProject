@@ -8,7 +8,15 @@ app.config(function($routeProvider){
 	    .when('/',{
 	        templateUrl: '/views/homepage.html',
 	        controller: 'HomeController'
-	    });
+	    })
+	    .when('/patient',{
+	        templateUrl: '/views/dashboard.html',
+	        controller: 'patientController'
+	    })
+	    .when("/medicine", {
+            templateUrl: "/views/medicine.html",
+            controller: "medicineController"
+          });
     	
         /*.otherwise(
             { redirectTo: '/'}
