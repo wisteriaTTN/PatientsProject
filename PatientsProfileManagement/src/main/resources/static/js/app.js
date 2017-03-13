@@ -10,7 +10,7 @@ app.config(function($routeProvider){
 	        controller: 'HomeController'
 	    })
 	    .when('/patient',{
-	        templateUrl: '/views/dashboard.html',
+	        templateUrl: '/views/patient.html',
 	        controller: 'patientController'
 	    })
 	    .when("/medicine", {
