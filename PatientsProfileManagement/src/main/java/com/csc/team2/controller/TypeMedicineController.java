@@ -40,7 +40,7 @@ public class TypeMedicineController {
 		logger.info("Fetching Medicine with id {}", id);
 		TypeMedicine typeMedicine = typeMedicineService.findById(id);
 		if(typeMedicine==null){
-			 logger.error("Patient with id {} not found.", id);
+			 logger.error("typeMedicine with id {} not found.", id);
 			 return new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<TypeMedicine>(typeMedicine, HttpStatus.OK);

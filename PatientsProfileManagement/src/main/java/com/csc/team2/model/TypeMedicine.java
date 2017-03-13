@@ -18,7 +18,7 @@ public class TypeMedicine  {
 	@Column(name="id")
 	private Integer typeId;
 	
-	@Column(name="typename")
+	@Column(name="typeName")
 	private String typeName;
 
 	public Integer getTypeId() {
