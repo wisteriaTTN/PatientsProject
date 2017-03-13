@@ -64,7 +64,7 @@ app.controller('patientController', function(
 	};
 	var getOneSuccess = function(data) {
 		$scope.curentPatient = data;
-//		$scope.date = $filter('date')(new Date($scope.curentPatient.dob), 'dd-MM-yyyy')
+		$scope.date = $filter('date')(new Date($scope.curentPatient.dob), 'yyyy-MM-dd')
 	};
 	var getOneError = function(error) {
 	};

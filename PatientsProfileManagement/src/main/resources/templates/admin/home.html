@@ -16,7 +16,7 @@
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 	<script type="text/javascript" th:src="@{/js/wow.min.js}"></script>
 	<script type="text/javascript" th:src="@{/js/handle.js}"></script>
-	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<!-- 	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script> -->
 
 </head>
 
@@ -37,11 +37,15 @@
 	        	<img src="/images/icon.png">
 	        	<span>HealthCare</span>
 	        </a>
-	        <a href="#/medicine">test angular</a>
-	        <a href="#/patient">patient</a>
 	      </div>
 	      <div id="navbar3" class="navbar-collapse collapse">
 	        <ul class="nav navbar-nav navbar-right">
+	        	<li>
+	        	<a href="#/medicine">Medicine</a>
+	        	</li>
+	        	<li>
+	        	<a href="#/patient">Patient</a>
+	        	</li>
 	        	<li class="dropdown active">
 		          	<a th:utext="${userName}" class="dropdown-toggle" data-toggle="dropdown">
 		          	 	<span class="caret"></span>

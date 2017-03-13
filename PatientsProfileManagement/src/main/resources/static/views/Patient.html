@@ -1,101 +1,80 @@
-<style>
-.side-nav li a {
-	color: #F2F5F7 !important;
-	text-decoration: none;
-}
 
-#wrapper {
-	background-color: white;
-}
-
-.side-nav {
-	background: #2A3F54;
-}
-
-.side-nav li a:hover, .side-nav li a:focus {
-	outline: none;
-	background-color: #73879C !important;
-}
-
-.icon-down {
-	float: right
-}
-</style>
-
-<div id="wrapper">
+<div style="margin-top:80px" id="wrapper">
 	<!-- Navigation -->
 
 	<div id="page-wrapper">
-	
-	<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
+		<!-- Modal popup form -->
+		<form>
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel">Update Patient</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12"
+									for="first-name">Name <span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<input ng-model="curentPatient.name" type="text"
+										id="first-name" required="required"
+										class="form-control col-md-7 col-xs-12">
+								</div>
+							</div>
+							<br>
+							<div class="form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12"
+									for="last-name">Address<span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<input ng-model="curentPatient.address" type="text"
+										id="address" name="address" required="required"
+										class="form-control col-md-7 col-xs-12">
+								</div>
+							</div>
+							<br>
+							<div class="form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<div id="gender" class="btn-group" data-toggle="buttons">
+										<label> <input type="radio"
+											ng-model="curentPatient.sex" value="male"> Male
+										</label> <label> <input type="radio"
+											ng-model="curentPatient.sex" value="female"> Female
+										</label>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Date
+									Of Birth <span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<input ng-model="curentPatient.dob"
+										type="date" class="datepicker" data-date-format="mm/dd/yyyy">
 
-<!-- Modal -->
-<form>
-<div  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-									<label class="control-label col-md-3 col-sm-3 col-xs-12"
-										for="first-name">Name <span class="required">*</span>
-									</label>
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<input ng-model="curentPatient.name" type="text" id="first-name"
-											required="required" class="form-control col-md-7 col-xs-12">
-									</div>
 								</div>
-								<br>
-								<div class="form-group">
-									<label class="control-label col-md-3 col-sm-3 col-xs-12"
-										for="last-name">Address<span class="required">*</span>
-									</label>
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<input ng-model="curentPatient.address" type="text" id="address"
-											name="address" required="required"
-											class="form-control col-md-7 col-xs-12">
-									</div>
-								</div>
-								<br>
-								<div class="form-group">
-									<label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<div id="gender" class="btn-group" data-toggle="buttons">
-											<label> <input type="radio" ng-model="curentPatient.sex"
-												value="male"> Male
-											</label> <label> <input type="radio" ng-model="curentPatient.sex"
-												value="female"> Female
-											</label>
-										</div>
-									</div>
-								</div>
-								<br>
-								<div class="form-group">
-									<label class="control-label col-md-3 col-sm-3 col-xs-12">Date
-										Of Birth <span class="required">*</span>
-									</label>
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<input ng-model="curentPatient.dob" type="date" class="datepicker"
-											data-date-format="mm/dd/yyyy">
-
-									</div>
-								</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" ng-click="updatePatient(curentPatient.patienId,curentPatient )" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-</form>
-<!-- sefsewerwerwerwerwerwerwerwerwerwerwerw -->
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+							<button type="button"
+								ng-click="updatePatient(curentPatient.patienId,curentPatient )"
+								class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!-- end popup form -->
 
 		<div class="container-fluid">
 
@@ -103,10 +82,10 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="x_panel">
 						<div class="x_title">
-							<h2>Add Patient</h2>
+							<h1 style="width:250px" class="btn btn-primary">NEW PATIENT</h1>
 
 						</div>
-						<div class="x_content">
+						<div style="border: 1px dotted #2f3a54;border-radius: 5px;" class="rounded">
 							<br />
 							<form id="demo-form2" ng-submit="submitForm()"
 								data-parsley-validate class="form-horizontal form-label-left">
@@ -148,7 +127,7 @@
 										Of Birth <span class="required">*</span>
 									</label>
 									<div class="col-md-6 col-sm-6 col-xs-12">
-										<input ng-model="date" type="date" class="datepicker"
+										<input ng-model="patient.dob" type="date" class="datepicker"
 											data-date-format="mm/dd/yyyy">
 
 									</div>
@@ -176,7 +155,7 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
 					<div class="x_title">
-						<h2>List Patient</h2>
+						<h1 style="width:250px" class="btn btn-primary">LIST PATIENT</h1>
 						<ul class="nav navbar-right panel_toolbox">
 							<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -216,14 +195,17 @@
 										<td>{{patient.sex }}</td>
 										<td>{{patient.dob}}</td>
 										<td class=" last">
-											<button ng-click="getOne(patient.patienId)" data-toggle="tooltip"
-												title="View Detail!" data-toggle="modal"
+											<button title="View Detail!" data-toggle="modal"
 												data-target="#myModal"
-												class="glyphicon glyphicon-list btn btn-primary"></button>											<div id="myModal" class="modal fade" role="dialog"> -->
-											</td>
+												class="glyphicon glyphicon-list btn btn-primary"></button>
+											<div id="myModal" class="modal fade" role="dialog">-->
+
+											
+										</td>
 										<td>
-											<button ng-click="updatePatient(patient.patienId)"
-												data-toggle="tooltip" title="Update Patient!"
+											<button ng-click="getOne(patient.patienId)"
+												data-toggle="modal" data-target="#myModal"
+												title="Update Patient!"
 												class="	glyphicon glyphicon-floppy-save btn btn-info">
 											</button>
 											<button ng-click="deletePatient(patient.patienId)"
@@ -247,5 +229,4 @@
 
 		</div>
 	</div>
-</div>
 </div>
