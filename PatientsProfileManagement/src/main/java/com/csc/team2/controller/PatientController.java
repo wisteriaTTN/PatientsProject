@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.csc.team2.controller;
 
 import java.util.List;
@@ -260,4 +259,4 @@ public class PatientController {
         return new ResponseEntity<Patient>(HttpStatus.NO_CONTENT);
     }
 }
->>>>>>> ed160963079841c171eadef619c00d6e503f3c33
+

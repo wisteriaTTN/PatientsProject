@@ -1,4 +1,5 @@
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\TreatmentController.java
+D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\IAllergicRepository.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\PatientController.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\TreatmentRepository.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\util\CustomErrorType.java
@@ -15,8 +16,14 @@ D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\te
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\TreatmentDtRepository.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\MedicineServiceImpl.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Medicine.java
+D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\UploadingController.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\DemoApplication.java
+D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\TypeMedicineController.java
+D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\IHistoryRepository.java
+D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\AllergicServiceImpl.java
+D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IAllergicService.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TypeMedicineServiceImpl.java
+D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Allergic.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\UserServiceImpl.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TreatmentService.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\TypeMedicine.java
@@ -25,11 +32,15 @@ D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\te
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\configuration\WebMvcConfig.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IMedicineService.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\ITypeMedicneRepository.java
+D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\UserController.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Patient.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TreatmentDtServiceIplm.java
+D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\History.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\PatientServiceImpl.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TreatmentServiceIplm.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\LoginController.java
+D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IHistoryService.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Treatment.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IPatientService.java
+D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\HistoryServiceImpl.java
 D:\Repository\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\UserRepository.java

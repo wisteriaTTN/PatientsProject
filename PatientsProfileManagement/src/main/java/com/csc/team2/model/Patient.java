@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.csc.team2.model;
 
 import java.io.Serializable;
@@ -214,4 +214,3 @@ public class Patient implements Serializable {
 		this.dob = null;
 	}
 }
->>>>>>> ed160963079841c171eadef619c00d6e503f3c33
