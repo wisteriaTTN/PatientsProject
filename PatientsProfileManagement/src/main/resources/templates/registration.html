@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Patients Profile Management</title>
+	<title>Spring Security Tutorial</title>
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}" />
@@ -13,6 +13,7 @@
 </head>
 <body>
 	
+	</div
 <!-- Top content -->
         <div class="top-content">
         	
@@ -20,7 +21,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>Welcome to<strong> CSC Clinic!!!</strong></h1>
+                            <h1>Welcom to<strong> CSC Clinic!!!</strong></h1>
                             <div class="description">
                             	<p>
 	                            	Patient Profile Management
@@ -37,11 +38,10 @@
                         		
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" autocomplete="off" action="#" th:action="@{/registration}"class="form-horizontal"
-									th:object="${user}" method="post">
+			                    <form role="form" autocomplete="off" action="#" th:action="@{/registration}" th:object="${user}" class="form-horizontal">
 								
 			                    	<div class="form-group">
-			                    		<label class="col-sm-2 control-label">Full Name</label>
+			                    		<label class="col-sm-2 control-label">Email</label>
 										<div class="col-sm-10">
 										  <input type="text" th:field="*{name}" placeholder="Name" class="form-control" />
 										</div>
@@ -114,12 +114,12 @@
 										<div class="col-sm-10">
 											<div class="btn-radio">
 											  
-												<input type="radio" id="f-option" name="sex" value="Male" checked>
+												<input type="radio" id="f-option" name="selector">
 												<label for="f-option">Male</label>
 									
 												<div class="check"></div>
 											
-												<input type="radio" id="s-option" name="sex" value="Female">
+												<input type="radio" id="s-option" name="selector">
 												<label for="s-option">Female</label>
 									
 												<div class="check"><div class="inside"></div></div>
@@ -127,12 +127,23 @@
 											</div>
 										</div>
 								  </div>
+								  <div class="row">
+										<div class="col-sm-2"></div>
+										<div class="col-sm-10">
+										  <label th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}" class="validation-message"></label>
+										</div>
+								  </div>
 								  
 								  
 			                        <button type="submit" class="btn">Register User!</button>
-			                    	<span th:utext="${successMessage}"></span>
 			                    </form>
-								
+								<br>
+								<form th:action="@{/}" method="get">
+									<div class="btn-center">
+										<button class="btn " style="background-color: transparent;
+    									color: #00b2f9;" type="Submit">Login</button>
+									</div>
+								</form>	
 		                    </div>
                         </div>
                     </div>

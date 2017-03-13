@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 body{
-	background: -webkit-linear-gradient(167deg, rgb(32, 220, 213), rgb(198, 127, 17));
-  	background: linear-gradient(167deg, rgb(32, 220, 213), rgb(198, 127, 17));
+	background-image: url('../images/handsomeDoctor.jpg');
+	background-repeat: no repeat;
 }
 .wrapper-reg{
 	/* background-image: url('../images/background_login.jpg'); */
@@ -36,6 +36,10 @@ hr{
 .form-mar{
 	margin-left: 6%;
     margin-right: 6%;
+   
+}
+.form-mar > .form-control{
+	border-radius: 0;
 }
 .form-mar > .form-group > label{
 	color: #fff;
@@ -112,3 +116,4 @@ input[type=radio]:checked ~ .check::before{
 input[type=radio]:checked ~ label{
   color: #C3C0C0;
 }
+

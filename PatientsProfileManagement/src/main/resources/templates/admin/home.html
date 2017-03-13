@@ -12,6 +12,7 @@
 	
 	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+	<script type="text/javascript" th:src="@{/js/wow.min.js}"></script>
 	<script type="text/javascript" th:src="@{/js/handle.js}"></script>
 
 </head>
@@ -38,8 +39,9 @@
 	        <ul class="nav navbar-nav navbar-right">
 	        	<li class="dropdown active">
 		          	<a th:utext="${userName}" class="dropdown-toggle" data-toggle="dropdown">
-		          	 	<span class="glyphicon glyphicon-user pull-right"></span>
+		          	 	<span class="caret"></span>
 		          	</a>
+		          	
 		          <ul class="dropdown-menu">
 		            <li>
 		            
