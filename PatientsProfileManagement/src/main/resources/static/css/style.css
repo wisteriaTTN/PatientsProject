@@ -53,6 +53,8 @@ img { max-width: 100%; }
 }
 .btn-link-1:hover, .btn-link-1:focus, .btn-link-1:active { outline: 0; opacity: 0.6; color: #fff; }
 
+
+
 .btn-link-1 i {
 	padding-right: 5px;
 	vertical-align: middle;
