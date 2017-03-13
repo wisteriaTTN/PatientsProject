@@ -18,32 +18,32 @@ import com.csc.team2.service.TypeMedicineServiceImpl;
 @Controller
 public class TypeMedicineController {
 	
-//	@Autowired
-//	TypeMedicineServiceImpl typeMedicineService;
-//	
-//	public static final Logger logger = LoggerFactory.getLogger(TypeMedicineController.class);
-//	
-//	//--------------------Select All TypeMedicine-----------------------------------------
-//	
-//	@RequestMapping(value="/typemedicine", method = RequestMethod.GET)
-//	public ResponseEntity<List<TypeMedicine>> listMedicine(){
-//		List<TypeMedicine> typeMedicines = typeMedicineService.findAllTypeMedicines();
-//		if(typeMedicines.isEmpty()){
-//			return new ResponseEntity(HttpStatus.NO_CONTENT);
-//		}
-//		return new ResponseEntity<List<TypeMedicine>>(typeMedicines, HttpStatus.OK);
-//	}
-//	
-//	//--------------------Select One TypeMedicine-----------------------------------------
-//	@RequestMapping(value="/typemedicine/{id}", method = RequestMethod.GET)
-//	public ResponseEntity<?> getMedicine(@PathVariable("id") int id){
-//		logger.info("Fetching Medicine with id {}", id);
-//		TypeMedicine typeMedicine = typeMedicineService.findById(id);
-//		if(typeMedicine==null){
-//			 logger.error("Patient with id {} not found.", id);
-//			 return new ResponseEntity(HttpStatus.NOT_FOUND);
-//		}
-//		return new ResponseEntity<TypeMedicine>(typeMedicine, HttpStatus.OK);
-//	}
+	@Autowired
+	TypeMedicineServiceImpl typeMedicineService;
+	
+	public static final Logger logger = LoggerFactory.getLogger(TypeMedicineController.class);
+	
+	//--------------------Select All TypeMedicine-----------------------------------------
+	
+	@RequestMapping(value="/typemedicine", method = RequestMethod.GET)
+	public ResponseEntity<List<TypeMedicine>> listMedicine(){
+		List<TypeMedicine> typeMedicines = typeMedicineService.findAllTypeMedicines();
+		if(typeMedicines.isEmpty()){
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<TypeMedicine>>(typeMedicines, HttpStatus.OK);
+	}
+	
+	//--------------------Select One TypeMedicine-----------------------------------------
+	@RequestMapping(value="/typemedicine/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> getMedicine(@PathVariable("id") int id){
+		logger.info("Fetching Medicine with id {}", id);
+		TypeMedicine typeMedicine = typeMedicineService.findById(id);
+		if(typeMedicine==null){
+			 logger.error("Patient with id {} not found.", id);
+			 return new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<TypeMedicine>(typeMedicine, HttpStatus.OK);
+	}
 
 }
