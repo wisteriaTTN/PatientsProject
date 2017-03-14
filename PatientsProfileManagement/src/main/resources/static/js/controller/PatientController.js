@@ -40,7 +40,7 @@ app.controller('patientController', function(
 		patientService.updatePatient(id,patient).then(updateSuccess,updateError);
 	};
 	var updateSuccess = function(data) {
-		alert('update patient Success:' + data);
+		alert('update patient Success:' + data.name);
 		$scope.getPatient();
 	};
 	var updateError = function(error) {
