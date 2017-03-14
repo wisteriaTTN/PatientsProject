@@ -16,7 +16,11 @@ app.config(function($routeProvider){
 	    .when("/medicine", {
             templateUrl: "/views/medicine.html",
             controller: "medicineController"
-          });
+          })
+    	.when('/user',{
+    		templateUrl: '/views/user.html',
+    		controller: "userController"
+    	});
     	
         /*.otherwise(
             { redirectTo: '/'}
