@@ -37,11 +37,20 @@
 	        	<img src="/images/icon.png">
 	        	<span>HealthCare</span>
 	        </a>
-	        <a href="#/medicine">test angular</a>
-	        <a href="#/patient">medicine</a>
+
 	      </div>
 	      <div id="navbar3" class="navbar-collapse collapse">
 	        <ul class="nav navbar-nav navbar-right">
+	        <li>
+	        	<a  href="#/treatment">Treatment</a>
+	        </li>
+	        <li>
+	        	 <a href="#/medicine">test angular</a>
+	        </li>
+	        <li>
+	       		 <a href="#/patient">medicine</a>
+	        
+	        </li>
 	        	<li class="dropdown active">
 		          	<a th:utext="${userName}" class="dropdown-toggle" data-toggle="dropdown">
 		          	 	<span class="caret"></span>
@@ -81,6 +90,8 @@
 		<script type="text/javascript" th:src="@{/js/controller/Home.js}"></script>
 		<script type="text/javascript" th:src="@{/js/controller/PatientController.js}"></script>
 		<script type="text/javascript " th:src=@{/js/controller/MedicineController.js}></script>
+		<script type="text/javascript " th:src=@{/js/controller/Treatment.js}></script>
+		
 		
 	
 </body>
