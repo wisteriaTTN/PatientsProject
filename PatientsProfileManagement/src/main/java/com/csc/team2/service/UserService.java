@@ -25,5 +25,6 @@ public interface UserService {
 	public void deleteAllNurse();
 	
 	List<User> findAllUsers();
+	//List<User> findAllAdmin();
 	//List<User> findAllAdmin(User user);
 }

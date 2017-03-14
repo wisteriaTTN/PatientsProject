@@ -55,7 +55,7 @@
 								Of Birth <span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input ng-model="date" type="date" class="datepicker"
+								<input ng-model="patient.dob" type="date" class="datepicker"
 									data-date-format="mm/dd/yyyy">
 							</div>
 						</div>
@@ -109,14 +109,10 @@
 								<td>{{patient.sex }}</td>
 								<td>{{patient.dob}}</td>
 								<td>
-									<button type="button" ng-click="getOne(patient.patienId)" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+									<button type="button" ng-click="getOne(patient.patientId)" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 									  <span><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
 									</button>
-									<button ng-click="updatePatient(patient.patienId)"
-										data-toggle="tooltip" title="Update Patient!"
-										class="	glyphicon glyphicon-floppy-save btn btn-info">
-									</button>
-									<button ng-click="deletePatient(patient.patienId)"
+									<button ng-click="deletePatient(patient.patientId)"
 										data-toggle="tooltip" title="Delete Patient!"
 										class="glyphicon glyphicon-trash btn btn-danger"></button>
 
@@ -126,7 +122,6 @@
 						</tbody>
 					</table>
 				</div>
-
 
 			</div>
 		</div>
@@ -200,7 +195,7 @@
       
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" ng-click="updatePatient(curentPatient.patientId,curentPatient)">Save changes</button>
       </div>
     </div>
   </div>
