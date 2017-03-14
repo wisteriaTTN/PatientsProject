@@ -29,7 +29,7 @@ app.controller('patientController', function(
 	}
 	
 	var createSuccess = function(data) {
-		alert('add new patient Success:' + data);
+		alert('add new patient Success:' + data.name);
 		$scope.getPatient();
 	};
 	var createError = function(error) {
@@ -40,7 +40,7 @@ app.controller('patientController', function(
 		patientService.updatePatient(id,patient).then(updateSuccess,updateError);
 	};
 	var updateSuccess = function(data) {
-		alert('update patient Success:' + data);
+		alert('update patient Success:' + data.name);
 		$scope.getPatient();
 	};
 	var updateError = function(error) {
@@ -52,7 +52,7 @@ app.controller('patientController', function(
 		
 	};
 	var deleteSuccess = function(data) {
-		alert('delete patient Success:' + data);
+		alert('delete patient Success:' + data.name);
 		$scope.getPatient();
 	};
 	var deleteError = function(error) {
@@ -64,7 +64,7 @@ app.controller('patientController', function(
 	};
 	var getOneSuccess = function(data) {
 		$scope.curentPatient = data;
-//		$scope.date = $filter('date')(new Date($scope.curentPatient.dob), 'dd-MM-yyyy')
+		$scope.date = $filter('date')(new Date($scope.curentPatient.dob), 'yyyy-MM-dd')
 	};
 	var getOneError = function(error) {
 	};

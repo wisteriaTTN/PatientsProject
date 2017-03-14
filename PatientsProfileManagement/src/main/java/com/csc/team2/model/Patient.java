@@ -26,7 +26,7 @@ public class Patient implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private Integer patienId;
+	private Integer patientId;
 	
 	@Column(name="name")
 	private String name;
@@ -42,11 +42,11 @@ public class Patient implements Serializable {
 	private Date dob;
 	
 	public Integer getPatienId() {
-		return patienId;
+		return patientId;
 	}
 
 	public void setPatienId(Integer patienId) {
-		this.patienId = patienId;
+		this.patientId = patienId;
 	}
 
 	public String getName() {
@@ -82,7 +82,7 @@ public class Patient implements Serializable {
 	}
 
 	public Patient(Integer patienId, String name, String address, String sex, Date dob) {
-		this.patienId = patienId;
+		this.patientId = patienId;
 		this.name = name;
 		this.address = address;
 		this.sex = sex;
@@ -90,7 +90,7 @@ public class Patient implements Serializable {
 	}
 	
 	public Patient(Patient patient){
-		this.patienId = patient.patienId;
+		this.patientId = patient.patientId;
 		this.name = patient.name;
 		this.address = patient.address;
 		this.sex = patient.sex;
@@ -98,7 +98,7 @@ public class Patient implements Serializable {
 	}
 	public Patient()
 	{
-		this.patienId = 0;
+		this.patientId = 0;
 		this.name = "";
 		this.address = "";
 		this.sex = "";
