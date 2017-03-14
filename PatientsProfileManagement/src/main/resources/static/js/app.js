@@ -10,19 +10,17 @@ app.config(function($routeProvider){
 	        controller: 'HomeController'
 	    })
 	    .when('/patient',{
-	        templateUrl: '/views/dashboard.html',
+	        templateUrl: '/views/patient.html',
 	        controller: 'patientController'
 	    })
 	    .when("/medicine", {
             templateUrl: "/views/medicine.html",
             controller: "medicineController"
           })
-    	
-    .when("/treatment", {
-        templateUrl: "/views/treatment.html",
-        controller: "treatmentController"
-      });
-    	
+    	.when('/user',{
+    		templateUrl: '/views/user.html',
+    		controller: "userController"
+    	});
     	
         /*.otherwise(
             { redirectTo: '/'}

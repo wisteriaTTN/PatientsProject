@@ -57,7 +57,10 @@ public class PatientServiceImpl implements IPatientService {
 
 	@Override
 	public boolean isPatientExist(Patient patient) {
-		// TODO Auto-generated method stub
+		Patient patientser = findById(patient.getPatienId());
+        if (patientser !=null){
+        	return true;
+        }
 		return false;
 	}
 
