@@ -21,7 +21,6 @@ import com.csc.team2.util.CustomErrorType;
 
  
 @RestController
-@RequestMapping("/api")
 public class TreatmentController {
  
     public static final Logger logger = LoggerFactory.getLogger(TreatmentController.class);
@@ -31,14 +30,14 @@ public class TreatmentController {
  
     // -------------------Retrieve All Treatment---------------------------------------------
  
-    @RequestMapping(value = "/treatment/", method = RequestMethod.GET)
+    @RequestMapping(value = "/treatment", method = RequestMethod.GET)
     public ResponseEntity<List<Treatment>> listAllTreatment() {
-        List<Treatment> treatments = treatmentService.findAllTreatment();
-        if (treatments.isEmpty()) {
+        List<Treatment> treatment = treatmentService.findAllTreatment();
+        if (treatment.isEmpty()) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
             // You many decide to return HttpStatus.NOT_FOUND
         }
-        return new ResponseEntity<List<Treatment>>(treatments, HttpStatus.OK);
+        return new ResponseEntity<List<Treatment>>(treatment, HttpStatus.OK);
     }
  
     // -------------------Retrieve Single Treatment------------------------------------------
@@ -57,7 +56,7 @@ public class TreatmentController {
  
     // -------------------Create a Treatment-------------------------------------------
  
-    @RequestMapping(value = "/treatment/", method = RequestMethod.POST)
+    @RequestMapping(value = "/treatment", method = RequestMethod.POST)
     public ResponseEntity<?> createTreatment(@RequestBody Treatment treatment, UriComponentsBuilder ucBuilder) {
         logger.info("Creating Treatment : {}", treatment);
  
@@ -91,7 +90,6 @@ public class TreatmentController {
         currentTreatment.setIdPatient(treatment.getIdPatient());
         currentTreatment.setIdDoctor(treatment.getIdDoctor());
         currentTreatment.setDate(treatment.getDate());
-        currentTreatment.setIdAllergic(treatment.getIdAllergic());
         currentTreatment.setFile(treatment.getFile());
         currentTreatment.setPrescription(treatment.getPrescription());
  
@@ -117,7 +115,7 @@ public class TreatmentController {
  
     // ------------------- Delete All Treatment-----------------------------
  
-    @RequestMapping(value = "/treatment/", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/treatment", method = RequestMethod.DELETE)
     public ResponseEntity<Treatment> deleteAllTreatment() {
         logger.info("Deleting All Treatment");
  
