@@ -1,46 +1,46 @@
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\AllergicServiceImpl.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Medicine.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\UserService.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\util\CustomErrorType.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\IHistoryRepository.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\PatientServiceImpl.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\History.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IMedicineService.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\UserRepository.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\User.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\ITypeMedicneRepository.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\IPatientRepository.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\TreatmentDtRepository.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\UploadingController.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IPatientService.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IHistoryService.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\IMedicineRepository.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\UserController.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\configuration\WebMvcConfig.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Role.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TreatmentDtServiceIplm.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TreatmentService.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Patient.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\configuration\SecurityConfiguration.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\TypeMedicine.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\ITypeMedicineService.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\TypeMedicineController.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Allergic.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\TreatmentDtController.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Treatment.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\DemoApplication.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\LoginController.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\TreatmentRepository.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TreatmentServiceIplm.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\HistoryServiceImpl.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\MedicineServiceImpl.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TypeMedicineServiceImpl.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\MedicineController.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\TreatmentDt.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TreatmentDtService.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\UserServiceImpl.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\TreatmentController.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\IAllergicRepository.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\RoleRepository.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IAllergicService.java
-C:\Users\Tran Thien Nhu\Desktop\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\PatientController.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IPatientService.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\TreatmentDtRepository.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\ITypeMedicneRepository.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\TypeMedicineController.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IMedicineService.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TreatmentService.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Patient.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\UploadingController.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\TypeMedicine.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\configuration\WebMvcConfig.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\UserController.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\MedicineServiceImpl.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\IMedicineRepository.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\util\CustomErrorType.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TreatmentServiceIplm.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\PatientServiceImpl.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\LoginController.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Medicine.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\HistoryServiceImpl.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\MedicineController.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IHistoryService.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Treatment.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\IAllergicRepository.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\RoleRepository.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TreatmentDtService.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\TreatmentController.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\UserRepository.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\configuration\SecurityConfiguration.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\IHistoryRepository.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Allergic.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\AllergicServiceImpl.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TreatmentDtServiceIplm.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\PatientController.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\History.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\Role.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\TypeMedicineServiceImpl.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\controller\TreatmentDtController.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\TreatmentDt.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\model\User.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\UserServiceImpl.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\UserService.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\DemoApplication.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\IPatientRepository.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\repository\TreatmentRepository.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\ITypeMedicineService.java
+D:\Spring\PatientsProject\PatientsProfileManagement\src\main\java\com\csc\team2\service\IAllergicService.java
