@@ -1,59 +1,59 @@
 var app = angular.module('myApp');
 
 app.factory('medicineService', function($http){
-  var getMedicie = function() {
+  var getMedicine = function() {
 	    return $http.get("http://localhost:8080/medicine")
 	      .then(function(response) {
 	        return response.data;
 	      });
   };
-  var getOneMedicie = function(id){
+  var getOneMedicine = function(id){
 	  return $http.get("http://localhost:8080/medicine/" + id)
 	  .then(function(response){
 			return response.data;
 		});
   }
   
-  var createMedicie = function(medicine){
+  var createMedicine = function(medicine){
 	  return $http.post("http://localhost:8080/medicine",medicine)
 	  .then(function(response){
 			return response.data;
 		});
   }
-  var updateMedicie = function(id,medicine){
+  var updateMedicine = function(id,medicine){
 	  return $http.put("http://localhost:8080/medicine/"+id,medicine)
 	  .then(function(response){
 			return response.data;
 		});
   }
   
-  var deleteMedicie = function(id){
+  var deleteMedicine = function(id){
 	  return $http.delete("http://localhost:8080/medicine/"+id)
 	  .then(function(response){
 			return response.data;
 		});
   }
   
-  var deleteAllMedicie = function(){
+  var deleteAllMedicine = function(){
 	  return $http.delete("http://localhost:8080/medicine")
 	  .then(function(response){
 			return response.data;
 		});
   }
   
-  var getTypeMedicie = function() {
+  var getTypeMedicine = function() {
 	    return $http.get("http://localhost:8080/typemedicine")
 	      .then(function(response) {
 	        return response.data;
 	      });
 };
   return {
-	  getMedicie:getMedicie,
-	  getOneMedicie:getOneMedicie,
-	  createMedicie:createMedicie,
-	  updateMedicie:updateMedicie,
-	  deleteMedicie:deleteMedicie,
-	  deleteAllMedicie:deleteAllMedicie,
-	  getTypeMedicie:getTypeMedicie,
+	  getMedicine:getMedicine,
+	  getOneMedicine:getOneMedicine,
+	  createMedicine:createMedicine,
+	  updateMedicine:updateMedicine,
+	  deleteMedicine:deleteMedicine,
+	  deleteAllMedicine:deleteAllMedicine,
+	  getTypeMedicine:getTypeMedicine,
   }
 });
