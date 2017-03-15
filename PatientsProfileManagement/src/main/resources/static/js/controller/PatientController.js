@@ -14,11 +14,21 @@ app.controller('patientController', function(
 	
 	/////------------get All Patient
 	$scope.getPatient = function(data){
-		patientService.getPatient().then(getSuccess,getError);
+		patientService.getPatient().then(getSuccess,getSuccess);
 	}
 	var getSuccess = function(data) {
 		$scope.patients = data;
 	};
+	
+	convert = function(dob){
+		var date = dob.substring(8,10);
+		var month = dob.substring(5,7);
+		var year = dob.substring(0,4);
+		var day = date + "-" + month + "-" + year;
+		return day;
+		
+	};
+	
 	var getError = function(error) {
 		$scope.error = "Could not find any data"
 	};
@@ -26,7 +36,17 @@ app.controller('patientController', function(
 	/////-----------create Patient ------------
 	$scope.createPatient = function(){
 		patientService.createPatient($scope.patient).then(createSuccess,createError);
+		reset;
 	}
+	
+	reset = function(){
+		$scope.patient = {
+				name : "",
+				address : "",
+				sex : "male",
+				dob : "",
+			};
+	};
 	
 	var createSuccess = function(data) {
 		alert('add new patient Success:' + data.name);
@@ -46,7 +66,7 @@ app.controller('patientController', function(
 	var updateError = function(error) {
 	};
 	
-	/////-----------delete patient-------------
+	/////-----------dalete patient-------------
 	$scope.deletePatient= function(id){
 		patientService.deletePatient(id).then(deleteSuccess,deleteError);
 		
@@ -64,10 +84,11 @@ app.controller('patientController', function(
 	};
 	var getOneSuccess = function(data) {
 		$scope.curentPatient = data;
-		$scope.date = $filter('date')(new Date($scope.curentPatient.dob), 'yyyy-MM-dd')
+		 $scope.curentPatient.dob = new Date(data.dob);
 	};
 	var getOneError = function(error) {
 	};
+	
 	
 	////----------
 });
