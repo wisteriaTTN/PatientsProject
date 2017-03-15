@@ -41,12 +41,12 @@ public class Patient implements Serializable {
 	@Column(name="dob")
 	private Date dob;
 	
-	public Integer getPatienId() {
+	public Integer getPatientId() {
 		return patientId;
 	}
 
-	public void setPatienId(Integer patienId) {
-		this.patientId = patienId;
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
 	}
 
 	public String getName() {
@@ -81,8 +81,8 @@ public class Patient implements Serializable {
 		this.dob = dob;
 	}
 
-	public Patient(Integer patienId, String name, String address, String sex, Date dob) {
-		this.patientId = patienId;
+	public Patient(Integer patientId, String name, String address, String sex, Date dob) {
+		this.patientId = patientId;
 		this.name = name;
 		this.address = address;
 		this.sex = sex;

@@ -93,6 +93,7 @@ public class UserServiceImpl implements UserService{
 		
 	}
 	
+	
 	/*@Override
 	public List<User> findAllAdmin(User user){
 		Role userRole = roleRepository.findByRoles("doctor");

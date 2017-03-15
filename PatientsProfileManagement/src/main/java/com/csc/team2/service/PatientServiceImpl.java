@@ -57,7 +57,7 @@ public class PatientServiceImpl implements IPatientService {
 
 	@Override
 	public boolean isPatientExist(Patient patient) {
-		Patient patientser = findById(patient.getPatienId());
+		Patient patientser = findById(patient.getPatientId());
         if (patientser !=null){
         	return true;
         }

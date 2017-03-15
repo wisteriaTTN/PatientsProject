@@ -14,7 +14,7 @@ app.controller('patientController', function(
 	
 	/////------------get All Patient
 	$scope.getPatient = function(data){
-		patientService.getPatient().then(getSuccess,getSuccess);
+		patientService.getPatient().then(getSuccess,getError);
 	}
 	var getSuccess = function(data) {
 		$scope.patients = data;
@@ -46,7 +46,7 @@ app.controller('patientController', function(
 	var updateError = function(error) {
 	};
 	
-	/////-----------dalete patient-------------
+	/////-----------delete patient-------------
 	$scope.deletePatient= function(id){
 		patientService.deletePatient(id).then(deleteSuccess,deleteError);
 		
