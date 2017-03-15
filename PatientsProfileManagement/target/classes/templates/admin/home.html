@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/animate.min.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/app.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/content.css}" />
 	
 	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
@@ -69,10 +70,13 @@
 	            <li>
 	            	<a>
 	            		<form th:action="@{/logout}" method="get" >
-							<button class="astext" name="registration" type="Submit">Logout 
+								<button class="astext"
+								name="registration"
+								type="Submit">Logout 
 								<span class="glyphicon glyphicon-log-out pull-right"></span>
-							</button>
-						</form>
+								</button>
+								
+							</form>
 	            	</a>
 	            </li>
 	            <li><a href="#">Another action</a></li>
@@ -93,7 +97,6 @@
 		
 		<script type="text/javascript" th:src="@{/js/service/PatientService.js}"></script>
 	
-		<script type="text/javascript" th:src="@{/js/service/TreatmentService.js}"></script>
 		
 		<script type="text/javascript" th:src="@{/js/controller/Home.js}"></script>
 		<script type="text/javascript" th:src="@{/js/controller/PatientController.js}"></script>
@@ -101,7 +104,7 @@
 		<script type="text/javascript" th:src=@{/js/controller/UserController.js}></script>
 		<script type="text/javascript" th:src=@{/js/controller/Treatment.js}></script>
 		
-		<script type="text/javascript " th:src=@{/js/controller/TreatmentDeatilController.js}></script>	
+		<script type="text/javascript " th:src=@{/js/controller/TreatmentDetailController.js}></script>	
 		
 	
 </body>
