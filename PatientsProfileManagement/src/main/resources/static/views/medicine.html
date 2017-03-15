@@ -101,7 +101,7 @@
 									value="{{typemedicine.typeId}}" data-live-search="true">{{typemedicine.typeName}}</option>
 				
 									</select>
-								<span>selected: {{curentMedicine.typeId}}</span>
+								<!-- <span>selected: {{curentMedicine.typeId}}</span> -->
 								</div>
 							</div>
 							<br>
@@ -312,23 +312,40 @@
 			<!--               table -->
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
+				
 					<div class="x_title">
 						<h1 style="width: 250px" class="btn btn-primary">LIST
 							MEDICINE</h1>
 						<div class="clearfix"></div>
+	
 					</div>
-
+				<form class="form-wrapper cf">
+					    <button type="submit">
+					    	<i class="fa fa-search" aria-hidden="true"></i>
+					    </button>
+					  	<input type="text" ng-model="search" placeholder="Search here..." class="form-control" required> 
+				</form>
 					<div class="x_content">
 
 						<div class="table-responsive">
 							<table class="table table-striped jambo_table bulk_action">
 								<thead>
 									<tr class="headings">
-										<th class="column-title">Name</th>
-										<th class="column-title">Type</th>
-										<th class="column-title">mfg</th>
-										<th class="column-title">producer</th>
-										<th class="column-title">dosage</th>
+										<th class="column-title" ng-click="sort('name')">Name
+										<span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+										</th>
+										<th class="column-title" ng-click="sort('typename')">Type
+										<span class="glyphicon sort-icon" ng-show="sortKey=='typeName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+										</th>
+										<th class="column-title" ng-click="sort('mfg')">Manufacture
+										<span class="glyphicon sort-icon" ng-show="sortKey=='mfg'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+										</th>
+										<th class="column-title" ng-click="sort('producer')">producer
+										<span class="glyphicon sort-icon" ng-show="sortKey=='producer'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+										</th>
+										<th class="column-title" ng-click="sort('dosage')">Dosage
+										<span class="glyphicon sort-icon" ng-show="sortKey=='dosage'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+										</th>
 										<th class="column-title no-link last"><span class="nobr">Action</span>
 										</th>
 
@@ -336,7 +353,7 @@
 								</thead>
 
 								<tbody>
-									<tr ng-repeat="medicine in medicines">
+									<tr dir-paginate="medicine in medicines|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
 										<td><a ng-href="#/medicine/{{medicine.medicineId}}"></a>{{medicine.name
 											| uppercase}}</td>
 										<td>{{medicine.typename}}</td>
@@ -357,6 +374,11 @@
 
 								</tbody>
 							</table>
+							<dir-pagination-controls
+						       max-size="5"
+						       direction-links="true"
+						       boundary-links="true" >
+						    </dir-pagination-controls>
 						</div>
 
 

@@ -15,6 +15,14 @@ app.controller('medicineController', function(
 			typeName :"",
 	};
 	
+	$scope.typemedicines = [];
+	
+	$scope.sort = function(keyname){
+		$scope.sortKey = keyname;
+		$scope.reverse = !$scope.reverse;
+	}
+	
+	
 	$http.get("http://localhost:8080/typemedicine").then(function(response) {
 		$scope.typemedicines = response.data;
     });
@@ -53,12 +61,12 @@ app.controller('medicineController', function(
 	var getOneMedicineSuccess = function(data) {
 
 		$scope.curentMedicine = data;
-
+		$scope.curentMedicine.mfg = new Date(data.mfg);
 			$http.get("http://localhost:8080/typemedicine/" + $scope.curentMedicine.typeId)
   			.then(function(response){
   				$scope.curentMedicine.typename = response.data.typeName;
 			});
-		$scope.mfg = $filter('date')(new Date($scope.curentMedicine.dob), 'yyyy-MM-dd')
+		
 	};
 	var getOneMedicineError = function(error) {
 	};

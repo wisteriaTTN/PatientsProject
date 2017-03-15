@@ -1,7 +1,7 @@
 var app = angular.module('myApp');
 
 app.controller('userController', function(
-        $scope, $interval, $location,$http,userService,$filter) {
+        $scope, $interval, $location,$http,$filter) {
 	$scope.user = {
 			id : "",
 			active: "",

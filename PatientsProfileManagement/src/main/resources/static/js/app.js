@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute','ngResource']);
+var app = angular.module('myApp', ['ngRoute','ngResource','angularUtils.directives.dirPagination']);
 app.config(function($routeProvider){
     $routeProvider
 	    /*.when('/another',{
