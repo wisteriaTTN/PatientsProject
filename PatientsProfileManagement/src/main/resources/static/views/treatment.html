@@ -146,15 +146,15 @@
 									for="first-name">Patient's name <span class="required">*</span>
 								</label>
 								<div class="col-md-3 col-sm-3 col-xs-12">
-									<input type="text" ng-model="id" required="required"
+									<input type="text" ng-model="patient.patienId" required="required"
 										class="form-control col-md-7 col-xs-12">
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-12">
-									<input type="text" ng-model="name" required="required" value="name"
+									<input type="text" ng-model="patient.name" required="required" value = {{patient.name}}
 										class="form-control col-md-7 col-xs-12">
 								</div>
 								<div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3">
-									<button  class="btn btn-primary" ng-click="findValue(id)" type="button">Search
+									<button  class="btn btn-primary" ng-click="getOnePatient(patient.patienId)" type="button">Search
 										Patient's ID</button>
 								</div>
 
@@ -165,8 +165,8 @@
 									class="control-label col-md-3 col-sm-3 col-xs-12">Doctor's
 									name</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
-									<input id="doctor-name" class="form-control col-md-7 col-xs-12"
-										type="text" name="doctor-name">
+									<input id="doctor-name" ng-model="user.username" class="form-control col-md-7 col-xs-12"
+										type="text" value= {{user.username}}>
 								</div>
 							</div>
 							<div class="form-group">
@@ -239,8 +239,8 @@
 				</div>
 			</div>
 		</div>
-	<div ng-view></div>
-	<script type="text/javascript " th:src=@{/js/controller/TreatmentDeatilController.js}></script>	
+
+	
 		
 		
 		
