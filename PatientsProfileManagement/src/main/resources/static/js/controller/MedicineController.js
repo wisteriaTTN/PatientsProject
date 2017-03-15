@@ -18,7 +18,6 @@ app.controller('medicineController', function(
 	$http.get("http://localhost:8080/typemedicine").then(function(response) {
 		$scope.typemedicines = response.data;
     });
-	
 	$http.get("http://localhost:8080/medicine").then(function(response) {
 		$scope.medicines = response.data;
 		angular.forEach($scope.medicines, function(value, key){
@@ -31,70 +30,80 @@ app.controller('medicineController', function(
 
 /////------------get All Medicine
 	$scope.getMedicine = function(data){
-		medicineService.getMedicine().then(getSuccess,getError);
-	}
-	var getSuccess = function(data) {
-		$scope.medicines = data;
+		medicineService.getMedicine().then(getMedicineSuccess,getMedicineError);
 	};
-	var getError = function(error) {
+	var getMedicineSuccess = function(data) {
+		$scope.medicines = data;   
+		angular.forEach($scope.medicines, function(value, key){
+			$http.get("http://localhost:8080/typemedicine/" + value.typeId)
+  			.then(function(response){
+				value.typename = response.data.typeName;
+			});
+	         });
+	};
+	var getMedicineError = function(error) {
 		$scope.error = "Could not find any data"
 	};
 	
 /////----------get one medicine-------------
 	$scope.getOne = function(id){
 		//$scope.medicine.typeId = 
-		medicineService.getOneMedicine(id).then(getOneSuccess,getOneError)
+		medicineService.getOneMedicine(id).then(getOneMedicineSuccess,getOneMedicineError)
 	};
-	var getOneSuccess = function(data) {
-		$http.get("http://localhost:8080/typemedicine/" + data.typeId)
-			.then(function(response){
-			data.typename = response.data.typeName;
-		});
+	var getOneMedicineSuccess = function(data) {
+
 		$scope.curentMedicine = data;
+
+			$http.get("http://localhost:8080/typemedicine/" + $scope.curentMedicine.typeId)
+  			.then(function(response){
+  				$scope.curentMedicine.typename = response.data.typeName;
+			});
 		$scope.mfg = $filter('date')(new Date($scope.curentMedicine.dob), 'yyyy-MM-dd')
 	};
-	var getOneError = function(error) {
+	var getOneMedicineError = function(error) {
 	};
 	
 /////-----------create Medicine ------------
 	$scope.createMedicine = function(){
 		$scope.medicine.typeId = $scope.medicine.type.typeId;
-		medicineService.createMedicine($scope.medicine).then(createSuccess,createError);
-	}
-	var createSuccess = function(data) {
+		medicineService.createMedicine($scope.medicine).then(createMedicineSuccess,createMedicineError);
+	};
+	var createMedicineSuccess = function(data) {
 		alert('add new medicine Success:' + data.name);
+		
 		$scope.getMedicine();
 	};
-	var createError = function(error) {
+	var createMedicineError = function(error) {
 	};
 	
 /////-----------update Medicine-------------
 	$scope.updateMedicine = function(id,medicine){
-		medicineService.updateMedicine(id,medicine).then(updateSuccess,updateError);
+		$scope.curentMedicine.typeId = $scope.medicine.typeId;
+		medicineService.updateMedicine(id,medicine).then(updateMedicineSuccess,updateMedicineError);
 	};
-	var updateSuccess = function(data) {
+	var updateMedicineSuccess = function(data) {
 		alert('update medicine Success:' + data.name);
 		$scope.getMedicine();
 	};
-	var updateError = function(error) {
+	var updateMedicineError = function(error) {
 	};
 	
 	/////-----------delete medicine-------------
 	$scope.deleteMedicine= function(id){
-		medicineService.deleteMedicine(id).then(deleteSuccess,deleteError);
+		medicineService.deleteMedicine(id).then(deleteMedicineSuccess,deleteMedicineError);
 		
 	};
-	var deleteSuccess = function(data) {
+	var deleteMedicineSuccess = function(data) {
 		alert('delete medicine Success:' + data.name);
 		$scope.getMedicine();
 	};
-	var deleteError = function(error) {
+	var deleteMedicineError = function(error) {
 	};
 	
 /////------------get All Type Medicine
 	$scope.getTypeMedicine = function(data){
 		typeMedicineService.getTypeMedicine().then(getSuccess,getError);
-	}
+	};
 	var getSuccess = function(data) {
 		$scope.typemedicines = data;
 	};
@@ -114,7 +123,7 @@ app.controller('medicineController', function(
 /////-----------create Type Medicine ------------
 	$scope.createTypeMedicine = function(){
 		typeMedicineService.createTypeMedicine($scope.typemedicine).then(createSuccess,createError);
-	}
+	};
 	var createSuccess = function(data) {
 		alert('add new type medicine Success:' + data);
 		$scope.getTypeMedicine();

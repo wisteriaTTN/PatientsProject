@@ -89,10 +89,19 @@
 								<label class="control-label col-md-3 col-sm-3 col-xs-12"
 									for="type-name">Type Name<span class="required">*</span>
 								</label>
-								<div class="col-md-6 col-sm-6 col-xs-12">
+								<!-- <div class="col-md-6 col-sm-6 col-xs-12">
 									<input ng-model="curentTypeMedicine.typeName" type="text"
 										id="type-name" name="Type Name" required="required"
 										class="form-control col-md-7 col-xs-12">
+								</div> -->
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<select class="selectpicker form-control col-md-7 col-xs-12" 
+									ng-model="medicine.typeId">
+									<option ng-repeat="typemedicine in typemedicines" 
+									value="{{typemedicine.typeId}}" data-live-search="true">{{typemedicine.typeName}}</option>
+				
+									</select>
+								<span>selected: {{curentMedicine.typeId}}</span>
 								</div>
 							</div>
 							<br>
@@ -131,7 +140,7 @@
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">Close</button>
 							<button type="button"
-								ng-click="updatePatient(curentPatient.patienId,curentPatient )"
+								ng-click="updateMedicine(curentMedicine.medicineId,curentMedicine )"
 								class="btn btn-primary">Save changes</button>
 						</div>
 					</div>
