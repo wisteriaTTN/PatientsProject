@@ -13,7 +13,7 @@
 					    <button type="submit">
 					    	<i class="fa fa-search" aria-hidden="true"></i>
 					    </button>
-					  	<input type="text" placeholder="Search here..." required> 
+					  	<input type="text" ng-model="search" placeholder="Search here..." class="form-control" required> 
 					</form>
 				</div>
 				<div class="col-md-4">
@@ -27,10 +27,19 @@
 				<table class="table table-striped jambo_table bulk_action">
 					<thead>
 						<tr class="headings">
-							<th class="column-title">Name</th>
-							<th class="column-title">Address</th>
-							<th class="column-title">Gender</th>
-							<th class="column-title">DOB</th>
+						
+							<th class="column-title" ng-click="sort('name')">Name
+							 <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</th>
+							<th class="column-title" ng-click="sort('address')">Address
+							<span class="glyphicon sort-icon" ng-show="sortKey=='address'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</th>
+							<th class="column-title" ng-click="sort('sex')">Gender
+							<span class="glyphicon sort-icon" ng-show="sortKey=='sex'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</th>
+							<th class="column-title" ng-click="sort('dob')">DOB
+							<span class="glyphicon sort-icon" ng-show="sortKey=='dob'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</th>
 							<th class="column-title no-link last"><span class="nobr">Action</span>
 							</th>
 
@@ -38,7 +47,7 @@
 					</thead>
 
 					<tbody>
-						<tr ng-repeat="patient in patients">
+						<tr dir-paginate="patient in patients|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
 						<td>
 							<a href="#/patient/{{patient.patientId}}"> {{patient.name | uppercase}} </a>
 						</td>
@@ -50,7 +59,7 @@
 							  <span><i class="fa fa-wrench" aria-hidden="true"></i></span>
 							</button>
 								
-								<button ng-click="deletePatient(patient.patienId)"
+								<button ng-click="deletePatient(patient.patientId)"
 									data-toggle="tooltip" title="Delete Patient!"
 									class="glyphicon glyphicon-trash btn btn-danger"></button>
 
@@ -59,6 +68,13 @@
 
 					</tbody>
 				</table>
+				
+				<dir-pagination-controls
+			       max-size="5"
+			       direction-links="true"
+			       boundary-links="true" >
+			    </dir-pagination-controls>
+    
 			</div>
 
 
@@ -126,7 +142,7 @@
 		  
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			<button type="button" ng-click="updatePatient(curentPatient.patienId,curentPatient )" class="btn btn-primary">Save changes</button>
+			<button type="button" ng-click="updatePatient(curentPatient.patientId,curentPatient )" class="btn btn-primary">Save changes</button>
 		  </div>
 		</div>
 	  </div>

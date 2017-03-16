@@ -87,8 +87,8 @@ public class TreatmentController {
         }
  
         currentTreatment.setId(treatment.getId());
-        currentTreatment.setIdPatient(treatment.getIdPatient());
-        currentTreatment.setIdDoctor(treatment.getIdDoctor());
+        currentTreatment.setPatientId(treatment.getPatientId());
+        currentTreatment.setDoctorId(treatment.getDoctorId());
         currentTreatment.setDate(treatment.getDate());
         currentTreatment.setFile(treatment.getFile());
         currentTreatment.setPrescription(treatment.getPrescription());
