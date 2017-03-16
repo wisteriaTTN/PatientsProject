@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/animate.min.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/app.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/content.css}" />
 	
 	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
@@ -52,23 +53,50 @@
 	        	<a href="#/patient">Patient</a>
 	        </li>
 	        
+	          <li>
+	        	<a href="#/treatment">Treatment</a>
+	        </li>
+	        
+	        
+	        <li class="dropdown">	   	
+	        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">	
+	       			<span>Registration</span>
+	       			<b class="caret"></b>	   
+	       	</a>    		
+	          <ul class="dropdown-menu">
+	            <li>
+	            	<a th:href="@{/admin/DoctorRegistration}">Register Doctor</a>
+	            </li>
+	             <li>
+	        		<a th:href="@{/admin/NurseRegistration}">Register Nurse</a>
+	        	</li>
+	        	<li>
+	        		<a href="#/user">User Admin</a>
+	       		</li>
+	       		<li>
+	        		<a href="#/">User Doctor</a>
+	       		</li>
+	       		<li>
+	        		<a href="#/">User Nurse</a>
+	       		</li>
+	          </ul>
+	        </li>
+	        
 	        <li class="dropdown">
-	          	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" 
-	          		aria-expanded="false">
+	          	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 	          		<span th:text="${userName}" th:remove="tag"></span>
 	       			<b class="caret"></b>
 	       		</a>
 	          <ul class="dropdown-menu">
 	            <li>
-	            	<a>
+	            	<span style="padding-top: 15px; padding-bottom: 15px; padding-left: 10px; padding-right: 10px; width: 140px; height: 50px;">
 	            		<form th:action="@{/logout}" method="get" >
-							<button class="astext" name="registration" type="Submit">Logout 
+							<button class="astext" name="logout" type="submit"><b><font size="4">Logout</font></b> 
 								<span class="glyphicon glyphicon-log-out pull-right"></span>
 							</button>
 						</form>
-	            	</a>
+	            	</span>
 	            </li>
-	            <li><a href="#">Another action</a></li>
 	          </ul>
 	        </li>
 	      </ul>
@@ -83,10 +111,21 @@
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-route.js}"></script>
 		
 		<script type="text/javascript" th:src="@{/js/app.js}"></script>
+		<script type="text/javascript" th:src="@{/js/dirPagination.js}"></script>
+		
+		<script type="text/javascript" th:src="@{/js/service/PatientService.js}"></script>
+		<script type="text/javascript" th:src="@{/js/service/UserService.js}"></script>
+		<script type="text/javascript" th:src="@{/js/service/MedicineService.js}"></script>
+		<script type="text/javascript" th:src="@{/js/service/TypeMedicineService.js}"></script>
+	
 		
 		<script type="text/javascript" th:src="@{/js/controller/Home.js}"></script>
 		<script type="text/javascript" th:src="@{/js/controller/PatientController.js}"></script>
-		<script type="text/javascript" th:src="@{/js/controller/MedicineController.js}"></script>
+		<script type="text/javascript" th:src=@{/js/controller/MedicineController.js}></script>
+		<script type="text/javascript" th:src=@{/js/controller/UserController.js}></script>
+		<script type="text/javascript" th:src=@{/js/controller/TreatmentController.js}></script>
+		
+		<script type="text/javascript " th:src=@{/js/controller/TreatmentDetailController.js}></script>	
 		
 	
 </body>

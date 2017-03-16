@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Patients Profile Management</title>
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 </head>
@@ -41,9 +41,9 @@
 			                    method="post" class="form-horizontal">
 								
 			                    	<div class="form-group">
-			                    		<label class="col-sm-2 control-label">Email</label>
+			                    		<label class="col-sm-2 control-label">Full Name</label>
 										<div class="col-sm-10">
-										  <input type="text" th:field="*{name}" placeholder="Name" class="form-control" />
+										  <input type="text" th:field="*{name}" placeholder="Full name" class="form-control" />
 										</div>
 			                        </div>
 									<div class="row">
@@ -113,14 +113,11 @@
 										<label class="col-sm-2 control-label">Sex</label>
 										<div class="col-sm-10">
 											<div class="btn-radio">
-											  
-												
 												<input type="radio" id="f-option" name="sex" value="Male">
 												<label for="f-option">Male</label>
 									
 												<div class="check"></div>
-											
-			
+												
 												<input type="radio" id="s-option" name="sex" value="Female">
 												<label for="s-option">Female</label>
 									
@@ -152,9 +149,8 @@
         </div>
 	
 	
-
-	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
-  	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script type="text/javascript" th:src="@{/js/jquery.backstretch.min.js}"></script>
   	<script type="text/javascript">
   		jQuery(document).ready(function() {

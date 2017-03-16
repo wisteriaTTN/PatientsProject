@@ -58,7 +58,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.failureUrl("/login?error=true")
 			.usernameParameter("username")
 			.passwordParameter("password")
-			.defaultSuccessUrl("/admin/home")
+			.defaultSuccessUrl("/")
 			.and()
 		.logout()
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
@@ -84,7 +84,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 	    web
 	       .ignoring()
-	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**","/medicine/**","/user/**");
-	}
+	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**","/patient/**", "/images/**","/medicine/**","/user/**","/typemedicine/**");	}
 
 }

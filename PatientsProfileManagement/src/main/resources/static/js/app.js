@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute','ngResource']);
+var app = angular.module('myApp', ['ngRoute','ngResource','angularUtils.directives.dirPagination']);
 app.config(function($routeProvider){
     $routeProvider
 	    .when('/patient',{
@@ -20,7 +20,18 @@ app.config(function($routeProvider){
     	.when('/user',{
     		templateUrl: '/views/user.html',
     		controller: "userController"
-    	});
+    	})
+    .when('/treatment',{
+		templateUrl: '/views/treatment.html',
+		controller: "treatmentController"
+	})
+	 
+	
+	
+    .when('/treatmentdetail',{
+		templateUrl: '/views/treatmentdetail.html',
+		controller: "treatmentDetailController"
+	});
     	
         /*.otherwise(
             { redirectTo: '/'}

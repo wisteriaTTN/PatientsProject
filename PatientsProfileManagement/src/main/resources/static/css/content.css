@@ -1,27 +1,63 @@
-@CHARSET "ISO-8859-1";
-	.title-page{
-		margin-top: 10%;
-	    margin-bottom: 5%;
-	    text-align: center;
-	}
-	#tb-list > tr > td > a{
-		float: left;
-	}
-	.floating-box{
-		display: inline-block;
-		margin-top: 10%;
-		width: 100%;
-	}
-	.title-heading{
-		margin-bottom: 6%;
-	}
-	.table-striped > tbody > tr:nth-of-type(odd){
-		background-color:#ebf3f5;
-	}
-	.table-hover > tbody > tr:hover{
-		background-color: #9ECFDB;
-	}
-/* ..............  Search  ................... */
+.modal-content{
+    background-color: rgb(239, 239, 239);
+    border-radius: 0px;
+}
+.modal-header{
+	color: #fff;
+    border-bottom: 1px solid #fff;
+    padding: 10px 20px 0px 20px;
+    background-color: #006333;
+}
+.modal-title{
+	padding-top: 20px;
+    margin: 0;
+}
+
+input[type="date"]{
+	padding-left: 10px;
+    height: 35px;
+    margin: 0;
+    width: 100%;
+    vertical-align: middle;
+    background: #fff;
+    border: 1px solid #cac7c7;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #888;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+}
+
+input[type="text"]:focus, 
+input[type="date"]:focus {
+	outline: 0;
+	background: #fff;
+   
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+}
+
+input[type="text"]:-moz-placeholder, input[type="date"]:-moz-placeholder
+ { color: #888; }
+
+modal input[type="text"]:-ms-input-placeholder, modal input[type="date"]:-ms-input-placeholder
+{ color: #888; }
+
+modal input[type="text"]::-webkit-input-placeholder, modal input[type="date"]::-webkit-input-placeholder
+{ color: #888; }
+
+
+		/* ..............  Search  ................... */
 	.cf:before, .cf:after{
       content:"";
       display:table;
@@ -116,31 +152,4 @@
         border: 0;
         padding: 0;
     }
-    .margin-align{
-    	margin-left: 30%;
-    } 
-    .add-form {
-    margin: 27% 5% 0 5%;
-    	/* margin-top: 25%;
-	    margin-left: 5%;
-	    margin-right: 5%; */
-	   
-    }
-    .btn-add{
-		line-height: 40px;
-	    padding: 0 15px;
-	    width: 100%;
-	}
-    .align{
-    	text-align:center;
-    }
-    .title-right{
-    	padding: 5% 5% 0;
-	    /* border-bottom: 1px solid #fff; */
-	    background-color: rgb(34, 136, 79);
-	    color: #fff;
-    }
-    .form-add{
-    	background-color: rgba(119, 114, 114, 0.72);
-    	padding: 20px;
-    }
+		

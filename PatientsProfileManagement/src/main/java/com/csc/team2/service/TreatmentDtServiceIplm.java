@@ -7,37 +7,37 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.csc.team2.model.TreatmentDt;
-import com.csc.team2.repository.TreatmentDtRepository;
+import com.csc.team2.model.TreatmentDetail;
+import com.csc.team2.repository.ITreatmentDtRepository;
 
 
 @Service("treatmentDtService")
 @Transactional
 
-public class TreatmentDtServiceIplm implements TreatmentDtService {
+public class TreatmentDtServiceIplm implements ITreatmentDtService {
 	
 	@Autowired
-    private TreatmentDtRepository treatmentdtRepository;
+    private ITreatmentDtRepository treatmentdtRepository;
 
 	@Override
-	public TreatmentDt findById(int id) {
+	public TreatmentDetail findById(int id) {
 		return treatmentdtRepository.findOne(id);
 	}
 
 	@Override
-	public TreatmentDt findByName(String name) {
+	public TreatmentDetail findByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void saveTreatmentDt(TreatmentDt treatmentdt) {
+	public void saveTreatmentDt(TreatmentDetail treatmentdt) {
 		treatmentdtRepository.save(treatmentdt);
 		
 	}
 
 	@Override
-	public void updateTreatmentDt(TreatmentDt treatmentdt) {
+	public void updateTreatmentDt(TreatmentDetail treatmentdt) {
 		saveTreatmentDt(treatmentdt);
 		
 	}
@@ -55,12 +55,12 @@ public class TreatmentDtServiceIplm implements TreatmentDtService {
 	}
 
 	@Override
-	public List<TreatmentDt> findAllTreatmentDt() {
-		return (List<TreatmentDt>) treatmentdtRepository.findAll();
+	public List<TreatmentDetail> findAllTreatmentDt() {
+		return (List<TreatmentDetail>) treatmentdtRepository.findAll();
 	}
 
 	@Override
-	public boolean isTreatmentDtExist(TreatmentDt treatmentdt) {
+	public boolean isTreatmentDtExist(TreatmentDetail treatmentdt) {
 		return findById(treatmentdt.getId()) != null;
 	}
 	

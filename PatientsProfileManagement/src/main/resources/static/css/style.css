@@ -7,6 +7,7 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
+    background: rgba(0, 0, 0, 0.6);
     background-size: cover;
 }
 
@@ -37,7 +38,6 @@ img { max-width: 100%; }
 
 ::-moz-selection { background: #de615e; color: #fff; text-shadow: none; }
 ::selection { background: #de615e; color: #fff; text-shadow: none; }
-
 
 
 
@@ -116,6 +116,18 @@ img { max-width: 100%; }
 
 .form-bottom form .input-error {
 	border-color: #de615e;
+}
+
+.social-login {
+	margin-top: 35px;
+}
+
+.social-login h3 {
+	color: #fff;
+}
+
+.social-login-buttons {
+	margin-top: 25px;
 }
 
 

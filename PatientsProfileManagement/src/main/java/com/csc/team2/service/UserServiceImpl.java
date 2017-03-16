@@ -8,32 +8,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.csc.team2.model.Role;
+import com.csc.team2.model.Roles;
 import com.csc.team2.model.User;
-import com.csc.team2.repository.RoleRepository;
-import com.csc.team2.repository.UserRepository;
+import com.csc.team2.repository.IRoleRepository;
+import com.csc.team2.repository.IUserRepository;
 
 @Service("userService")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements IUserService{
 
 	@Autowired
-	private UserRepository userRepository;
+	private IUserRepository userRepository;
 	@Autowired
-    private RoleRepository roleRepository;
+    private IRoleRepository roleRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
     @Override
+	public User findUserById(int id){
+		return userRepository.findById(id);
+	}
+    
+    @Override
 	public User findUserByUsername(String username){
-		return userRepository.findByUsername(username);
+		return userRepository.findByusername(username);
 	}
 	
 	@Override
 	public void saveAdmin(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setActive(1);
-	    Role userRole = roleRepository.findByRoles("admin");
-	    user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+	    Roles userRole = roleRepository.findByroles("admin");
+	    user.setRolesList(new HashSet<Roles>(Arrays.asList(userRole)));
 	    userRepository.save(user);
 	}
 	
@@ -41,8 +46,8 @@ public class UserServiceImpl implements UserService{
 	public void saveDoctor(User user){
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setActive(1);
-		Role userRole = roleRepository.findByRoles("doctor");
-		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+		Roles userRole = roleRepository.findByroles("doctor");
+		user.setRolesList(new HashSet<Roles>(Arrays.asList(userRole)));
 		userRepository.save(user);
 	}
 	
@@ -50,34 +55,27 @@ public class UserServiceImpl implements UserService{
 	public void saveNurse(User user){
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setActive(1);
-		Role userRole = roleRepository.findByRoles("nurse");
-		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+		Roles userRole = roleRepository.findByroles("nurse");
+		user.setRolesList(new HashSet<Roles>(Arrays.asList(userRole)));
 		userRepository.save(user);
 	}
 	@Override
 	public void updateAdmin(User user){
-		
+		saveAdmin(user);
 	}
 	@Override
 	public void updateDoctor(User user){
-		
+		saveDoctor(user);
 	}
 	@Override
 	public void updateNurse(User user){
-		
+		saveNurse(user);
 	}
 	@Override
-	public void deleteAdminById(int id){
-		
+	public void deleteUserById(int id){
+		userRepository.delete(id);
 	}
-	@Override
-	public void deleteDoctorById(int id){
-		
-	}
-	@Override
-	public void deleteNurseById(int id){
-		
-	}
+
 	@Override
 	public void deleteAllDoctor(){
 		
@@ -92,6 +90,7 @@ public class UserServiceImpl implements UserService{
 		return userRepository.findAll();
 		
 	}
+	
 	
 	/*@Override
 	public List<User> findAllAdmin(User user){
