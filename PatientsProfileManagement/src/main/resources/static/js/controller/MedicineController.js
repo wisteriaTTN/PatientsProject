@@ -28,12 +28,6 @@ app.controller('medicineController', function(
     });
 	$http.get("http://localhost:8080/medicine").then(function(response) {
 		$scope.medicines = response.data;
-		angular.forEach($scope.medicines, function(value, key){
-			$http.get("http://localhost:8080/typemedicine/" + value.typeId)
-  			.then(function(response){
-				value.typename = response.data.typeName;
-			});
-	         });
     });
 
 /////------------get All Medicine
@@ -42,12 +36,6 @@ app.controller('medicineController', function(
 	};
 	var getMedicineSuccess = function(data) {
 		$scope.medicines = data;   
-		angular.forEach($scope.medicines, function(value, key){
-			$http.get("http://localhost:8080/typemedicine/" + value.typeId)
-  			.then(function(response){
-				value.typename = response.data.typeName;
-			});
-	         });
 	};
 	var getMedicineError = function(error) {
 		$scope.error = "Could not find any data"
@@ -62,10 +50,7 @@ app.controller('medicineController', function(
 
 		$scope.curentMedicine = data;
 		$scope.curentMedicine.mfg = new Date(data.mfg);
-			$http.get("http://localhost:8080/typemedicine/" + $scope.curentMedicine.typeId)
-  			.then(function(response){
-  				$scope.curentMedicine.typename = response.data.typeName;
-			});
+			
 		
 	};
 	var getOneMedicineError = function(error) {
@@ -86,7 +71,7 @@ app.controller('medicineController', function(
 	
 /////-----------update Medicine-------------
 	$scope.updateMedicine = function(id,medicine){
-		$scope.curentMedicine.typeId = $scope.medicine.typeId;
+		$scope.curentMedicine.typeId = $scope.medicine.typeId.id;
 		medicineService.updateMedicine(id,medicine).then(updateMedicineSuccess,updateMedicineError);
 	};
 	var updateMedicineSuccess = function(data) {

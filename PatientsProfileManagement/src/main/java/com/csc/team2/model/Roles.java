@@ -1,21 +1,23 @@
 package com.csc.team2.model;
 
-
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -24,14 +26,14 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  * @author DIEP
  */
 @Entity
-@Table(name = "allergic")
+@Table(name = "roles")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Allergic.findAll", query = "SELECT a FROM Allergic a")
-    , @NamedQuery(name = "Allergic.findById", query = "SELECT a FROM Allergic a WHERE a.id = :id")
-    , @NamedQuery(name = "Allergic.findByMedicineId", query = "SELECT a FROM Allergic a WHERE a.medicineId = :medicineId")})
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@allergicId")
-public class Allergic implements Serializable {
+    @NamedQuery(name = "Roles.findAll", query = "SELECT r FROM Roles r")
+    , @NamedQuery(name = "Roles.findById", query = "SELECT r FROM Roles r WHERE r.id = :id")
+    , @NamedQuery(name = "Roles.findByRoles", query = "SELECT r FROM Roles r WHERE r.roles = :roles")})
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@rolesId")
+public class Roles implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -41,22 +43,23 @@ public class Allergic implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "medicine_id")
-    private int medicineId;
-    @JoinColumn(name = "patient_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Patient patientId;
+    @Size(min = 1, max = 255)
+    @Column(name = "roles")
+    private String roles;
+    @ManyToMany(mappedBy = "rolesList")
+    @JsonBackReference
+    private List<User> userList;
 
-    public Allergic() {
+    public Roles() {
     }
 
-    public Allergic(Integer id) {
+    public Roles(Integer id) {
         this.id = id;
     }
 
-    public Allergic(Integer id, int medicineId) {
+    public Roles(Integer id, String roles) {
         this.id = id;
-        this.medicineId = medicineId;
+        this.roles = roles;
     }
 
     public Integer getId() {
@@ -67,20 +70,21 @@ public class Allergic implements Serializable {
         this.id = id;
     }
 
-    public int getMedicineId() {
-        return medicineId;
+    public String getRoles() {
+        return roles;
     }
 
-    public void setMedicineId(int medicineId) {
-        this.medicineId = medicineId;
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 
-    public Patient getPatientId() {
-        return patientId;
+    @XmlTransient
+    public List<User> getUserList() {
+        return userList;
     }
 
-    public void setPatientId(Patient patientId) {
-        this.patientId = patientId;
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 
     @Override
@@ -93,10 +97,10 @@ public class Allergic implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Allergic)) {
+        if (!(object instanceof Roles)) {
             return false;
         }
-        Allergic other = (Allergic) object;
+        Roles other = (Roles) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -105,7 +109,8 @@ public class Allergic implements Serializable {
 
     @Override
     public String toString() {
-        return "asasdsa.Allergic[ id=" + id + " ]";
+        return "asasdsa.Roles[ id=" + id + " ]";
     }
     
 }
+
