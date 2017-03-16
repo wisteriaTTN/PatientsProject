@@ -25,6 +25,8 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
@@ -41,6 +43,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
     , @NamedQuery(name = "Treatment.findByFile", query = "SELECT t FROM Treatment t WHERE t.file = :file")
     , @NamedQuery(name = "Treatment.findByPrescription", query = "SELECT t FROM Treatment t WHERE t.prescription = :prescription")})
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@treatmentId")
+
 public class Treatment implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -69,6 +72,7 @@ public class Treatment implements Serializable {
     private User doctorId;
     @JoinColumn(name = "patient_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
+  //@JsonManagedReference
     private Patient patientId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "treatmentId")
     private List<History> historyList;

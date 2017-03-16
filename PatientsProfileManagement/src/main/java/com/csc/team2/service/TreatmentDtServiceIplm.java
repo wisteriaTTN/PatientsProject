@@ -8,16 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.csc.team2.model.TreatmentDetail;
-import com.csc.team2.repository.TreatmentDtRepository;
+import com.csc.team2.repository.ITreatmentDtRepository;
 
 
 @Service("treatmentDtService")
 @Transactional
 
-public class TreatmentDtServiceIplm implements TreatmentDtService {
+public class TreatmentDtServiceIplm implements ITreatmentDtService {
 	
 	@Autowired
-    private TreatmentDtRepository treatmentdtRepository;
+    private ITreatmentDtRepository treatmentdtRepository;
 
 	@Override
 	public TreatmentDetail findById(int id) {

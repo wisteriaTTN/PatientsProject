@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.csc.team2.model.User;
-import com.csc.team2.service.UserService;
+import com.csc.team2.service.IUserService;
 
 @Controller
 public class LoginController {
 	
 	@Autowired
-	private UserService userService;
+	private IUserService userService;
 
 	@RequestMapping(value={"/","/login"}, method = RequestMethod.GET)
 	public ModelAndView login(){

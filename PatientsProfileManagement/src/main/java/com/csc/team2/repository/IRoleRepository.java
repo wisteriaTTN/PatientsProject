@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.csc.team2.model.Roles;
 
 @Repository("roleRepository")
-public interface RoleRepository extends CrudRepository<Roles, Integer>{
+public interface IRoleRepository extends CrudRepository<Roles, Integer>{
 	Roles findByroles(String roles);
 
 }

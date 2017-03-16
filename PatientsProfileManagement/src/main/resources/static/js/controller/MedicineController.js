@@ -5,14 +5,17 @@ app.controller('medicineController', function(
 	
 	$scope.medicine = {
 			name : "",
-			typeId : "",
+			typeId : {
+				id: 0,
+				typename:"",
+			},
 			producer : "",
 			dosage : "",
 			mfg : "",
 		};
-	
+
 	$scope.typemedicine = {
-			typeName :"",
+			typename :"",
 	};
 	
 	$scope.typemedicines = [];
@@ -58,7 +61,7 @@ app.controller('medicineController', function(
 	
 /////-----------create Medicine ------------
 	$scope.createMedicine = function(){
-		$scope.medicine.typeId = $scope.medicine.type.typeId;
+		//$scope.medicine.typeId = $scope.medicine.object;
 		medicineService.createMedicine($scope.medicine).then(createMedicineSuccess,createMedicineError);
 	};
 	var createMedicineSuccess = function(data) {
@@ -71,7 +74,7 @@ app.controller('medicineController', function(
 	
 /////-----------update Medicine-------------
 	$scope.updateMedicine = function(id,medicine){
-		$scope.curentMedicine.typeId = $scope.medicine.typeId.id;
+		//$scope.curentMedicine.typeId = $scope.medicine.typeId.id;
 		medicineService.updateMedicine(id,medicine).then(updateMedicineSuccess,updateMedicineError);
 	};
 	var updateMedicineSuccess = function(data) {

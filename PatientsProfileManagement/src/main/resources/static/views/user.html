@@ -6,6 +6,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Active</th>
+			<th>Role</th>
 			<th>Address</th>
 			<th>Specialist</th>
 			<th>Sex</th>
@@ -15,14 +16,14 @@
 		<tr ng-repeat="user in users">
 			<td><a ng-href="#/user/{{user.username}}"></a>{{user.name | uppercase}}</td>
 			<td>{{user.active}}</td>
+			<td>{{user.roleslist.roles}}</td>
 			<td>{{user.address}}</td>
 			<td>{{user.specialist}}</td>
 			<td>{{user.sex }}</td>
 			
-			<td><button ng-click="increaseData(product.id)"
-				class="glyphicon glyphicon-plus btn btn-sm btn-success"></button>
-				<div>{{patient.id}}</div> 
-				<button ng-click="decreaseData(product.id)"
+			<td><button ng-click="updateUser(user.id)"
+				class="glyphicon glyphicon-plus btn btn-sm btn-success"></button> 
+				<button ng-click="deleteUser(user.id)"
 				class="glyphicon glyphicon-minus btn btn-sm btn-warning"></button>
 			<td><button ng-click="" class="glyphicon glyphicon-trash btn btn-danger"></button></td>
 		</tr>

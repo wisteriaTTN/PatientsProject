@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
  
 import com.csc.team2.model.Treatment;
-import com.csc.team2.service.TreatmentService;
+import com.csc.team2.service.ITreatmentService;
 import com.csc.team2.util.CustomErrorType;
 
  
@@ -26,7 +26,7 @@ public class TreatmentController {
     public static final Logger logger = LoggerFactory.getLogger(TreatmentController.class);
  
     @Autowired
-    TreatmentService treatmentService; //Service which will do all data retrieval/manipulation work
+    ITreatmentService treatmentService; //Service which will do all data retrieval/manipulation work
  
     // -------------------Retrieve All Treatment---------------------------------------------
  

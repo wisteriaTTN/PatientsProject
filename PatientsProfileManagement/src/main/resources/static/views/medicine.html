@@ -22,7 +22,7 @@
 </style>
 <div style="margin-top: 80px" id="wrapper">
 	<!-- Navigation -->
-
+<!-- UPDATE TYPE MEDICINE -->
 	<div id="page-wrapper">
 		<!-- Modal popup type medicine form -->
 		<form>
@@ -60,7 +60,7 @@
 				</div>
 			</div>
 		</form>
-	<!-- Modal popup medicine form -->
+	<!-- UPDATE MEDICINE -->
 		<form>
 			<div class="modal fade" id="MedicineModal" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel">
@@ -96,10 +96,12 @@
 								</div> -->
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<select class="selectpicker form-control col-md-7 col-xs-12" 
-									ng-model="medicine.typeId.id">
-									<option ng-repeat="typemedicine in typemedicines" 
-									value="{{typemedicine.id}}" data-live-search="true">{{typemedicine.typename}}</option>
-				
+									ng-model="curentMedicine.typeId" ng-options="typemedicine.typename for typemedicine in typemedicines"
+									 data-live-search="true">
+									<!-- <option ng-repeat="typemedicine in typemedicines" 
+									value={{typemedicine}} data-live-search="true">{{typemedicine.typename}}</option> -->
+									
+									
 									</select>
 								<!-- <span>selected: {{curentMedicine.typeId}}</span> -->
 								</div>
@@ -161,7 +163,7 @@
 						<div style="border: 1px dotted #2f3a54; border-radius: 5px;"
 							class="rounded">
 							<br />
-<!-- Create New Medicine form -->
+<!-- CREATE MEDICINE form -->
 							<form id="demo-form2" ng-submit="submitForm()"
 								data-parsley-validate class="form-horizontal form-label-left">
 
@@ -180,7 +182,7 @@
 									</label>
 									<div class="col-md-6 col-sm-6 col-xs-12">
 										<select class="selectpicker form-control col-md-7 col-xs-12" 
-										ng-model="medicine.type" ng-options="typemedicine.typeName for typemedicine in typemedicines" data-live-search="true">
+										ng-model="medicine.typeId" ng-options="typemedicine.typename for typemedicine in typemedicines" data-live-search="true">
 				
 										</select>
 
@@ -236,7 +238,7 @@
 					<br>
 
 				</div>
-				<!-- TYPE MEDICINE -->
+<!--CREATE TYPE MEDICINE -->
 				<div class="col-md-4 col-sm-12 col-xs-12">
 					<div class="x_panel">
 						<div class="x_title">
@@ -247,15 +249,15 @@
 						<div style="border: 1px dotted #2f3a54; border-radius: 5px;"
 							class="rounded">
 							<br />
-							<form id="demo-form2" ng-submit="submitForm()"
+							<form id="demo-form2"
 								data-parsley-validate class="form-horizontal form-label-left">
 
 								<div class="form-group">
 									<label class="control-label col-md-3 col-sm-3 col-xs-12"
-										for="typeName">TypeName <span class="required">*</span>
+										for="typename">TypeName <span class="required">*</span>
 									</label>
 									<div class="col-md-6 col-sm-6 col-xs-12">
-										<input ng-model="typemedicine.typename" type="text" id="typeName"
+										<input ng-model="typemedicine.typename" type="text" id="typename"
 											required="required" class="form-control col-md-7 col-xs-12">
 									</div>
 								</div>
@@ -273,6 +275,7 @@
 								</div>
 							</form>
 							<div class="table-responsive col-xs-12 well">
+	<!-- TYPE MEDICINE table -->
 								<table
 									class="table table-scroll table-striped jambo_table bulk_action">
 									<thead>
@@ -306,7 +309,7 @@
 					</div>
 				</div>
 			</div>
-			<!--               table -->
+<!--       LIST MEDICINE  table -->
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
 				
@@ -351,7 +354,7 @@
 
 								<tbody>
 									<tr dir-paginate="medicine in medicines|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
-										<td><a ng-href="#/medicine/{{medicine.medicineId}}"></a>{{medicine.name
+										<td><a ng-href="#/medicine/{{medicine.id}}"></a>{{medicine.name
 											| uppercase}}</td>
 										<td>{{medicine.typeId.typename}}</td>
 										<td>{{medicine.mfg }}</td>
@@ -362,7 +365,7 @@
 											data-toggle="modal" data-target="#MedicineModal">
 									  			<span><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
 											</button>
-											<button ng-click="deleteMedicine(medicine.medicineId)"
+											<button ng-click="deleteMedicine(medicine.id)"
 												data-toggle="tooltip" title="Delete Medicine!"
 												class="glyphicon glyphicon-trash btn btn-danger"></button>
 
