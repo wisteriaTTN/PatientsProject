@@ -67,11 +67,11 @@ public class PatientController {
     public ResponseEntity<?> createPatient(@RequestBody Patient patient, UriComponentsBuilder ucBuilder) {
         logger.info("Creating Patient : {}", patient);
  
-        if (patientService.isPatientExist(patient)) {
+        /*if (patientService.isPatientExist(patient)) {
             logger.error("Unable to create. A Patient with name {} already exist", patient.getName());
 //            return new ResponseEntity(new CustomErrorType("Unable to create. A Patient with name " + 
 //            patient.getName() + " already exist."),HttpStatus.CONFLICT);
-        }
+        }*/
         patientService.savePatient(patient);
  
         HttpHeaders headers = new HttpHeaders();

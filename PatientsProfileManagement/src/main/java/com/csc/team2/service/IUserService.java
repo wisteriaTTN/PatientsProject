@@ -6,8 +6,8 @@ import com.csc.team2.model.Medicine;
 import com.csc.team2.model.Treatment;
 import com.csc.team2.model.User;
 
-public interface UserService {
-	//public User findUserByEmail(String email);
+public interface IUserService {
+	public User findUserById(int id);
 	public User findUserByUsername(String username);
 	public void saveAdmin(User user);
 	public void saveDoctor(User user);
@@ -17,9 +17,8 @@ public interface UserService {
 	public void updateDoctor(User user);
 	public void updateNurse(User user);
 	
-	public void deleteAdminById(int id);
-	public void deleteDoctorById(int id);
-	public void deleteNurseById(int id);
+	public void deleteUserById(int id);
+
 	 
 	public void deleteAllDoctor();
 	public void deleteAllNurse();

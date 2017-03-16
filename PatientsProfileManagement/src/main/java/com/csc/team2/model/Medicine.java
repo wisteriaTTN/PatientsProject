@@ -73,7 +73,7 @@ public class Medicine implements Serializable {
     private String dosage;
     @JoinColumn(name = "type_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    @JsonManagedReference
+    //@JsonManagedReference
     private TypeOfMedicine typeId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "medicineId")
     @JsonBackReference

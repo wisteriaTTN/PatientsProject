@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.csc.team2.model.TreatmentDetail;
 
-public interface TreatmentDtService  {
+public interface ITreatmentDtService  {
 	
 	TreatmentDetail findById(int id);
 	 

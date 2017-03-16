@@ -21,7 +21,6 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -69,8 +68,12 @@ public class Patient implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dob;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patientId")
+    //@JsonBackReference
+    //@JsonIgnore
     private List<Allergic> allergicList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patientId")
+    //@JsonBackReference
+    //@JsonIgnore
     private List<Treatment> treatmentList;
 
     public Patient() {

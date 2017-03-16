@@ -10,19 +10,24 @@ import org.springframework.stereotype.Service;
 
 import com.csc.team2.model.Roles;
 import com.csc.team2.model.User;
-import com.csc.team2.repository.RoleRepository;
-import com.csc.team2.repository.UserRepository;
+import com.csc.team2.repository.IRoleRepository;
+import com.csc.team2.repository.IUserRepository;
 
 @Service("userService")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements IUserService{
 
 	@Autowired
-	private UserRepository userRepository;
+	private IUserRepository userRepository;
 	@Autowired
-    private RoleRepository roleRepository;
+    private IRoleRepository roleRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
+    @Override
+	public User findUserById(int id){
+		return userRepository.findById(id);
+	}
+    
     @Override
 	public User findUserByUsername(String username){
 		return userRepository.findByusername(username);
@@ -56,28 +61,21 @@ public class UserServiceImpl implements UserService{
 	}
 	@Override
 	public void updateAdmin(User user){
-		
+		saveAdmin(user);
 	}
 	@Override
 	public void updateDoctor(User user){
-		
+		saveDoctor(user);
 	}
 	@Override
 	public void updateNurse(User user){
-		
+		saveNurse(user);
 	}
 	@Override
-	public void deleteAdminById(int id){
-		
+	public void deleteUserById(int id){
+		userRepository.delete(id);
 	}
-	@Override
-	public void deleteDoctorById(int id){
-		
-	}
-	@Override
-	public void deleteNurseById(int id){
-		
-	}
+
 	@Override
 	public void deleteAllDoctor(){
 		
