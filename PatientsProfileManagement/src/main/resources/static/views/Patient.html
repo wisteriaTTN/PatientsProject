@@ -1,27 +1,28 @@
 <div class="container">
 <!--table -->
-<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="col-md-10 col-sm-10 col-xs-12">
 	<div class="x_panel">
 		<div class="x_title">
-			<h2>List Patient</h2>
+			<h1 class="inline">List Patient</h1>
+			<button type="button" class="btn btn-success btn-create"
+				data-toggle="modal" data-target="#modalCreatePatient">
+				<span>Create Patient</span>
+			</button>
 		</div>
-		<div class="x_content">
-			<div class="row">
+		
+		<!-- Search -->
+		<div class="row">
+			<form class="form-wrapper cf">
+				<button type="submit" class="inline">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</button>
+				<input ng-model="search" class="inline" type="text"
+					placeholder="Search here..." required>
+			</form>
+		</div>
 				
-				<div class="col-md-8">
-					<form class="form-wrapper cf">
-					    <button type="submit">
-					    	<i class="fa fa-search" aria-hidden="true"></i>
-					    </button>
-					  	<input type="text" ng-model="search" placeholder="Search here..." class="form-control" required> 
-					</form>
-				</div>
-				<div class="col-md-4">
-					<button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modalCreatePatient">
-					  <span>Create Patient</span>
-					</button>
-				</div>
-			</div>
+		<div class="x_content">
+			
 		<!-- LIST PATIENT -->
 			<div class="table-responsive">
 				<table class="table table-striped jambo_table bulk_action">
@@ -90,7 +91,7 @@
 		<div class="modal-content">
 		  <div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<h4 class="modal-title" id="myModalLabel">Update Patient</h4>
+			<h3 class="modal-title" id="myModalLabel">Update Patient</h3>
 		  </div>
 		  
 		  <div class="modal-body">
@@ -98,7 +99,7 @@
 				<label class="control-label col-md-3 col-sm-3 col-xs-12"
 					for="first-name">Name <span class="required">*</span>
 				</label>
-				<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="col-md-9 col-sm-9 col-xs-12">
 					<input ng-model="curentPatient.name" type="text" id="first-name"
 						required="required" class="form-control col-md-7 col-xs-12">
 				</div>
@@ -108,7 +109,7 @@
 				<label class="control-label col-md-3 col-sm-3 col-xs-12"
 					for="last-name">Address<span class="required">*</span>
 				</label>
-				<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="col-md-9 col-sm-9 col-xs-12">
 					<input ng-model="curentPatient.address" type="text" id="address"
 						name="address" required="required"
 						class="form-control col-md-7 col-xs-12">
@@ -117,7 +118,7 @@
 			<br>
 			<div class="form-group">
 				<label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
-				<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="col-md-9 col-sm-9 col-xs-12">
 					<div id="gender" class="btn-group" data-toggle="buttons">
 						<label> <input type="radio" ng-model="curentPatient.sex"
 							value="male"> Male
@@ -132,7 +133,7 @@
 				<label class="control-label col-md-3 col-sm-3 col-xs-12">Date
 					Of Birth <span class="required">*</span>
 				</label>
-				<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="col-md-9 col-sm-9 col-xs-12">
 					<input  ng-model="curentPatient.dob"  type="date" >
 					<div class="form-group">
 				</div>
@@ -156,7 +157,7 @@
 		<div class="modal-content">
 		  <div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<h2 class="modal-title" id="myModalLabel">Create New Patient</h2>
+			<h3 class="modal-title" id="myModalLabel">Create New Patient</h3>
 		  </div>
 		  
 		  <div class="modal-body">
@@ -201,14 +202,14 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-							<button ng-click="getPatient()" class="btn btn-primary btn-lg"
+						<div class="row" style="padding-left:150px;">
+							<button ng-click="getPatient()" class="btn btn-primary btn-in-modal"
 									type="reset">
 									<span><i class="fa fa-refresh" aria-hidden="true"></i></span>
 									Clear
 							</button>
 							<button type="submit" ng-click="createPatient()"
-								class="btn btn-success btn-lg">
+								class="btn btn-success btn-in-modal">
 								<span><i class="glyphicon glyphicon-floppy-save" aria-hidden="true"></i></span>
 								Submit
 							</button>
@@ -216,7 +217,6 @@
 							
 						</div>
 					</div>
-
 				</form>
 		  </div>
 		</div>
