@@ -17,8 +17,8 @@ app.config(function($routeProvider){
             templateUrl: "/views/medicine.html",
             controller: "medicineController"
           })
-    	.when('/user',{
-    		templateUrl: '/views/user.html',
+    	.when('/usersList',{
+    		templateUrl: '/views/usersList.html',
     		controller: "userController"
     	})
     .when('/treatment',{

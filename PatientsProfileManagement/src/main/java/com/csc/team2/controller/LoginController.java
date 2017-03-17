@@ -30,6 +30,7 @@ public class LoginController {
 			User user = userService.findUserByUsername(auth.getName());
 			modelAndView.addObject("userName", "Hi " + user.getName());
 			modelAndView.setViewName("/admin/home");	
+			user.getRolesList();
 			return modelAndView;
 		}
 		else if(auth.getAuthorities().toString().equals("[doctor]")) {
