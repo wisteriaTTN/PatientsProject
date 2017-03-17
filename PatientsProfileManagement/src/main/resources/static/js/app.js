@@ -1,10 +1,10 @@
 var app = angular.module('myApp', ['ngRoute','ngResource','angularUtils.directives.dirPagination']);
 app.config(function($routeProvider){
     $routeProvider
-	    /*.when('/another',{
-	        templateUrl: '/patientprofile/views/another.html',
-	        controller: 'AnotherController'
-	    })*/
+	    .when('/patient',{
+	        templateUrl: '/views/patient.html',
+	        controller: 'PatientController'
+	    })
 	    .when('/',{
 	        templateUrl: '/views/homepage.html',
 	        controller: 'HomeController'
