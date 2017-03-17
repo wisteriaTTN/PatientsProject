@@ -5,7 +5,7 @@ app.controller('patientController', function(
 	$scope.patient = {
 			name : "",
 			address : "",
-			sex : "male",
+			sex : "",
 			dob : "",
 		};
 	
@@ -44,17 +44,17 @@ app.controller('patientController', function(
 	/////-----------create Patient ------------
 	$scope.createPatient = function(){
 		patientService.createPatient($scope.patient).then(createSuccess,createError);
-		reset;
+		//reset();
 	}
 	
-	reset = function(){
+	/*reset = function(){
 		$scope.patient = {
 				name : "",
 				address : "",
 				sex : "male",
 				dob : "",
 			};
-	};
+	};*/
 	
 	var createSuccess = function(data) {
 		alert('add new patient Success:' + data.name);
@@ -74,7 +74,7 @@ app.controller('patientController', function(
 	var updateError = function(error) {
 	};
 	
-	/////-----------dalete patient-------------
+	/////-----------delete patient-------------
 	$scope.deletePatient= function(id){
 		patientService.deletePatient(id).then(deleteSuccess,deleteError);
 		

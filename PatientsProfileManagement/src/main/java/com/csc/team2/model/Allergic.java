@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
@@ -31,6 +32,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
     , @NamedQuery(name = "Allergic.findById", query = "SELECT a FROM Allergic a WHERE a.id = :id")
     , @NamedQuery(name = "Allergic.findByMedicineId", query = "SELECT a FROM Allergic a WHERE a.medicineId = :medicineId")})
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@allergicId")
+
 public class Allergic implements Serializable {
 
     private static final long serialVersionUID = 1L;

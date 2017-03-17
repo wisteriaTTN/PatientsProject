@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
@@ -32,6 +33,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
     , @NamedQuery(name = "TreatmentDetail.findById", query = "SELECT t FROM TreatmentDetail t WHERE t.id = :id")
     , @NamedQuery(name = "TreatmentDetail.findByDiseases", query = "SELECT t FROM TreatmentDetail t WHERE t.diseases = :diseases")})
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@treatmentdetailId")
+
 public class TreatmentDetail implements Serializable {
 
     private static final long serialVersionUID = 1L;

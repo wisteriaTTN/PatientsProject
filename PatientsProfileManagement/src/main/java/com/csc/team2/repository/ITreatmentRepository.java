@@ -1,13 +1,12 @@
 package com.csc.team2.repository;
 
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.csc.team2.model.TreatmentDetail;
+import com.csc.team2.model.Treatment;;
 
 @Repository
-public interface TreatmentDtRepository extends CrudRepository<TreatmentDetail, Integer>{
+public interface ITreatmentRepository extends CrudRepository<Treatment, Integer>{
 
 	//User findByName(String name);
 }

@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-theme.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/animate.min.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/app.css}" />
@@ -24,88 +23,109 @@
 
 <body>
 	
-	<nav class="navbar navbar-default navbar-fixed-top">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand logo" href="index.html">
+	<div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand logo" href="index.html">
  					<span><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
  					HealthCare
 			</a>
-	    </div>
-	
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      
-	      <ul class="nav navbar-nav navbar-right">
-	      
-	      	<li>
-	        	<a href="#/medicine">Medicine</a>
-	        </li>
-	        
-	        <li>
-	        	<a href="#/patient">Patient</a>
-	        </li>
-	        
-	          <li>
-	        	<a href="#/treatment">Treatment</a>
-	        </li>
-	        
-	        
-	        <li class="dropdown">	   	
-	        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">	
-	       			<span>Registration</span>
-	       			<b class="caret"></b>	   
-	       	</a>    		
-	          <ul class="dropdown-menu">
-	            <li>
-	            	<a th:href="@{/admin/DoctorRegistration}">Register Doctor</a>
-	            </li>
-	             <li>
-	        		<a th:href="@{/admin/NurseRegistration}">Register Nurse</a>
-	        	</li>
-	        	<li>
-	        		<a href="#/user">User Admin</a>
-	       		</li>
-	       		<li>
-	        		<a href="#/">User Doctor</a>
-	       		</li>
-	       		<li>
-	        		<a href="#/">User Nurse</a>
-	       		</li>
-	          </ul>
-	        </li>
-	        
-	        <li class="dropdown">
-	          	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-	          		<span th:text="${userName}" th:remove="tag"></span>
-	       			<b class="caret"></b>
-	       		</a>
-	          <ul class="dropdown-menu">
-	            <li>
-	            	<span style="padding-top: 15px; padding-bottom: 15px; padding-left: 10px; padding-right: 10px; width: 140px; height: 50px;">
-	            		<form th:action="@{/logout}" method="get" >
-							<button class="astext" name="logout" type="submit"><b><font size="4">Logout</font></b> 
-								<span class="glyphicon glyphicon-log-out pull-right"></span>
-							</button>
-						</form>
-	            	</span>
-	            </li>
-	          </ul>
-	        </li>
-	      </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
-	
-	
-	<div ng-view style="margin-top: 70px;"></div>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+               
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span th:text="${userName}" th:remove="tag"></span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+							<form th:action="@{/logout}" method="get" style="padding-left:10px;" >
+								<button class="astext" name="logout" type="submit"> 
+									<span><i class="fa fa-fw fa-power-off"></i></span>
+									Logout
+								</button>
+							</form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+              
+          <!-- Sidebar Menu -->
+           
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#/patient"><i class="fa fa-fw fa-table"></i> Patient</a>
+                    </li>
+                    <li>
+                        <a href="#/medicine"><i class="fa fa-fw fa-table"></i> Medicine</a>
+                    </li>
+					<li>
+                        <a href="#/treatment"><i class="fa fa-fw fa-table"></i> Treatment</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> User <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#/doctor">Doctor</a>
+                            </li>
+                            <li>
+                                <a href="#/Nurse">Nurse</a>
+                            </li>
+							<li>
+								<a th:href="@{/admin/DoctorRegistration}">Register Doctor</a>
+							</li>
+							 <li>
+								<a th:href="@{/admin/NurseRegistration}">Register Nurse</a>
+							</li>
+							<li>
+								<a href="#/user">User Admin</a>
+							</li>
+							<li>
+								<a href="#/">User Doctor</a>
+							</li>
+							<li>
+								<a href="#/">User Nurse</a>
+							</li>
+						</ul>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+    
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+                 <div ng-view></div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    
+    
+    
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular.js}"></script>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-resource.js}"></script>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-route.js}"></script>
@@ -114,7 +134,7 @@
 		<script type="text/javascript" th:src="@{/js/dirPagination.js}"></script>
 		
 		<script type="text/javascript" th:src="@{/js/service/PatientService.js}"></script>
-		<!-- <script type="text/javascript" th:src="@{/js/service/UserService.js}"></script> -->
+		<script type="text/javascript" th:src="@{/js/service/UserService.js}"></script>
 		<script type="text/javascript" th:src="@{/js/service/MedicineService.js}"></script>
 		<script type="text/javascript" th:src="@{/js/service/TypeMedicineService.js}"></script>
 	
