@@ -25,7 +25,7 @@ public class UserServiceImpl implements IUserService{
 	
     @Override
 	public User findUserById(int id){
-		return userRepository.findById(id);
+		return userRepository.findByid(id);
 	}
     
     @Override
@@ -33,6 +33,16 @@ public class UserServiceImpl implements IUserService{
 		return userRepository.findByusername(username);
 	}
 	
+    @Override
+   	public List<User> findUserByRoleId(int roleid){		
+   		return userRepository.findByRoleId(roleid);
+   	}
+    
+/*    @Override
+	public void saveUser(User user) {
+	    userRepository.save(user);
+	}*/
+    
 	@Override
 	public void saveAdmin(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -88,6 +98,12 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public List<User> findAllUsers(){
 		return userRepository.findAll();
+		
+	}
+
+	@Override
+	public void saveUser(User user) {
+		userRepository.save(user);
 		
 	}
 	

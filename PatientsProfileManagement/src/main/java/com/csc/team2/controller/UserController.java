@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.csc.team2.model.Medicine;
+import com.csc.team2.model.Roles;
 import com.csc.team2.model.User;
 import com.csc.team2.service.UserServiceImpl;
 
@@ -34,7 +35,17 @@ public class UserController {
 		}
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
+
+	//--------------------Select All User by Role-----------------------------------------
 	
+		@RequestMapping(value="/userbyrole/{id}", method = RequestMethod.GET)
+		public ResponseEntity<List<User>> listUserByRole(@PathVariable("id") int id){
+			List<User> users = userService.findUserByRoleId(id);
+			if(users.isEmpty()){
+				return new ResponseEntity(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+		}
 	//--------------------Select One User-----------------------------------------
 	
 	@RequestMapping(value="/user/{id}", method = RequestMethod.GET)
@@ -48,7 +59,7 @@ public class UserController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
-	//------------------Update User Admin-----------------------------------------------
+	//------------------Update User-----------------------------------------------
 	
 		@RequestMapping(value="/user/{id}", method = RequestMethod.PUT)
 		public ResponseEntity<?> updateUser(@PathVariable("id") int id,@RequestBody User user){
@@ -59,11 +70,14 @@ public class UserController {
 				logger.info("unable to update user with id {}, not found", id);
 			}
 			currentUser.setName(user.getName());
-			currentUser.setPassword(user.getPassword());
+			currentUser.setUsername(user.getUsername());
 			currentUser.setSpecialist(user.getSpecialist());
 			currentUser.setSex(user.getSex());
 			currentUser.setAddress(user.getAddress());
-			userService.saveAdmin(currentUser);
+			currentUser.setPassword(user.getPassword());
+			currentUser.setRolesList(user.getRolesList());
+			currentUser.setActive(user.getActive());
+			userService.saveUser(currentUser);
 			return new ResponseEntity<User>(currentUser,HttpStatus.OK);
 		}
 		
