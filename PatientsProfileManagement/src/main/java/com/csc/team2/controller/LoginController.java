@@ -14,13 +14,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.csc.team2.model.User;
 import com.csc.team2.service.IUserService;
 
-@Controller
+@RestController
 public class LoginController {
 	
 	@Autowired
@@ -182,28 +182,8 @@ public class LoginController {
 		modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
 		modelAndView.setViewName("/admin/home");
 		return modelAndView;
-	}
-	
-	@RequestMapping(value="/doctor/home", method = RequestMethod.GET)
-	public ModelAndView doctorHome(){
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByUsername(auth.getName());
-		modelAndView.addObject("userName", "Welcome " + user.getName());
-		modelAndView.addObject("doctorMessage","Content Available Only for Users with Doctor Role");
-		modelAndView.setViewName("/doctor/home");
-		return modelAndView;
-	}
-	
-	@RequestMapping(value="/nurse/home", method = RequestMethod.GET)
-	public ModelAndView nurseHome(){
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByUsername(auth.getName());
-		modelAndView.addObject("userName", "Welcome " + user.getName());
-		modelAndView.addObject("nurseMessage","Content Available Only for Users with Nurse Role");
-		modelAndView.setViewName("/nurse/home");
-		return modelAndView;
 	}*/
+	
+	
 
 }
