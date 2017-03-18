@@ -1,5 +1,5 @@
 var app = angular.module('myApp', [ 'ngRoute', 'ngResource',
-		'angularUtils.directives.dirPagination', 'ngMaterial' ]);
+		'angularUtils.directives.dirPagination','ngMaterial' ]);
 app.config(function($routeProvider) {
 	$routeProvider.when('/patient', {
 		templateUrl : '/views/patient.html',
@@ -27,7 +27,7 @@ app.config(function($routeProvider) {
 		templateUrl : '/views/userProfile.html',
 		controller : "userController"
 	})*/
-	.when('/treatmentdetail', {
+	.when('/treatmentdetail/:treatmentId', {
 		templateUrl : '/views/treatmentdetail.html',
 		controller : "treatmentDetailController"
 	});

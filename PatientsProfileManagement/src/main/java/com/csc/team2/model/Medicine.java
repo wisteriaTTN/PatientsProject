@@ -76,6 +76,11 @@ public class Medicine implements Serializable {
     @ManyToOne(optional = false)
     //@JsonManagedReference
     private TypeOfMedicine typeId;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "medicineId")
+    @JsonBackReference
+    private List<Allergic> allergicList;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "medicineId")
     @JsonBackReference
     private List<TreatmentDetail> treatmentDetailList;
