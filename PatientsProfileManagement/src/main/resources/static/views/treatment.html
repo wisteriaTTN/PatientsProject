@@ -170,9 +170,10 @@
 								</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input id="doctor-name" class="form-control col-md-7 col-xs-12"
-										type="text" name="doctor-name" value={{doctor.name}}
+										type="text" name="doctor-name"  value={{doctor.name}}
 										ng-model="doctor.name">
 								</div>
+								<span th:text="${userName}" th:remove="tag"></span> 
 							</div>
 							<div class="form-group">
 								<label class="control-label col-md-3 col-sm-3 col-xs-12">Diagnotics</label>
@@ -182,68 +183,45 @@
 										ng-model="treatment.prescription">
 								</div>
 							</div>
+
+							<!-- SEARCH MEDICINE FOR PRESCRIPTION -->
 							<div class="form-group">
 								<label class="control-label col-md-3 col-sm-3 col-xs-12">Search
 									for medicine</label>
-								<div class="col-md-6 col-sm-6 col-xs-12" ng-cloak="" layout="column" ng-click="medicineCon()">
+								<div ng-controller="contactlistController as ctrl"
+									layout="column" ng-cloak>
+
 									<md-content class="md-padding autocomplete" layout="column">
 									<md-contact-chips ng-model="ctrl.contacts"
 										md-contacts="ctrl.querySearch($query)" md-contact-name="name"
-										md-contact-image="image" md-contact-email="email"
 										md-require-match="true" md-highlight-flags="i"
-										filter-selected="ctrl.filterSelected" placeholder="To">
-									</md-contact-chips> <md-list class="fixedRows"> <md-subheader
-										class="md-no-sticky">Contacts</md-subheader> <md-list-item
-										class="md-2-line contact-item"
-										ng-repeat="(index, contact) in ctrl.allContacts"
-										ng-if="ctrl.contacts.indexOf(contact) < 0"> <img
-										ng-src="{{contact.image}}" class="md-avatar"
-										alt="{{contact.name}}" />
-									<div class="md-list-item-text compact">
-										<h3>{{contact.name}}</h3>
-										<p>{{contact.email}}</p>
-									</div>
-									</md-list-item> <md-list-item class="md-2-line contact-item selected"
-										ng-repeat="(index, contact) in ctrl.contacts">
-									<img ng-src="{{contact.image}}" class="md-avatar"
-										alt="{{contact.name}}" />
-									<div class="md-list-item-text compact">
-										<h3>{{contact.name}}</h3>
-										<p>{{contact.email}}</p>
-									</div>
-									</md-list-item> </md-list> </md-content>
+										filter-selected="ctrl.filterSelected" placeholder="Enter name medicne">
+									</md-contact-chips> </md-content>
+
 								</div>
 							</div>
-							<div class="form-group">
-								<label for="selectMedi"
-									class="control-label col-md-3 col-sm3 col-xs-12">Selected
-									Medicines</label>
-								<div class="col-md-6 col-sm-6 col-xs-12" id="starters">
-									<input id="diagnotics" class="form-control col-md-7 col-xs-12"
-										type="text" name="selectMedi">
-								</div>
-							</div>
+
+							<!--END SEARCH MEDICINE FOR PRESCRIPTION -->
+							<!-- SEARCH MEDICINE FOR PRESCRIPTION -->
 
 							<div class="form-group">
 								<label for="allergic"
 									class="control-label col-md-3 col-sm-3 col-xs-12">Allergic
 
 								</label>
-								<div class="col-md-6 col-sm-6 col-xs-12">
-									<input id="doctor-name" class="form-control col-md-7 col-xs-12"
-										type="text" name="allergic">
-								</div>
-							</div>
+								<div ng-controller="contactlistController as ctrl"
+									layout="column" ng-cloak>
+									<md-content class="md-padding autocomplete" layout="column">
+									<md-contact-chips ng-model="ctrl.contacts"
+										md-contacts="ctrl.querySearch($query)" md-contact-name="name"
+										md-require-match="true" md-highlight-flags="i"
+										filter-selected="ctrl.filterSelected" placeholder="Enter name medicne">
+									</md-contact-chips> </md-content>
 
-							<div class="form-group">
-								<label for="selectAller"
-									class="control-label col-md-3 col-sm-3 col-xs-12">Selected
-									allergic </label>
-								<div class="col-md-6 col-sm-6 col-xs-12">
-									<input id="doctor-name" class="form-control col-md-7 col-xs-12"
-										type="text" name="selectAller">
 								</div>
 							</div>
+							
+							<!--END SEARCH MEDICINE FOR PRESCRIPTION -->
 							<div class="form-group">
 								<label for="selectAller"
 									class="control-label col-md-3 col-sm-3 col-xs-12">File
@@ -284,8 +262,7 @@
 						<input type="text" placeholder="Search here..." ng-model="search"
 							class="form-control" required>
 					</form>
-					<div class="x_content">
-
+					<div>
 						<div class="table-responsive">
 							<table class="table table-striped jambo_table bulk_action">
 								<thead>
@@ -313,9 +290,8 @@
 												class="btn btn-primary" data-toggle="modal"
 												data-target="#MedicineModal">
 												<span><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
-											</button>
-											</td>
-										<td><a href="#/treatment/{{treatment.id}}">Detail</a></td>
+											</button></td>
+										<td><a href="#/treatmentdetail/{{treatment.id}}">Detail</a></td>
 									</tr>
 
 
