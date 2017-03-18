@@ -1,0 +1,25 @@
+<div style="height: 250px"></div>
+<div ng-controller="contactlistController as ctrl" layout="column"
+	ng-cloak>
+	<md-content class="md-padding autocomplete" layout="column">
+	dfghjklghj 
+	<md-contact-chips ng-model="ctrl.contacts"
+		md-contacts="ctrl.querySearch($query)"
+		 md-contact-name="name"
+		md-require-match="true" 
+		md-highlight-flags="i"
+		filter-selected="ctrl.filterSelected" placeholder="To">
+	</md-contact-chips> 
+	</md-content>
+
+</div>
+
+<div ng-controller="contactlistController as ctrl" layout="column" class="chipsdemoContactChips" ng-app="MyApp">
+
+  <md-content class="md-padding autocomplete" layout="column">
+    <md-contact-chips ng-model="ctrl.contacts" md-highlight-flags="i" md-contacts="ctrl.querySearch($query)"md-contact-name="name" md-require-match="true" filter-selected="ctrl.filterSelected" placeholder="To">
+    </md-contact-chips>
+  <div ng-repeat="c in ctrl.contacts">{{c.name}}</div>
+  <div>{{ctrl.contacts}}</div>
+  </md-content>
+</div>
