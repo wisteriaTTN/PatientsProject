@@ -41,11 +41,12 @@ public class Allergic implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "medicine_id")
-    private int medicineId;
-    @JoinColumn(name = "patient_id", referencedColumnName = "id")
+
+    @JoinColumn(name = "medicine_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Medicine medicineId;
+
+	@JoinColumn(name = "patient_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Patient patientId;
 
@@ -56,7 +57,7 @@ public class Allergic implements Serializable {
         this.id = id;
     }
 
-    public Allergic(Integer id, int medicineId) {
+    public Allergic(Integer id, Medicine medicineId) {
         this.id = id;
         this.medicineId = medicineId;
     }
@@ -68,15 +69,6 @@ public class Allergic implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public int getMedicineId() {
-        return medicineId;
-    }
-
-    public void setMedicineId(int medicineId) {
-        this.medicineId = medicineId;
-    }
-
     public Patient getPatientId() {
         return patientId;
     }
@@ -84,6 +76,15 @@ public class Allergic implements Serializable {
     public void setPatientId(Patient patientId) {
         this.patientId = patientId;
     }
+    
+    public Medicine getMedicineId() {
+		return medicineId;
+	}
+
+	public void setMedicineId(Medicine medicineId) {
+		this.medicineId = medicineId;
+	}
+
 
     @Override
     public int hashCode() {
