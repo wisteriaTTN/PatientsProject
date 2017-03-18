@@ -96,7 +96,8 @@ app.controller('medicineController', function(
 	var deleteMedicineError = function(error) {
 	};
 	
-/////------------get All Type Medicine
+	
+/////============get All Type Medicine===============
 	$scope.getTypeMedicine = function(data){
 		typeMedicineService.getTypeMedicine().then(getSuccess,getError);
 	};
