@@ -20,12 +20,14 @@
 	border: none;
 }
 </style>
+
+
 <div style="margin-top: 80px" id="wrapper">
 	<div style="margin-top: 100px"></div>
 	<div>
 		<div id="page-wrapper">
-			<!-- UPDATE MEDICINE -->
-			<form>
+			<!-- UPDATE USER -->
+			<form id="myform">
 				<div class="modal fade" id="UserModal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel">
 					<div class="modal-dialog" role="document">
@@ -73,8 +75,22 @@
 									<label class="control-label col-md-3 col-sm-3 col-xs-12"
 										for="sex">Gender<span class="required">*</span></label>
 									<div class="col-md-6 col-sm-6 col-xs-12">
-										<input ng-model="curentUser.sex" type="text" id="dosage"
-											name="sex" required="required"
+										<div id="gender" class="btn-group" data-toggle="buttons">
+											<label> <input type="radio" ng-model="curentUser.sex"
+												value="Male"> Male
+											</label> <label> <input type="radio" ng-model="curentUser.sex"
+												value="Female"> Female
+											</label>
+										</div>
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<label class="control-label col-md-3 col-sm-3 col-xs-12"
+										for="password">Password<span class="required">*</span></label>
+									<div class="col-md-6 col-sm-6 col-xs-12">
+										<input ng-model="curentUser.password" type="password"
+											id="dosage" name="password" required="required"
 											class="form-control col-md-7 col-xs-12">
 									</div>
 								</div>
@@ -94,19 +110,52 @@
 			<!-- end popup form -->
 
 			<!-- ADMIN LIST TABLE -->
+			<h3>ADMIN LIST</h3>
+			<div class="col-md-8 col-sm-8 col-xs-12 none-padding">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button type="submit" class="btn btn-danger">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</button>
+						
+					</div>
+					<input ng-model="search" class="form-control" type="text"
+						placeholder="Search here...">
+				</div>
+			</div>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Active</th>
-						<th>Role</th>
-						<th>Address</th>
-						<th>Specialist</th>
-						<th>Sex</th>
+						<th ng-click="sort('name')">Name <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('active')">Active <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('role')">Role <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('address')">Address <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('specialist')">Specialist <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('sex')">Sex <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th class="column-title no-link last"><span class="nobr">Action</span></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="admin in usersAdmin">
+					<tr
+						dir-paginate="admin in usersAdmin|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
 						<td><a ng-href="#"></a>{{admin.name |uppercase}}</td>
 						<td>{{admin.active}}</td>
 						<td>{{admin.rolesList["0"].roles}}</td>
@@ -120,27 +169,62 @@
 								data-target="#UserModal">
 								<span><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
 							</button>
-							<button ng-click="deleteUser(admin.id)"
-								data-toggle="tooltip" title="Delete Medicine!"
+							<button ng-click="deleteUser(admin.id)" data-toggle="tooltip"
+								title="Delete Medicine!"
 								class="glyphicon glyphicon-trash btn btn-danger"></button>
 						</td>
 					</tr>
 				</tbody>
 			</table>
+			<dir-pagination-controls max-size="5" direction-links="true"
+				boundary-links="true"> </dir-pagination-controls>
+
 			<!-- DOCTOR LIST TABLE -->
+			<h3>DOCTOR LIST</h3>
+			<div class="col-md-8 col-sm-8 col-xs-12 none-padding">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button type="submit" class="btn btn-danger">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</button>
+					</div>
+					<input ng-model="search" class="form-control" type="text"
+						placeholder="Search here...">
+				</div>
+			</div>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Active</th>
-						<th>Role</th>
-						<th>Address</th>
-						<th>Specialist</th>
-						<th>Sex</th>
+						<th ng-click="sort('name')">Name <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('active')">Active <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('role')">Role <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('address')">Address <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('specialist')">Specialist <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('sex')">Sex <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th class="column-title no-link last"><span class="nobr">Action</span></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="doctor in usersDoctor">
+					<tr
+						dir-paginate="doctor in usersDoctor|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
 						<td><a ng-href="#/user/{{user.username}}"></a>{{doctor.name |
 							uppercase}}</td>
 						<td>{{doctor.active}}</td>
@@ -155,28 +239,62 @@
 								data-target="#UserModal">
 								<span><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
 							</button>
-							<button ng-click="deleteUser(doctor.id)"
-								data-toggle="tooltip" title="Delete Medicine!"
+							<button ng-click="deleteUser(doctor.id)" data-toggle="tooltip"
+								title="Delete Medicine!"
 								class="glyphicon glyphicon-trash btn btn-danger"></button>
 						</td>
 					</tr>
 				</tbody>
 			</table>
+			<dir-pagination-controls max-size="5" direction-links="true"
+				boundary-links="true"> </dir-pagination-controls>
 
 			<!-- NURSE LIST TABLE -->
+			<h3>NURSE LIST</h3>
+			<div class="col-md-8 col-sm-8 col-xs-12 none-padding">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button type="submit" class="btn btn-danger">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</button>
+					</div>
+					<input ng-model="search" class="form-control" type="text"
+						placeholder="Search here...">
+				</div>
+			</div>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Active</th>
-						<th>Role</th>
-						<th>Address</th>
-						<th>Specialist</th>
-						<th>Sex</th>
+						<th ng-click="sort('name')">Name <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('active')">Active <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('role')">Role <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('address')">Address <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('specialist')">Specialist <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th ng-click="sort('sex')">Sex <span
+							class="glyphicon pull-right" aria-hidden="true"
+							ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+						</th>
+						<th class="column-title no-link last"><span class="nobr">Action</span></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="nurse in usersNurse">
+					<tr
+						dir-paginate="nurse in usersNurse|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
 						<td><a ng-href="#/user/{{user.username}}"></a>{{nurse.name |
 							uppercase}}</td>
 						<td>{{nurse.active}}</td>
@@ -191,13 +309,16 @@
 								data-target="#UserModal">
 								<span><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
 							</button>
-							<button ng-click="deleteUser(nurse.id)"
-								data-toggle="tooltip" title="Delete Medicine!"
+							<button ng-click="deleteUser(nurse.id)" data-toggle="tooltip"
+								title="Delete Medicine!"
 								class="glyphicon glyphicon-trash btn btn-danger"></button>
 						</td>
 					</tr>
 				</tbody>
 			</table>
+			<dir-pagination-controls max-size="5" direction-links="true"
+				boundary-links="true"> </dir-pagination-controls>
+
 		</div>
 	</div>
 </div>
