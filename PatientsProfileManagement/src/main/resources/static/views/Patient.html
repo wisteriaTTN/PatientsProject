@@ -1,88 +1,107 @@
-<div class="container">
-<!--table -->
-<div class="col-md-10 col-sm-10 col-xs-12">
-	<div class="x_panel">
-		<div class="x_title">
-			<h1 class="inline">List Patient</h1>
-			<button type="button" class="btn btn-success btn-create"
-				data-toggle="modal" data-target="#modalCreatePatient">
-				<span>Create Patient</span>
-			</button>
-		</div>
-		
-		<!-- Search -->
-		<div class="row">
-			<form class="form-wrapper cf">
-				<button type="submit" class="inline">
-					<i class="fa fa-search" aria-hidden="true"></i>
-				</button>
-				<input ng-model="search" class="inline" type="text"
-					placeholder="Search here..." required>
-			</form>
-		</div>
-				
-		<div class="x_content">
-			
-		<!-- LIST PATIENT -->
-			<div class="table-responsive">
-				<table class="table table-striped jambo_table bulk_action">
-					<thead>
-						<tr class="headings">
-						
-							<th class="column-title" ng-click="sort('name')">Name
-							 <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-							</th>
-							<th class="column-title" ng-click="sort('address')">Address
-							<span class="glyphicon sort-icon" ng-show="sortKey=='address'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-							</th>
-							<th class="column-title" ng-click="sort('sex')">Gender
-							<span class="glyphicon sort-icon" ng-show="sortKey=='sex'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-							</th>
-							<th class="column-title" ng-click="sort('dob')">DOB
-							<span class="glyphicon sort-icon" ng-show="sortKey=='dob'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-							</th>
-							<th class="column-title no-link last"><span class="nobr">Action</span>
-							</th>
+ <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Patient Management
+        <small>Control panel</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Patient</li>
+      </ol>
+    </section>
 
-						</tr>
-					</thead>
-
-					<tbody>
-						<tr dir-paginate="patient in patients|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
-						<td>
-							<a href="#/patient/{{patient.id}}"> {{patient.name | uppercase}} </a>
-						</td>
-							<td>{{patient.address}}</td>
-							<td>{{patient.sex }}</td>
-							<td>{{patient.dob}}</td>
-							<td>
-								<button type="button" ng-click="getOne(patient.id)" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdatePatient">
-							  <span><i class="fa fa-wrench" aria-hidden="true"></i></span>
-							</button>
-								
-								<button ng-click="deletePatient(patient.id)"
-									data-toggle="tooltip" title="Delete Patient!"
-									class="glyphicon glyphicon-trash btn btn-danger"></button>
-
-							</td>
-						</tr>
-
-					</tbody>
-				</table>
-				
-				<dir-pagination-controls
-			       max-size="5"
-			       direction-links="true"
-			       boundary-links="true" >
-			    </dir-pagination-controls>
-    
+<!-- Main content -->
+    <section class="content">
+    	<div class="x_panel">
+			<div class="x_title">
+				<h1>List Patient</h1>
 			</div>
-
-
-		</div>
+			
+			<!-- Search -->
+			<div class="col-md-12 col-sm-12 col-xs-12 none-padding" >
+				<div class="col-md-8 col-sm-8 col-xs-12 none-padding">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="submit" class="btn btn-danger">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</button>
+						</div>
+						<input ng-model="search" class="form-control" type="text" placeholder="Search here...">
+					</div>
+				</div>
+					
+				<div class="col-md-3 col-sm-3 col-xs-12 pull-right">
+					<button type="button" class="btn btn-block btn-success"
+						data-toggle="modal" data-target="#modalCreatePatient">
+						<span>Create Patient</span>
+					</button>
+				</div>
+			</div>
+	
+			<div class="x_content">
+				
+			<!-- LIST PATIENT -->
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr role"row">
+								<th  ng-click="sort('name')">Name
+								 <span class="glyphicon pull-right" aria-hidden="true" ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+								</th>
+								<th  ng-click="sort('address')">Address
+								<span class="glyphicon pull-right"  aria-hidden="true" ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+								</th>
+								<th ng-click="sort('sex')">Gender
+								<span class="glyphicon pull-right" aria-hidden="true" ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+								</th>
+								<th ng-click="sort('dob')">DOB
+								<span class="glyphicon pull-right" aria-hidden="true" ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
+								</th>
+								<th class="column-title no-link last"><span class="nobr">Action</span>
+								</th>
+							</tr>
+						</thead>
+	
+						<tbody>
+							<tr dir-paginate="patient in patients|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
+							<td>
+								<a href="#/patient/{{patient.id}}"> {{patient.name | uppercase}} </a>
+							</td>
+								<td>{{patient.address}}</td>
+								<td>{{patient.sex }}</td>
+								<td>{{patient.dob}}</td>
+								<td>
+									<button type="button" ng-click="getOne(patient.id)" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdatePatient">
+								  <span><i class="fa fa-wrench" aria-hidden="true"></i></span>
+								</button>
+									
+									<button ng-click="deletePatient(patient.id)"
+										data-toggle="tooltip" title="Delete Patient!"
+										class="glyphicon glyphicon-trash btn btn-danger"></button>
+	
+								</td>
+							</tr>
+	
+						</tbody>
+					</table>
+					
+					<dir-pagination-controls
+				       max-size="5"
+				       direction-links="true"
+				       boundary-links="true" >
+				    </dir-pagination-controls>
+	    
+				</div>
+	
+	
+			</div>
+		
 	</div>
-</div>
-<!--end table-->
+	<!--end table-->
+    </section>
+	
+	
+	
 <!-- UPDATE PATIENT -->
 
 	<!-- Modal -->
@@ -213,8 +232,6 @@
 								<span><i class="glyphicon glyphicon-floppy-save" aria-hidden="true"></i></span>
 								Submit
 							</button>
-							
-							
 						</div>
 					</div>
 				</form>
