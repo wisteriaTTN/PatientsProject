@@ -1,0 +1,203 @@
+<style>
+.well {
+	background: none;
+	height: 210px;
+}
+
+.table-scroll tbody {
+	position: absolute;
+	overflow-y: scroll;
+	height: 150px;
+}
+
+.table-scroll tr {
+	width: 100%;
+	table-layout: fixed;
+	display: inline-table;
+}
+
+.table-scroll thead>tr>th {
+	border: none;
+}
+</style>
+<div style="margin-top: 80px" id="wrapper">
+	<div style="margin-top: 100px"></div>
+	<div>
+		<div id="page-wrapper">
+			<!-- UPDATE MEDICINE -->
+			<form>
+				<div class="modal fade" id="UserModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title" id="myModalLabel">Update User</h4>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label class="control-label col-md-3 col-sm-3 col-xs-12"
+										for="user-name">Name <span class="required">*</span>
+									</label>
+									<div class="col-md-6 col-sm-6 col-xs-12">
+										<input ng-model="curentUser.name" type="text" id="user-name"
+											required="required" class="form-control col-md-7 col-xs-12">
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<label class="control-label col-md-3 col-sm-3 col-xs-12"
+										for="specialist">Specialist<span class="required">*</span>
+									</label>
+									<div class="col-md-6 col-sm-6 col-xs-12">
+										<input ng-model="curentUser.specialist" type="text"
+											id="specialist" name="specialist" required="required"
+											class="form-control col-md-7 col-xs-12">
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<label class="control-label col-md-3 col-sm-3 col-xs-12"
+										for="address">Address<span class="required">*</span></label>
+									<div class="col-md-6 col-sm-6 col-xs-12">
+										<input ng-model="curentUser.address" type="text" id="address"
+											name="address" required="required"
+											class="form-control col-md-7 col-xs-12">
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<label class="control-label col-md-3 col-sm-3 col-xs-12"
+										for="sex">Gender<span class="required">*</span></label>
+									<div class="col-md-6 col-sm-6 col-xs-12">
+										<input ng-model="curentUser.sex" type="text" id="dosage"
+											name="sex" required="required"
+											class="form-control col-md-7 col-xs-12">
+									</div>
+								</div>
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+								<button type="button"
+									ng-click="updateUser(curentUser.id,curentUser )"
+									class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<!-- end popup form -->
+
+			<!-- ADMIN LIST TABLE -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Active</th>
+						<th>Role</th>
+						<th>Address</th>
+						<th>Specialist</th>
+						<th>Sex</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="admin in usersAdmin">
+						<td><a ng-href="#"></a>{{admin.name |uppercase}}</td>
+						<td>{{admin.active}}</td>
+						<td>{{admin.rolesList["0"].roles}}</td>
+						<td>{{admin.address}}</td>
+						<td>{{admin.specialist}}</td>
+						<td>{{admin.sex }}</td>
+
+						<td>
+							<button type="button" ng-click="getOneUser(admin.id)"
+								class="btn btn-primary" data-toggle="modal"
+								data-target="#UserModal">
+								<span><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
+							</button>
+							<button ng-click="deleteUser(admin.id)"
+								data-toggle="tooltip" title="Delete Medicine!"
+								class="glyphicon glyphicon-trash btn btn-danger"></button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- DOCTOR LIST TABLE -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Active</th>
+						<th>Role</th>
+						<th>Address</th>
+						<th>Specialist</th>
+						<th>Sex</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="doctor in usersDoctor">
+						<td><a ng-href="#/user/{{user.username}}"></a>{{doctor.name |
+							uppercase}}</td>
+						<td>{{doctor.active}}</td>
+						<td>{{doctor.rolesList["0"].roles}}</td>
+						<td>{{doctor.address}}</td>
+						<td>{{doctor.specialist}}</td>
+						<td>{{doctor.sex }}</td>
+
+						<td>
+							<button type="button" ng-click="getOneUser(doctor.id)"
+								class="btn btn-primary" data-toggle="modal"
+								data-target="#UserModal">
+								<span><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
+							</button>
+							<button ng-click="deleteUser(doctor.id)"
+								data-toggle="tooltip" title="Delete Medicine!"
+								class="glyphicon glyphicon-trash btn btn-danger"></button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- NURSE LIST TABLE -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Active</th>
+						<th>Role</th>
+						<th>Address</th>
+						<th>Specialist</th>
+						<th>Sex</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="nurse in usersNurse">
+						<td><a ng-href="#/user/{{user.username}}"></a>{{nurse.name |
+							uppercase}}</td>
+						<td>{{nurse.active}}</td>
+						<td>{{nurse.rolesList["0"].roles}}</td>
+						<td>{{nurse.address}}</td>
+						<td>{{nurse.specialist}}</td>
+						<td>{{nurse.sex }}</td>
+
+						<td>
+							<button type="button" ng-click="getOneUser(nurse.id)"
+								class="btn btn-primary" data-toggle="modal"
+								data-target="#UserModal">
+								<span><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
+							</button>
+							<button ng-click="deleteUser(nurse.id)"
+								data-toggle="tooltip" title="Delete Medicine!"
+								class="glyphicon glyphicon-trash btn btn-danger"></button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

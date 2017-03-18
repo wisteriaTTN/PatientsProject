@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.csc.team2.model.Medicine;
+import com.csc.team2.model.Roles;
 import com.csc.team2.model.User;
 import com.csc.team2.service.UserServiceImpl;
 
@@ -34,7 +37,17 @@ public class UserController {
 		}
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
+
+	//--------------------Select All User by Role-----------------------------------------
 	
+		@RequestMapping(value="/userbyrole/{id}", method = RequestMethod.GET)
+		public ResponseEntity<List<User>> listUserByRole(@PathVariable("id") int id){
+			List<User> users = userService.findUserByRoleId(id);
+			if(users.isEmpty()){
+				return new ResponseEntity(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+		}
 	//--------------------Select One User-----------------------------------------
 	
 	@RequestMapping(value="/user/{id}", method = RequestMethod.GET)
@@ -48,7 +61,7 @@ public class UserController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
-	//------------------Update User Admin-----------------------------------------------
+	//------------------Update User-----------------------------------------------
 	
 		@RequestMapping(value="/user/{id}", method = RequestMethod.PUT)
 		public ResponseEntity<?> updateUser(@PathVariable("id") int id,@RequestBody User user){
@@ -59,11 +72,14 @@ public class UserController {
 				logger.info("unable to update user with id {}, not found", id);
 			}
 			currentUser.setName(user.getName());
-			currentUser.setPassword(user.getPassword());
+			currentUser.setUsername(user.getUsername());
 			currentUser.setSpecialist(user.getSpecialist());
 			currentUser.setSex(user.getSex());
 			currentUser.setAddress(user.getAddress());
-			userService.saveAdmin(currentUser);
+			currentUser.setPassword(user.getPassword());
+			currentUser.setRolesList(user.getRolesList());
+			currentUser.setActive(user.getActive());
+			userService.saveUser(currentUser);
 			return new ResponseEntity<User>(currentUser,HttpStatus.OK);
 		}
 		
@@ -88,4 +104,17 @@ public class UserController {
 	        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 
 		}
+		
+//		////=================Get username by auth=================================
+//		@RequestMapping(value="/userbyauth", method = RequestMethod.GET)
+//		public ResponseEntity<?> getUserByAuth(){
+//			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//			String a = auth.getName();
+//			User user = userService.findUserByUsername(auth.getName());
+////			if(user==null){
+////				 logger.error("Patient with id {} not found.", id);
+////				 return new ResponseEntity(HttpStatus.NOT_FOUND);
+////			}
+//			return new ResponseEntity<User>(user, HttpStatus.OK);
+//		}
 }

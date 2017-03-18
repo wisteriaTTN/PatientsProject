@@ -13,118 +13,135 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/app.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/content.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/_all-skins.min.css}" />
+	
 	
 	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 	<script type="text/javascript" th:src="@{/js/wow.min.js}"></script>
 	<script type="text/javascript" th:src="@{/js/handle.js}"></script>
+	<script>
+	  $.widget.bridge('uibutton', $.ui.button);
+	</script>
 
 </head>
 
-<body>
-	
-	<div id="wrapper">
+<body class="hold-transition skin-green sidebar-mini">
+    <div class="wrapper">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b><i class="fa fa-stethoscope" aria-hidden="true"></i></b> CSC Clinic</span>
+            </a>
+            
+			
+			<!-- Sidebar right -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-               <a class="navbar-brand logo" href="index.html">
- 					<span><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
- 					HealthCare
-			</a>
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-               
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span th:text="${userName}" th:remove="tag"></span> <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                </a>
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Tasks: style can be found in dropdown.less -->
+                        <li class="dropdown tasks-menu">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i> <span th:text="${userName}" th:remove="tag"></span> <b class="caret"></b>
+                                <!--<span class="label label-danger">9</span> -->
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header"><i class="fa fa-fw fa-user"></i> Profile</li>
+
+                                <li >
+                                    <form th:action="@{/logout}" method="get" >
+										<button class="astext" name="logout" type="submit"> 
+											<span><i class="fa fa-fw fa-power-off"></i></span>
+											Logout
+										</button>
+									</form>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="divider"></li>
-                        <li>
-							<form th:action="@{/logout}" method="get" style="padding-left:10px;" >
-								<button class="astext" name="logout" type="submit"> 
-									<span><i class="fa fa-fw fa-power-off"></i></span>
-									Logout
-								</button>
-							</form>
-                        </li>
+
                     </ul>
-                </li>
-            </ul>
-              
-          <!-- Sidebar Menu -->
-           
-		<div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#/patient"><i class="fa fa-fw fa-table"></i> Patient</a>
-                    </li>
-                    <li>
-                        <a href="#/medicine"><i class="fa fa-fw fa-table"></i> Medicine</a>
-                    </li>
-					<li>
-                        <a href="#/treatment"><i class="fa fa-fw fa-table"></i> Treatment</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> User <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#/doctor">Doctor</a>
-                            </li>
-                            <li>
-                                <a href="#/Nurse">Nurse</a>
-                            </li>
-							<li>
-								<a th:href="@{/admin/DoctorRegistration}">Register Doctor</a>
-							</li>
-							 <li>
-								<a th:href="@{/admin/NurseRegistration}">Register Nurse</a>
-							</li>
-							<li>
-								<a href="#/user">User Admin</a>
-							</li>
-							<li>
-								<a href="#/">User Doctor</a>
-							</li>
-							<li>
-								<a href="#/">User Nurse</a>
-							</li>
-						</ul>
+                </div>
+            </nav> <!-- End sidebar -->
+        </header>
+		
+		
+        <!-- Left sidebar -->
+        <aside class="main-sidebar">
+            <section class="sidebar">
+
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+						<img th:src="@{/images/user.png}" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p><span th:text="${userName}" th:remove="tag"></span></p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="header">MAIN NAVIGATION</li>
+					<li class="active"><a href="#/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+					<li><a href="#/patient"><i class="fa fa-wheelchair"></i> <span>Patient</span></a></li>
+					<li><a href="#/medicine"><i class="fa fa-plus"></i> <span>Medicine</span></a></li>
+					<li><a href="#/treatment"><i class="fa fa-table"></i> <span>Treatment</span></a></li>
+					<li><a href="#/test"><i class="fa fa-table"></i> <span>Test</span></a></li>
+					
+					
+					<!-- Add link menu -->
+					<!-- Dropdown menu -->
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-user"></i> <span>User</span>
+                            <span class="pull-right-container">
+							  <i class="fa fa-angle-left pull-right"></i>
+							</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href="#/doctor"><i class="fa fa-circle-o text-yellow"></i> Doctor</a></li>
+                            <li><a href="#/nurse"><i class="fa fa-circle-o text-yellow"></i> Nurse</a></li>
+							<li><a href="#/user"><i class="fa fa-circle-o text-yellow"></i> Admin</a></li>
+							<li><a th:href="@{/admin/DoctorRegistration}"><i class="fa fa-circle-o text-yellow"></i> Register Doctor</a></li>
+							<li><a th:href="@{/admin/NurseRegistration}"><i class="fa fa-circle-o text-yellow"></i> Register Nurse</a></li>
+                        </ul>
                     </li>
                     
+                    
+                    
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
+            </section>
+            <!-- / left sidebar -->
+        </aside>
 
-    
-        <div id="page-wrapper">
-
-            <div class="container-fluid">
-                 <div ng-view></div>
-            </div>
-            <!-- /.container-fluid -->
-
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <div ng-view></div>
         </div>
-        <!-- /#page-wrapper -->
+        
+        
+        <!-- /Footer -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; March - 2017 -------<a >CSC Fresher</a>-------</strong>
+        </footer>
 
+
+        <!-- Add the sidebar's background. This div must be placed 
+        immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
     </div>
-    <!-- /#wrapper -->
-    
-    
+<!-- ./wrapper -->
     
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular.js}"></script>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-resource.js}"></script>
@@ -144,8 +161,15 @@
 		<script type="text/javascript" th:src=@{/js/controller/MedicineController.js}></script>
 		<script type="text/javascript" th:src=@{/js/controller/UserController.js}></script>
 		<script type="text/javascript" th:src=@{/js/controller/TreatmentController.js}></script>
-		
+		<script type="text/javascript" th:src=@{/js/controller/TestContactListController.js}></script>
 		<script type="text/javascript " th:src=@{/js/controller/TreatmentDetailController.js}></script>	
+		
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
 		
 	
 </body>
