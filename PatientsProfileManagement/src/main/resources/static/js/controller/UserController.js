@@ -39,6 +39,15 @@ app.controller('userController', function($scope, $interval, $location, userServ
 			address: "",
 			sex: "",
 		};
+	
+	$scope.usersAdmin = [];
+	$scope.usersDoctor = [];
+	$scope.usersNurse = [];
+	
+	$scope.sort = function(keyname){
+		$scope.sortKey = keyname;
+		$scope.reverse = !$scope.reverse;
+	}
 
 	$http.get("http://localhost:8080/userbyrole/1").then(function(response) {
 		$scope.usersAdmin = response.data;
