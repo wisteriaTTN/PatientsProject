@@ -165,13 +165,13 @@ public class LoginController {
 		}
 		return modelAndView;
 	}
-	
-	@RequestMapping(value = "/username", method = RequestMethod.GET)
-    @ResponseBody
-    public String currentUserName(Object principal) {
-		principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		return principal.toString();
-    }
+//	
+//	@RequestMapping(value = "/username", method = RequestMethod.GET)
+//    @ResponseBody
+//    public String currentUserName(Object principal) {
+//		principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		return principal.toString();
+//    }
 	
 	/*@RequestMapping(value="/admin/home", method = RequestMethod.GET)
 	public ModelAndView adminHome(){
