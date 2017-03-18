@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/app.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/content.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/_all-skins.min.css}" />
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/angular-1.4.9/angular-material.min.css}" />
 	
 	
 	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
@@ -22,12 +22,6 @@
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 	<script type="text/javascript" th:src="@{/js/wow.min.js}"></script>
 	<script type="text/javascript" th:src="@{/js/handle.js}"></script>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
 	<script>
 	  $.widget.bridge('uibutton', $.ui.button);
 	</script>
@@ -50,7 +44,7 @@
 			<!-- Sidebar right -->
             <nav class="navbar navbar-static-top">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <a class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
 
@@ -63,9 +57,7 @@
                                 <!--<span class="label label-danger">9</span> -->
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="header">
-                                <a href="/userProfile">
-                                <i class="fa fa-fw fa-user"></i> Profile</li>
+                                <li class="header"><i class="fa fa-fw fa-user"></i> Profile</li>
 
                                 <li >
                                     <form th:action="@{/logout}" method="get" >
@@ -113,7 +105,7 @@
 					<!-- Dropdown menu -->
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-user"></i> <span>User</span>
+                            <i class="fa fa-user"></i> <span>User Account</span>
                             <span class="pull-right-container">
 							  <i class="fa fa-angle-left pull-right"></i>
 							</span>
@@ -124,7 +116,8 @@
 							<li><a th:href="@{/admin/NurseRegistration}"><i class="fa fa-circle-o text-yellow"></i> Register Nurse</a></li>
                         </ul>
                     </li>
-
+                    
+                    
                     
                 </ul>
             </section>
@@ -152,6 +145,10 @@
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular.js}"></script>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-resource.js}"></script>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-route.js}"></script>
+		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-animate.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-aria.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-messages.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-material.min.js}"></script>
 		
 		<script type="text/javascript" th:src="@{/js/app.js}"></script>
 		<script type="text/javascript" th:src="@{/js/dirPagination.js}"></script>
@@ -169,7 +166,7 @@
 		<script type="text/javascript" th:src=@{/js/controller/TreatmentController.js}></script>
 		<script type="text/javascript" th:src=@{/js/controller/TestContactListController.js}></script>
 		<script type="text/javascript " th:src=@{/js/controller/TreatmentDetailController.js}></script>	
-		
+
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
@@ -177,8 +174,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
 		
-	
-      
+
 	
 </body>
 </html>
