@@ -21,7 +21,6 @@ import com.csc.team2.util.CustomErrorType;
 
  
 @RestController
-@RequestMapping("/api")
 public class TreatmentDtController {
  
     public static final Logger logger = LoggerFactory.getLogger(TreatmentDtController.class);
@@ -31,7 +30,7 @@ public class TreatmentDtController {
  
     // -------------------Retrieve All TreatmentDt---------------------------------------------
  
-    @RequestMapping(value = "/treatmentdt/", method = RequestMethod.GET)
+    @RequestMapping(value = "/treatmentdt", method = RequestMethod.GET)
     public ResponseEntity<List<TreatmentDetail>> listAllTreatmentDt() {
         List<TreatmentDetail> treatmentsdt = treatmentdtService.findAllTreatmentDt();
         if (treatmentsdt.isEmpty()) {
@@ -57,7 +56,7 @@ public class TreatmentDtController {
  
     // -------------------Create a TreatmentDt-------------------------------------------
  
-    @RequestMapping(value = "/treatmentdt/", method = RequestMethod.POST)
+    @RequestMapping(value = "/treatmentdt", method = RequestMethod.POST)
     public ResponseEntity<?> createTrearmentDt(@RequestBody TreatmentDetail treatmentdt, UriComponentsBuilder ucBuilder) {
         logger.info("Creating TreatmentDt : {}", treatmentdt);
  
@@ -115,7 +114,7 @@ public class TreatmentDtController {
  
     // ------------------- Delete All TreatmentDt-----------------------------
  
-    @RequestMapping(value = "/treatmentdt/", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/treatmentdt", method = RequestMethod.DELETE)
     public ResponseEntity<TreatmentDetail> deleteAllTreatmentDt() {
         logger.info("Deleting All TreatmentDt");
  

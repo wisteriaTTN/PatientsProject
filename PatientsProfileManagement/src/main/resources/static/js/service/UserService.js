@@ -49,6 +49,13 @@ app.factory('userService', function($http){
 			return response.data;
 		});
   }
+///---------------Get login user-----------------------------
+  var getLoginUser = function(){
+	  return $http.put("http://localhost:8080/userlogged")
+	  .then(function(response){
+			return response.data;
+		});
+  }
   return{
 	  getAdmin:getAdmin,
 	  getDoctor:getDoctor,
@@ -56,6 +63,7 @@ app.factory('userService', function($http){
 	  getOneUser:getOneUser,
 	  deleteUser:deleteUser,
 	  updateUser:updateUser,
+	  getLoginUser:getLoginUser,
   }
   	
 });

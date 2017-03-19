@@ -138,30 +138,33 @@
 					</div>
 					<div class="x_content">
 						<br />
-						<form id="demo-form2" data-parsley-validate
+						<form id="demo-form2" data-parsley-validate name="treatmentform"
 							class="form-horizontal form-label-left">
 
-							<div class="form-group">
+							<div flex layout="row" ng-cloak>
 								<label class="control-label col-md-3 col-sm-3 col-xs-12"
 									for="patient-name">Patient's name <span
 									class="required">*</span>
 								</label>
-								<div class="col-md-3 col-sm-3 col-xs-12">
-									<input type="text" id="id" required="required"
-										class="form-control col-md-7 col-xs-12" ng-model="id">
-								</div>
-								<div class="col-md-3 col-sm-3 col-xs-12">
-									<input type="text" id="name" required="required"
-										class="form-control col-md-7 col-xs-12" value={{patient.name}}>
+								<div class="col-md-6 col-sm-6 col-xs-12" >
+									<md-autocomplete required md-input-name="autocomplete"
+										md-selected-item="selectedPatient" md-search-text="searchText"
+										md-items="item in querySearchAC(searchText)"
+										md-item-text="item.name" md-min-length="0"
+										placeholder="Enter patient name"> 
+										<md-item-template>
+									<span class="item-title"> <span> {{item.name}} </span>
+									</span> <span class="item-metadata"> <span> address: <strong>{{item.address}}</strong>
+									</span> <span> dob: <strong>{{item.dob}}</strong>
+									</span>
+									</span> </md-item-template> <md-not-found> No match found. </md-not-found>
+									<div ng-messages="treatmentform.autocomplete.$error">
+										<div ng-message="required">This field is required</div>
+									</div>
+									</md-autocomplete>
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3">
-									<button class="btn btn-primary" type="button"
-										ng-click="getOnePatient(id)">Search Patient's ID</button>
-								</div>
-
-							</div>
+							<div>[]{{selectedPatient}}</div>
 
 							<div class="form-group">
 								<label for="doctor-name"
@@ -170,16 +173,16 @@
 								</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input id="doctor-name" class="form-control col-md-7 col-xs-12"
-										type="text" name="doctor-name"  value={{doctor.name}}
-										ng-model="doctor.name">
+										type="text" name="doctor-name" value={{doctor.name}}
+										ng-model="doctor.name" disabled="disabled">
 								</div>
-								<span th:text="${userName}" th:remove="tag"></span> 
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-3 col-sm-3 col-xs-12">Diagnotics</label>
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Diagnotics<span
+									class="required">*</span></label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input id="diagnotics" class="form-control col-md-7 col-xs-12"
-										type="text" name="diagnotics"
+										required type="text" name="diagnotics"
 										ng-model="treatment.prescription">
 								</div>
 							</div>
@@ -188,19 +191,19 @@
 							<div class="form-group">
 								<label class="control-label col-md-3 col-sm-3 col-xs-12">Search
 									for medicine</label>
-								<div ng-controller="contactlistController as ctrl"
-									layout="column" ng-cloak>
+								<div class="col-md-8 col-sm-4 col-xs-12" layout="column"
+									ng-cloak>
 
 									<md-content class="md-padding autocomplete" layout="column">
-									<md-contact-chips ng-model="ctrl.contacts"
-										md-contacts="ctrl.querySearch($query)" md-contact-name="name"
+									<md-contact-chips ng-model="medicines"
+										md-contacts="querySearch($query)" md-contact-name="name"
 										md-require-match="true" md-highlight-flags="i"
-										filter-selected="ctrl.filterSelected" placeholder="Enter name medicne">
-									</md-contact-chips> </md-content>
+										filter-selected="filterSelected"
+										placeholder="Enter name medicne"> </md-contact-chips> </md-content>
 
 								</div>
 							</div>
-
+							<div>{{medicines}}</div>
 							<!--END SEARCH MEDICINE FOR PRESCRIPTION -->
 							<!-- SEARCH MEDICINE FOR PRESCRIPTION -->
 
@@ -209,18 +212,18 @@
 									class="control-label col-md-3 col-sm-3 col-xs-12">Allergic
 
 								</label>
-								<div ng-controller="contactlistController as ctrl"
-									layout="column" ng-cloak>
+								<div class="col-md-8 col-sm-4 col-xs-12" layout="column"
+									ng-cloak>
 									<md-content class="md-padding autocomplete" layout="column">
-									<md-contact-chips ng-model="ctrl.contacts"
-										md-contacts="ctrl.querySearch($query)" md-contact-name="name"
+									<md-contact-chips ng-model="allergics"
+										md-contacts="querySearch($query)" md-contact-name="name"
 										md-require-match="true" md-highlight-flags="i"
-										filter-selected="ctrl.filterSelected" placeholder="Enter name medicne">
-									</md-contact-chips> </md-content>
+										filter-selected="filterSelected"
+										placeholder="Enter name medicne"> </md-contact-chips> </md-content>
 
 								</div>
 							</div>
-							
+							<div>{{allergics}}</div>
 							<!--END SEARCH MEDICINE FOR PRESCRIPTION -->
 							<div class="form-group">
 								<label for="selectAller"
