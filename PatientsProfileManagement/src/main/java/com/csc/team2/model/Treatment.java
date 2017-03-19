@@ -53,17 +53,17 @@ public class Treatment implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @NotNull
+    
     @Column(name = "date")
     @Temporal(TemporalType.DATE)
     private Date date;
     @Basic(optional = false)
-    @NotNull
+    
     @Size(min = 1, max = 100)
     @Column(name = "file")
     private String file;
     @Basic(optional = false)
-    @NotNull
+    
     @Size(min = 1, max = 100)
     @Column(name = "prescription")
     private String prescription;
@@ -75,8 +75,10 @@ public class Treatment implements Serializable {
   //@JsonManagedReference
     private Patient patientId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "treatmentId")
+    //@JsonIgnoreProperties("historyList")
     private List<History> historyList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "treatmentId")
+    //@JsonIgnoreProperties("treatmentDetailList")
     private List<TreatmentDetail> treatmentDetailList;
 
     public Treatment() {

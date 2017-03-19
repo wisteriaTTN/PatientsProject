@@ -1,21 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @ngxdiep
- Sign out
- Unwatch 3
-  Star 0
-  Fork 4 NamTranUIT/PatientsProject
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs
-Branch: master Find file Copy pathPatientsProject/PatientsProfileManagement/src/main/resources/static/views/patient.html
-25b2926  3 hours ago
-@wisteriaTTN wisteriaTTN patient,medicine
-1 contributor
-RawBlameHistory     
-237 lines (228 sloc)  11 KB
 <!-- Content Patient -->
 <section class="content-header">
    <h1>
@@ -174,7 +156,7 @@ RawBlameHistory
             <span><i class="fa fa-refresh" aria-hidden="true"></i></span>
             Clear
             </button>
-            <button type="submit" ng-click="createPatient()" class="btn btn-success btn-in-modal">
+            <button type="submit" ng-click="updatePatient(curentPatient.id,curentPatient)" class="btn btn-success btn-in-modal">
             <span><i class="glyphicon glyphicon-floppy-save" aria-hidden="true"></i></span>
             Submit
             </button>
@@ -253,5 +235,3 @@ RawBlameHistory
       </div>
    </div>
 </div>
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help

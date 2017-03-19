@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: PatientsProfile
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Tran Thien Nhu
+Built-By: DIEP
 Implementation-Vendor-Id: com.csc.team2
-Build-Jdk: 1.8.0_121
+Build-Jdk: 1.8.0_65
 Implementation-URL: http://projects.spring.io/spring-boot/PatientsProf
  ile/
 Created-By: Maven Integration for Eclipse
