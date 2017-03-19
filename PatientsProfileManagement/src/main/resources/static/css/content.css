@@ -138,3 +138,8 @@ table{
 	width:100%;
 	table-layout:fixed;
 }
+.ser-medicine{
+	padding-left: 0px;
+    padding-right: 0px;
+    margin: 30px 10px 20px;
+}

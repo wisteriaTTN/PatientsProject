@@ -140,11 +140,25 @@
       <div class="box-header">
          <h3 class="box-title">List Medicine</h3>
       </div>
+      
+      <!-- Search -->
+      <div class="col-md-12 col-sm-12 col-xs-12 ser-medicine" >
+         <div class="col-md-8 col-sm-8 col-xs-12 none-padding">
+            <div class="input-group">
+               <div class="input-group-btn">
+                  <button type="submit" class="btn btn-danger">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+               </div>
+               <input ng-model="search" class="form-control" type="text" placeholder="Search here...">
+            </div>
+         </div>
+      </div>
+      
       <!-- /.box-header -->
       <div class="box-body">
          <table class="table table-bordered table-striped">
             <thead>
-               <tr>
                <tr>
                   <th ng-click="sort('name')">Name
                      <span class="glyphicon pull-right"  ng-class="{'glyphicon-menu-up':reverse,'glyphicon-menu-down':!reverse}"></span>
@@ -185,6 +199,15 @@
                </tr>
             </tbody>
          </table>
+         
+         <div class="align">
+            <dir-pagination-controls
+               max-size="5"
+               direction-links="true"
+               boundary-links="true" >
+            </dir-pagination-controls>
+         </div>
+         
       </div>
       <!-- /.box-body -->
    </div>
