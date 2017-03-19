@@ -98,13 +98,13 @@
 					<li><a href="#/patient"><i class="fa fa-wheelchair"></i> <span>Patient</span></a></li>
 					<li><a href="#/medicine"><i class="fa fa-plus"></i> <span>Medicine</span></a></li>
 					<li><a href="#/treatment"><i class="fa fa-table"></i> <span>Treatment</span></a></li>
-					<li><a href="#/test"><i class="fa fa-table"></i> <span>Test</span></a></li>
+					
 					
 					
 					<!-- Add link menu -->
 					<!-- Dropdown menu -->
                     <li class="treeview">
-                        <a href="#">
+                        <a>
                             <i class="fa fa-user"></i> <span>User Account</span>
                             <span class="pull-right-container">
 							  <i class="fa fa-angle-left pull-right"></i>
@@ -158,6 +158,7 @@
 		<script type="text/javascript" th:src="@{/js/service/MedicineService.js}"></script>
 		<script type="text/javascript" th:src="@{/js/service/TypeMedicineService.js}"></script>
 		<script type="text/javascript" th:src="@{/js/service/TreatmentService.js}"></script>
+		<script type="text/javascript" th:src="@{/js/service/TreatmentDetailService.js}"></script>
 	
 		
 		<script type="text/javascript" th:src="@{/js/controller/Home.js}"></script>
@@ -165,17 +166,9 @@
 		<script type="text/javascript" th:src=@{/js/controller/MedicineController.js}></script>
 		<script type="text/javascript" th:src=@{/js/controller/UserController.js}></script>
 		<script type="text/javascript" th:src=@{/js/controller/TreatmentController.js}></script>
-		<script type="text/javascript" th:src=@{/js/controller/TestContactListController.js}></script>
-		<script type="text/javascript " th:src=@{/js/controller/TreatmentDetailController.js}></script>	
-
-		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
 		
-
+		<script type="text/javascript " th:src=@{/js/controller/TreatmentDetailController.js}></script>	
+		
 	
 </body>
 </html>

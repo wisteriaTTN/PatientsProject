@@ -17,7 +17,7 @@ app.factory('treatmentService', function($http){
 	 }
 	 
 	 var getAllTreatment = function(){
-		 return  $http.get("http://localhost:8080/treatment",treatment)
+		 return  $http.get("http://localhost:8080/treatment")
 		  .then(function(response){
 				return response.data;
 			});
