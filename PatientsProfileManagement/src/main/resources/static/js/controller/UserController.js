@@ -1,5 +1,15 @@
-var app = angular.module('myApp');
-
+var app = angular.module('myApp', ['UserValidation']);
+angular.module('UserValidation', []).directive('validPasswordC', function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elm, attrs, ctrl) {
+            ctrl.$parsers.unshift(function (viewValue, $scope) {
+                var noMatch = viewValue != scope.myForm.password.$viewValue
+                ctrl.$setValidity('noMatch', !noMatch)
+            })
+        }
+    }
+})
 app.controller('userController', function($scope, $interval, $location, userService, $http,$filter) {
 	$scope.user = {
 			id : "",
@@ -60,7 +70,9 @@ app.controller('userController', function($scope, $interval, $location, userServ
 	$http.get("http://localhost:8080/userbyrole/3").then(function(response) {
 		$scope.usersNurse = response.data;
     });
-	
+	$http.get("http://localhost:8080/userProfile").then(function(response) {
+		$scope.userLogged = response.data;
+    });
 	/////------------get All User Admin -----------------
 	$scope.getAdmin = function(data){
 		userService.getAdmin().then(getSuccess,getSuccess);
@@ -122,12 +134,32 @@ app.controller('userController', function($scope, $interval, $location, userServ
 		userService.updateUser(id,user).then(updateSuccess,updateError);
 	};
 	var updateSuccess = function(data) {
-		alert('update User Success:' + data.name);
+		alert('update User Success:');
 		$scope.getAdmin();
 		$scope.getDoctor();
 		$scope.getNurse();
 	};
 	var updateError = function(error) {
 	};
+/////------------Change Password -----------------
+	$scope.changePass = function(){
+		userService.changePass($scope.user).then(changePassSuccess,updateError);
+	};
+	var changePassSuccess = function(data) {
+		alert('Change Password Success:');
+	};
+	var updateError = function(error) {
+	};
+///--------------------Get current User---------------
+	$scope.getCurrentUser = function(){
+		userService.currentUser().then(getSuccess, getError)
+	};
+	var getSuccess = function(data){
+		$scope.curentUser = data;
+	};
+	var getError = function(error){
+		
+	};
+	
 });	
 	
