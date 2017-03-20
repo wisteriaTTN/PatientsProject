@@ -49,7 +49,7 @@ public class TreatmentDetail implements Serializable {
     private String diseases;
     @JoinColumn(name = "treatment_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    @JsonBackReference
+    //@JsonBackReference
     private Treatment treatmentId;
     @JoinColumn(name = "medicine_id", referencedColumnName = "id")
     @ManyToOne(optional = false)

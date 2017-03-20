@@ -1,27 +1,40 @@
 package com.csc.team2.controller;
 
+import java.security.Principal;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.csc.team2.model.Medicine;
 import com.csc.team2.model.Roles;
 import com.csc.team2.model.User;
 import com.csc.team2.service.UserServiceImpl;
 
-@Controller
+@RestController
 public class UserController {
 	@Autowired
 	UserServiceImpl userService;
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	public static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
@@ -69,12 +82,13 @@ public class UserController {
 			if(currentUser==null){
 				logger.info("unable to update user with id {}, not found", id);
 			}
+			
 			currentUser.setName(user.getName());
 			currentUser.setUsername(user.getUsername());
 			currentUser.setSpecialist(user.getSpecialist());
 			currentUser.setSex(user.getSex());
 			currentUser.setAddress(user.getAddress());
-			currentUser.setPassword(user.getPassword());
+			currentUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 			currentUser.setRolesList(user.getRolesList());
 			currentUser.setActive(user.getActive());
 			userService.saveUser(currentUser);
@@ -101,5 +115,29 @@ public class UserController {
 			userService.deleteAllDoctor();
 	        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 
+		}
+		
+	//------------------USER PROFILE------------------------------
+		@RequestMapping(value="/userProfile", method = RequestMethod.GET)
+		public ModelAndView userProfile(){
+			ModelAndView modelAndView = new ModelAndView();
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			User user = userService.findUserByUsername(auth.getName());
+			modelAndView.addObject("userid", user.getId());
+			modelAndView.addObject("userName", user.getName());
+			modelAndView.addObject("userRole","ROLE " + auth.getAuthorities().toString());
+			modelAndView.addObject("userAddress", user.getAddress());
+			modelAndView.addObject("userSpecialist", user.getSpecialist());
+			modelAndView.addObject("userSex", user.getSex());
+			modelAndView.setViewName("/userProfile");
+			return modelAndView;
+		}
+		
+		@RequestMapping(value="/userlogged", method = RequestMethod.GET, produces =MediaType.APPLICATION_JSON_VALUE)
+		public User userlogged(){
+			
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			User user = userService.findUserByUsername(auth.getName());
+	        return user;
 		}
 }

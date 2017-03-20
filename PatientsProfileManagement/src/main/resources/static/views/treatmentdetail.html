@@ -1,7 +1,6 @@
-<div id="page-wrapper">
+<div >
 
 	<div class="container-fluid">
-
 		<div class=" row">
 			<div class="col-md-6 col-sm-6 col-xs-6">
 				<div class="x_panel">
@@ -21,7 +20,7 @@
 								</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input type="text" id="patient-name"
-										class="form-control col-md-7 col-xs-12" value={{treatment.patientId.name}} 
+										class="form-control col-md-7 col-xs-12" ng-model="treatment.patientId.name" 
 										disabled="disabled">
 								</div>
 
@@ -33,7 +32,7 @@
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input id="address-patient"
 										class="form-control col-md-4 col-xs-6" type="text"
-										name="address-patient" value={{treatment.patientId.address}}
+										name="address-patient" ng-model="treatment.patientId.address"
 										>
 								</div>
 							</div>
@@ -43,7 +42,7 @@
 									of birth</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input id="dob-patient" class="form-control col-md-4 col-xs-6"
-										type="date" name="dob-patient" value={{treatment.patientId.dob}}>
+										type="date" name="dob-patient" ng-model="treatment.patientId.dob">
 								</div>
 							</div>
 							<div class="form-group">
@@ -51,7 +50,7 @@
 									class="control-label col-md-3 col-sm-3 col-xs-6">Sex</label>
 								<div class="col-md-3 col-sm-3 col-xs-6">
 									<input id="sex-patient" class="form-control col-md-4 col-xs-6"
-										type="text" name="sex-patient" value={{treatment.patientId.sex}}>
+										type="text" name="sex-patient" ng-model="treatment.patientId.sex">
 								</div>
 							</div>
 						</form>
@@ -75,7 +74,7 @@
 								</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input type="text" id="doctor-name"
-										class="form-control col-md-7 col-xs-12" value={{treatment.doctorId.name}}
+										class="form-control col-md-7 col-xs-12" ng-model="treatment.doctorId.name"
 										disabled="disabled">
 								</div>
 
@@ -87,7 +86,7 @@
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input id="address-patient"
 										class="form-control col-md-4 col-xs-6" type="text"
-										name="address-patient" value={{treatment.doctorId.address}}>
+										name="address-patient" ng-model=treatment.doctorId.address>
 								</div>
 							</div>
 							<div class="form-group">
@@ -95,7 +94,7 @@
 									class="control-label col-md-3 col-sm-3 col-xs-6">Specialist</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input id="specialist" class="form-control col-md-4 col-xs-6"
-										type="text" name="specialist" value={{treatment.doctorId.specialist}}>
+										type="text" name="specialist" ng-model="treatment.doctorId.specialist">
 								</div>
 							</div>
 							<div class="form-group">
@@ -103,7 +102,7 @@
 									class="control-label col-md-3 col-sm-3 col-xs-6">Sex</label>
 								<div class="col-md-3 col-sm-3 col-xs-6">
 									<input id="sex-doctor" class="form-control col-md-4 col-xs-6"
-										type="text" name="sex-doctor" value={{treatment.doctorId.sex}}>
+										type="text" name="sex-doctor" ng-model="treatment.doctorId.sex">
 								</div>
 							</div>
 						</form>
@@ -127,7 +126,6 @@
 							<table class="table table-striped jambo_table bulk_action">
 								<thead>
 									<tr class="headings">
-										<th class="column-title">No.</th>
 										<th class="column-title">Medicine's Name</th>
 										<th class="column-title">Diseases</th>
 										<th class="column-title">Dosage</th>
@@ -137,7 +135,6 @@
 
 								<tbody ng-repeat="treatment in treatment.treatmentDetailList" >
 									<tr class="even pointer">
-										<td ></td>
 										<td>{{treatment.medicineId.name}}</td>
 										<td>{{treatment.diseases}}</td>
 										<td>{{treatment.medicineId.dosage}}</td>
@@ -151,7 +148,39 @@
 				</div>
 			</div>
 		</div>
+	
 		<div class=" row">
+		
+		<!-- =====================ALLERGIC TABLE============================== -->		
+<div class="col-md-6 col-sm-6 col-xs-6">
+				<div class="x_panel">
+					<div class="x_title ">
+						<h2>Allergic</h2>
+
+					</div>
+					<div >
+						<div class="table-responsive">
+							<table class="table table-striped jambo_table bulk_action">
+								<thead>
+									<tr class="headings">
+										<th class="column-title">Medicine's Name</th>
+
+									</tr>
+								</thead>
+
+								<tbody ng-repeat = "allergic in treatment.patientId.allergicList" >
+									<tr class="even pointer">
+										<td>{{allergic.medicineId.name}}</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+<!-- =====================ALLERGIC TABLE============================== -->	
 			
 			<div class="col-md-6 col-sm-6 col-xs-6">
 				<div class="x_panel">
@@ -170,13 +199,14 @@
 						</form>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="ln_solid"></div>
+				<div class="ln_solid"></div>
 		<div class="form-group">
 			<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-0">
 				<button type="submit" class="btn btn-success">Submit</button>
 			</div>
 		</div>
+			</div>
+		</div>
+		
 	</div>
 </div>

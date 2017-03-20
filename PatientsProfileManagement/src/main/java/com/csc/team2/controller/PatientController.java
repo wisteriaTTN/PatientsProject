@@ -8,19 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.csc.team2.model.Patient;
 import com.csc.team2.service.PatientServiceImpl;
 
 
-@Controller
+@RestController
 //@RequestMapping("/patient")
 public class PatientController {
 	
@@ -63,7 +62,7 @@ public class PatientController {
  
     // -------------------Create a Patient-------------------------------------------
  
-    @RequestMapping(value = "/patient", method = RequestMethod.POST)
+    @RequestMapping(value = "/patient", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<?> createPatient(@RequestBody Patient patient, UriComponentsBuilder ucBuilder) {
         logger.info("Creating Patient : {}", patient);
  

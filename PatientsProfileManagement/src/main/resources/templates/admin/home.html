@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/app.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/content.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/_all-skins.min.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/angular-1.4.9/angular-material.min.css}" />
 	
 	
 	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
@@ -43,7 +44,7 @@
 			<!-- Sidebar right -->
             <nav class="navbar navbar-static-top">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <a class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
 
@@ -103,16 +104,14 @@
 					<!-- Add link menu -->
 					<!-- Dropdown menu -->
                     <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-user"></i> <span>User</span>
+                        <a>
+                            <i class="fa fa-user"></i> <span>User Account</span>
                             <span class="pull-right-container">
 							  <i class="fa fa-angle-left pull-right"></i>
 							</span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href="#/doctor"><i class="fa fa-circle-o text-yellow"></i> Doctor</a></li>
-                            <li><a href="#/nurse"><i class="fa fa-circle-o text-yellow"></i> Nurse</a></li>
-							<li><a href="#/user"><i class="fa fa-circle-o text-yellow"></i> Admin</a></li>
+                            <li class="active"><a href="#/usersList"><i class="fa fa-circle-o text-yellow"></i>User Account</a></li>
 							<li><a th:href="@{/admin/DoctorRegistration}"><i class="fa fa-circle-o text-yellow"></i> Register Doctor</a></li>
 							<li><a th:href="@{/admin/NurseRegistration}"><i class="fa fa-circle-o text-yellow"></i> Register Nurse</a></li>
                         </ul>
@@ -146,6 +145,10 @@
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular.js}"></script>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-resource.js}"></script>
 		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-route.js}"></script>
+		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-animate.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-aria.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-messages.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/lib/angular-1.4.9/angular-material.min.js}"></script>
 		
 		<script type="text/javascript" th:src="@{/js/app.js}"></script>
 		<script type="text/javascript" th:src="@{/js/dirPagination.js}"></script>
@@ -154,6 +157,8 @@
 		<script type="text/javascript" th:src="@{/js/service/UserService.js}"></script>
 		<script type="text/javascript" th:src="@{/js/service/MedicineService.js}"></script>
 		<script type="text/javascript" th:src="@{/js/service/TypeMedicineService.js}"></script>
+		<script type="text/javascript" th:src="@{/js/service/TreatmentService.js}"></script>
+		<script type="text/javascript" th:src="@{/js/service/TreatmentDetailService.js}"></script>
 	
 		
 		<script type="text/javascript" th:src="@{/js/controller/Home.js}"></script>
