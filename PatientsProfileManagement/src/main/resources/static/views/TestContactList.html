@@ -1,54 +1,20 @@
-<div style="height: 250px"></div>
-<div ng-controller="contactlistController as ctrl" layout="column"
-	ng-cloak>
-	<md-content class="md-padding autocomplete" layout="column">
-	dfghjklghj 
-	<md-contact-chips ng-model="ctrl.contacts" md-on-add="yourmodel=ctrl.contacts"
-		md-contacts="ctrl.querySearch($query)"
-		 md-contact-name="name"
-		md-require-match="true" 
-		md-highlight-flags="i"
-		filter-selected="ctrl.filterSelected" placeholder="To">
-	</md-contact-chips> 
-	</md-content>
-
-</div>
-<div>saadsd{{yourmodel}}</div>
-
-<div  layout="column" class="chipsdemoContactChips" >
-
-  <md-content class="md-padding autocomplete" layout="column">
-    <md-contact-chips ng-model="contacts" md-highlight-flags="i" md-contacts="querySearch($query)"md-contact-name="name" md-require-match="true" filter-selected="filterSelected" placeholder="To">
-    </md-contact-chips>
-  <div ng-repeat="c in contacts">{{c.name}}</div>
-  <div>{{contacts}}</div>
-  </md-content>
-</div>
-<div>{{contacts}}</div>
-  <div width="300px" layout="column" ng-cloak>
-  <md-content layout-padding layout="column" >
-      <md-autocomplete
-          md-selected-item="selectedItem"
-          md-search-text="searchText"
-          md-items="item in querySearchAC(searchText)"
-          md-item-text="item.name"
-          md-min-length="0"
-          placeholder="Pick an Angular repository">
-        <md-item-template>
-          <span class="item-title">
-            <span> {{item.name}} </span>
-          </span>
-          <span class="item-metadata">
-            <span>
-             address: <strong>{{item.address}}</strong> 
-            </span>
-            <span>
-             dob: <strong>{{item.dob}}</strong> 
-            </span>
-          </span>
-        </md-item-template>
-      </md-autocomplete>
-  </md-content>
-</div>
-
-<div>asdasd{{selectedItem}}</div>
+<div ng-app="myapp">
+   <form name="myForm">
+   
+       
+       
+       <label for="password">Password</label>
+       <input type="password" id="password" name="password" ng-model="formData.password" ng-minlength="3" ng-maxlength="20" required  />
+   <span ng-show="myForm.password.$error.required && myForm.password.$dirty">required</span>
+       <br />
+       
+       
+       <label for="password_c">Confirm Password</label>
+       <input type="password" id="password_c" name="password_c" ng-model="formData.password_c" valid-password-c required  />
+   <span ng-show="myForm.password_c.$error.required && myForm.password_c.$dirty">Please confirm your password.</span>
+   <span ng-show="!myForm.password_c.$error.required && myForm.password_c.$error.noMatch && myForm.password.$dirty">Passwords do not match.</span>
+       <br />
+       
+   <button type="submit" class="btn" ng-disabled="!myForm.$valid">Submit</button>
+	</form>
+   </div>
