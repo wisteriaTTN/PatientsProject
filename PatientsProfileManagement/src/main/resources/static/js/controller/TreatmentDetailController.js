@@ -141,11 +141,11 @@ app.controller('treatmentDetailController', function(
 //        $scope, $interval, $location,$http,$routeParams) {
 //	
 //	$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
-//		$scope.treatments = response.data;
+//		$scope.treatment = response.data;
 //	});
 //	
 //	$http.get("http://localhost:8080/treatment").then(function(response) {
-//		$scope.patients = response.data;
+//		$scope.patient = response.data;
 //    });
 //
 //});
