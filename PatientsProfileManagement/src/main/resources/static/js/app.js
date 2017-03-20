@@ -27,7 +27,7 @@ app.config(function($routeProvider) {
 		templateUrl : '/views/userProfile.html',
 		controller : "userController"
 	})*/
-	.when('/treatmentdetail/:treatmentId', {
+	.when('/treatment/:treatmentId', {
 		templateUrl : '/views/treatmentdetail.html',
 		controller : "treatmentDetailController"
 	});

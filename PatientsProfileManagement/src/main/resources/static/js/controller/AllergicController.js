@@ -4,8 +4,8 @@ app.controller('allergicController', function(
         $scope, $interval, $location,allergicService) {
 	
 	$scope.allergic={
-			medicineId="",
-			patientId={}
+			medicineId:"",
+			patientId:{}
 			
 	};
 	

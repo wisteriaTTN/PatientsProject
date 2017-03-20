@@ -21,7 +21,10 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
@@ -38,7 +41,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
     , @NamedQuery(name = "Patient.findByAddress", query = "SELECT p FROM Patient p WHERE p.address = :address")
     , @NamedQuery(name = "Patient.findBySex", query = "SELECT p FROM Patient p WHERE p.sex = :sex")
     , @NamedQuery(name = "Patient.findByDob", query = "SELECT p FROM Patient p WHERE p.dob = :dob")})
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@patientId")
+//@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@patientId")
 public class Patient implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -68,11 +71,13 @@ public class Patient implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dob;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patientId")
+    @JsonIgnoreProperties("patientId")
     //@JsonBackReference
-    //@JsonIgnore
+    
     private List<Allergic> allergicList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patientId")
-    //@JsonBackReference
+    //@JsonIgnoreProperties("patientId")
+    @JsonBackReference
     //@JsonIgnore
     private List<Treatment> treatmentList;
 
