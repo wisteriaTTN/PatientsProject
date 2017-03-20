@@ -4,7 +4,7 @@ app.factory('treatmentDetailService', function($http){
 	
 	 
 	 var createTreatmentDetail = function(treatment){
-		 return $http.post("http://localhost:8080/treatment",treatment)
+		 return $http.post("http://localhost:8080/treatmentdt",treatment)
 		  .then(function(response){
 				return response.data;
 			});
@@ -17,9 +17,16 @@ app.factory('treatmentDetailService', function($http){
 			});
 	 }
 	 
+	 var deleteTreatmentDetail = function(id){
+		 return $http.delete("http://localhost:8080/treatmentdt/"+id)
+		  .then(function(response){
+				return response.data;
+			});
+	 }
 	 return{
 		 createTreatmentDetail:createTreatmentDetail,
 		 getAllTreatmentDetail:getAllTreatmentDetail,
+		 deleteTreatmentDetail:deleteTreatmentDetail,
 	 }
 	
 });

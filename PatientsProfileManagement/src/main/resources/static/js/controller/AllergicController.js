@@ -11,6 +11,8 @@ app.controller('allergicController', function(
 	
 	$scope.allergiclist = [];
 	
+	
+	
 	$scope.saveListAllergic = function(){
 		allergicService.createAllergics($scope.allergiclist).then(createAllergicsSuccess,createAllergicsError)
 	};
