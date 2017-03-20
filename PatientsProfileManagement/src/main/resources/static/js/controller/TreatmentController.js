@@ -172,6 +172,8 @@ app.controller('treatmentController', function(
 				$scope.treatmentDetail.treatmentId = $scope.treatment;
 				$scope.treatmentDetail.medicineId =value;
 				$scope.treatmentDetail.diseases =$scope.treatment.prescription;
+				treatmentDetailService.createTreatmentDetail($scope.treatmentDetail)
+				
 			});
 		}
 		else{
