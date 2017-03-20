@@ -31,7 +31,9 @@
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input id="address-patient"
 										class="form-control col-md-4 col-xs-6" type="text"
-										name="address-patient" ng-model="treatment.patientId.address">
+										name="address-patient" ng-model="treatment.patientId.address"
+										disabled="disabled"
+										>
 								</div>
 							</div>
 							<div class="form-group">
@@ -40,8 +42,7 @@
 									of birth</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input id="dob-patient" class="form-control col-md-4 col-xs-6"
-										type="date" name="dob-patient"
-										ng-model="treatment.patientId.dob">
+										type="date" name="dob-patient" ng-model="treatment.patientId.dob" disabled="disabled">
 								</div>
 							</div>
 							<div class="form-group">
@@ -49,8 +50,7 @@
 									class="control-label col-md-3 col-sm-3 col-xs-6">Sex</label>
 								<div class="col-md-3 col-sm-3 col-xs-6">
 									<input id="sex-patient" class="form-control col-md-4 col-xs-6"
-										type="text" name="sex-patient"
-										ng-model="treatment.patientId.sex">
+										type="text" name="sex-patient" ng-model="treatment.patientId.sex" disabled="disabled">
 								</div>
 							</div>
 						</form>
@@ -86,7 +86,7 @@
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input id="address-patient"
 										class="form-control col-md-4 col-xs-6" type="text"
-										name="address-patient" ng-model=treatment.doctorId.address>
+										name="address-patient" ng-model="treatment.doctorId.address" disabled="disabled">
 								</div>
 							</div>
 							<div class="form-group">
@@ -94,8 +94,7 @@
 									class="control-label col-md-3 col-sm-3 col-xs-6">Specialist</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input id="specialist" class="form-control col-md-4 col-xs-6"
-										type="text" name="specialist"
-										ng-model="treatment.doctorId.specialist">
+										type="text" name="specialist" ng-model="treatment.doctorId.specialist" disabled="disabled">
 								</div>
 							</div>
 							<div class="form-group">
@@ -103,8 +102,7 @@
 									class="control-label col-md-3 col-sm-3 col-xs-6">Sex</label>
 								<div class="col-md-3 col-sm-3 col-xs-6">
 									<input id="sex-doctor" class="form-control col-md-4 col-xs-6"
-										type="text" name="sex-doctor"
-										ng-model="treatment.doctorId.sex">
+										type="text" name="sex-doctor" ng-model="treatment.doctorId.sex" disabled="disabled">
 								</div>
 							</div>
 						</form>
@@ -202,7 +200,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 
 		<!-- =====================ALLERGIC TABLE============================== -->
 
