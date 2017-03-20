@@ -132,7 +132,7 @@ app.controller('treatmentDetailController', function(
         })      
     }
     function loadAndParseContacts() {
-      return $http.get('http://localhost:8080/medicine').then(parse)
+      return $http.get('http://localhost:8080/unAllergic/'+$scope.treatment.patientId.id).then(parse)
     }
 
 });

@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.csc.team2.model.Medicine;
 import com.csc.team2.model.TreatmentDetail;
 import com.csc.team2.repository.ITreatmentDtRepository;
 
@@ -62,6 +63,11 @@ public class TreatmentDtServiceIplm implements ITreatmentDtService {
 	@Override
 	public boolean isTreatmentDtExist(TreatmentDetail treatmentdt) {
 		return findById(treatmentdt.getId()) != null;
+	}
+
+	@Override
+	public List<Object[]> findNotAllergic(int id) {
+		return treatmentdtRepository.findNotAllergic(id);
 	}
 	
 	
