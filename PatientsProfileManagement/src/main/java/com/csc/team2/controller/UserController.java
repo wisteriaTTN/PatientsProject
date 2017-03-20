@@ -88,13 +88,25 @@ public class UserController {
 			currentUser.setSpecialist(user.getSpecialist());
 			currentUser.setSex(user.getSex());
 			currentUser.setAddress(user.getAddress());
-			currentUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+			//currentUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 			currentUser.setRolesList(user.getRolesList());
 			currentUser.setActive(user.getActive());
 			userService.saveUser(currentUser);
 			return new ResponseEntity<User>(currentUser,HttpStatus.OK);
 		}
+//------------------Change Password User-----------------------------------------------
 		
+		@RequestMapping(value="/changePass", method = RequestMethod.PUT)
+		public ResponseEntity<?> ChangePass(@RequestBody User user){
+			Object principal = SecurityContextHolder.getContext().getAuthentication().getName();
+			User currentUser = userService.findUserByUsername(principal.toString());
+			if(currentUser==null){
+				logger.info("unable to update user with id {}, not found", principal.toString());
+			}				
+				currentUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+				userService.saveUser(currentUser);
+				return new ResponseEntity<User>(currentUser,HttpStatus.OK);
+			}
 		//------------------Delete a User-----------------------------------------
 		@RequestMapping(value="/user/{id}", method = RequestMethod.DELETE)
 		public ResponseEntity<?> deleteUser(@PathVariable("id") int id){
@@ -118,7 +130,7 @@ public class UserController {
 		}
 		
 	//------------------USER PROFILE------------------------------
-		@RequestMapping(value="/userProfile", method = RequestMethod.GET)
+		/*@RequestMapping(value="/userProfile", method = RequestMethod.GET)
 		public ModelAndView userProfile(){
 			ModelAndView modelAndView = new ModelAndView();
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -131,13 +143,14 @@ public class UserController {
 			modelAndView.addObject("userSex", user.getSex());
 			modelAndView.setViewName("/userProfile");
 			return modelAndView;
-		}
+		}*/
 		
-		@RequestMapping(value="/userlogged", method = RequestMethod.GET, produces =MediaType.APPLICATION_JSON_VALUE)
-		public User userlogged(){
-			
-			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-			User user = userService.findUserByUsername(auth.getName());
-	        return user;
-		}
+		@RequestMapping(value = "/userProfile", method = RequestMethod.GET, produces =MediaType.APPLICATION_JSON_VALUE)
+	    @ResponseBody
+	    public ResponseEntity<?> currentUserName(Object principal) {
+			principal = SecurityContextHolder.getContext().getAuthentication().getName();
+			User user = userService.findUserByUsername(principal.toString());
+			return new ResponseEntity<User>(user, HttpStatus.OK);
+
+	    }
 }

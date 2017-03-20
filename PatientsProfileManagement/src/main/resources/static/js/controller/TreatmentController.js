@@ -3,7 +3,7 @@
 
 var app = angular.module('myApp');
 app.controller('treatmentController', function(
-        $scope, $interval, $location,$http,patientService,userService,treatmentService,treatmentDetailService) {
+        $scope, $interval, $location,$http,patientService,userService,treatmentService,treatmentDetailService,allergicService) {
 	
 	$scope.treatment ={
 			date : null,
@@ -15,17 +15,6 @@ app.controller('treatmentController', function(
 			patientId : {
 					
 			}
-	}
-	
-	$scope.treatmentDetail={
-			treatmentId:{
-					
-			},
-			medicineId:{
-				
-			},
-			diseases:null
-			
 	}
 	
 ////////////////autocomplete for patient
@@ -66,45 +55,8 @@ app.controller('treatmentController', function(
 
     }
 	
- ///////////////contacts chip for medicine and allergic
-    $scope.querySearch = querySearch;
-    $scope.medicines = [];
-	$scope.allergics = [];
-	$scope.filterSelected = true;
-
-    function querySearch (query) {
-      var result;
-      if(query) {
-        result = loadAndParseContacts().then(function(data) {
-             return data.filter(createFilterFor(query))
-           })
-      } else {
-        result = []
-      }
-      return result
-    }
-
-    function createFilterFor(query) {
-      var lowercaseQuery = angular.lowercase(query);
-      return function filterFn(contact) {
-        return (contact._lowername.indexOf(lowercaseQuery) != -1);;
-      };
-
-    }
+ ///////////////contacts chip for medicine and allergi
     
-    function parse (data) {
-      return data.data.map(function (c, index) {
-          var contact = {
-            name: c.name,
-            id: c.id,
-          };
-          contact._lowername = contact.name.toLowerCase();
-          return contact;
-        })      
-    }
-    function loadAndParseContacts() {
-      return $http.get('http://localhost:8080/medicine').then(parse)
-    }
     
  //////////////////////////////////////////////////////////////////////
 	
@@ -155,7 +107,6 @@ app.controller('treatmentController', function(
 		$scope.treatment.patientId = $scope.selectedPatient;
 		$scope.treatment.doctorId = $scope.doctor
 		treatmentService.createTreatment($scope.treatment).then(createTreatmentSuccess,createTreatmentError);
-		createTreatmentDetail();
 	};
 	var createTreatmentSuccess = function(data) {
 		alert('add new treatment Success:' + data.name);
@@ -164,22 +115,5 @@ app.controller('treatmentController', function(
 	};
 	var createTreatmentError = function(error) {
 	};
-	
-////==========Create treatment detail==================================
-	$scope.createTreatmentDetail = function(){
-		if($scope.medicines!=null){
-			angular.forEach($scope.medicines, function(value, key){
-				$scope.treatmentDetail.treatmentId = $scope.treatment;
-				$scope.treatmentDetail.medicineId =value;
-				$scope.treatmentDetail.diseases =$scope.treatment.prescription;
-				treatmentDetailService.createTreatmentDetail($scope.treatmentDetail)
-				
-			});
-		}
-		else{
-			alert("no medicine")
-		}
-	}
-	
 	
 });
