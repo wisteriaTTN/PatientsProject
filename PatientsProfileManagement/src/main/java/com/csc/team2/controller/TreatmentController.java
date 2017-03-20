@@ -60,11 +60,11 @@ public class TreatmentController {
     public ResponseEntity<?> createTreatment(@RequestBody Treatment treatment, UriComponentsBuilder ucBuilder) {
         logger.info("Creating Treatment : {}", treatment);
  
-        if (treatmentService.isTreatmentExist(treatment)) {
-            logger.error("Unable to create. A Treatment with ID {} already exist", treatment.getId());
-            return new ResponseEntity(new Error("Unable to create. A Treatment with ID " + 
-            treatment.getId() + " already exist."),HttpStatus.CONFLICT);
-        }
+//        if (treatmentService.isTreatmentExist(treatment)) {
+//            logger.error("Unable to create. A Treatment with ID {} already exist", treatment.getId());
+//            return new ResponseEntity(new Error("Unable to create. A Treatment with ID " + 
+//            treatment.getId() + " already exist."),HttpStatus.CONFLICT);
+//        }
         treatmentService.saveTreatment(treatment);
  
         HttpHeaders headers = new HttpHeaders();

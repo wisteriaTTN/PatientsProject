@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -76,7 +77,14 @@ public class Medicine implements Serializable {
     @ManyToOne(optional = false)
     //@JsonManagedReference
     private TypeOfMedicine typeId;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "medicineId")
+    @JsonIgnoreProperties("allergicList")
+    //@JsonBackReference
+    private List<Allergic> allergicList;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "medicineId")
+    @JsonIgnoreProperties("treatmentDetailList")
     @JsonBackReference
     private List<TreatmentDetail> treatmentDetailList;
 

@@ -3,7 +3,7 @@
 	ng-cloak>
 	<md-content class="md-padding autocomplete" layout="column">
 	dfghjklghj 
-	<md-contact-chips ng-model="ctrl.contacts"
+	<md-contact-chips ng-model="ctrl.contacts" md-on-add="yourmodel=ctrl.contacts"
 		md-contacts="ctrl.querySearch($query)"
 		 md-contact-name="name"
 		md-require-match="true" 
@@ -13,13 +13,42 @@
 	</md-content>
 
 </div>
+<div>saadsd{{yourmodel}}</div>
 
-<div ng-controller="contactlistController as ctrl" layout="column" class="chipsdemoContactChips" ng-app="MyApp">
+<div  layout="column" class="chipsdemoContactChips" >
 
   <md-content class="md-padding autocomplete" layout="column">
-    <md-contact-chips ng-model="ctrl.contacts" md-highlight-flags="i" md-contacts="ctrl.querySearch($query)"md-contact-name="name" md-require-match="true" filter-selected="ctrl.filterSelected" placeholder="To">
+    <md-contact-chips ng-model="contacts" md-highlight-flags="i" md-contacts="querySearch($query)"md-contact-name="name" md-require-match="true" filter-selected="filterSelected" placeholder="To">
     </md-contact-chips>
-  <div ng-repeat="c in ctrl.contacts">{{c.name}}</div>
-  <div>{{ctrl.contacts}}</div>
+  <div ng-repeat="c in contacts">{{c.name}}</div>
+  <div>{{contacts}}</div>
   </md-content>
 </div>
+<div>{{contacts}}</div>
+  <div width="300px" layout="column" ng-cloak>
+  <md-content layout-padding layout="column" >
+      <md-autocomplete
+          md-selected-item="selectedItem"
+          md-search-text="searchText"
+          md-items="item in querySearchAC(searchText)"
+          md-item-text="item.name"
+          md-min-length="0"
+          placeholder="Pick an Angular repository">
+        <md-item-template>
+          <span class="item-title">
+            <span> {{item.name}} </span>
+          </span>
+          <span class="item-metadata">
+            <span>
+             address: <strong>{{item.address}}</strong> 
+            </span>
+            <span>
+             dob: <strong>{{item.dob}}</strong> 
+            </span>
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+  </md-content>
+</div>
+
+<div>asdasd{{selectedItem}}</div>

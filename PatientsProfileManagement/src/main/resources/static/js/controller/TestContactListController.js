@@ -1,14 +1,68 @@
 var app = angular.module('myApp');
 
 app.controller('contactlistController', function(
-        $scope, $interval, $location,medicineService, typeMedicineService,$http) {
-		
-	
+        $scope, $interval, $location,medicineService, typeMedicineService,$http,$log) {
+
+
+
+//	$scope.repos         = loadAllAC();
+	$scope.searchText = null;
+	$scope.selectedItem = null;
+	$scope.querySearchAC   = querySearchAC;
+
+    // ******************************
+    // Internal methods
+    // ******************************
+
+    /**
+     * Search for repos... use $timeout to simulate
+     * remote dataservice call.
+     */
+    function querySearchAC (query) {
+    	var result;
+      if(query) {
+        result = loadAndParseContactsAC().then(function(data) {
+             return data.filter(createFilterForAC(query))
+           })
+      } else {
+        result = []
+      }
+      return result
+      }
+    
+    function parseAC (data) {
+        return data.data.map(function (repo) {
+        	repo.value = repo.name.toLowerCase();
+            return repo;
+          })      
+      }
+    function loadAndParseContactsAC() {
+        return $http.get('http://localhost:8080/patient').then(parseAC)
+      }
+    /**
+     * Build `components` list of key/value pairs
+
+
+    /**
+     * Create filter function for a query string
+     */
+    function createFilterForAC(query) {
+      var lowercaseQuery = angular.lowercase(query);
+
+      return function filterFn(item) {
+        return (item.value.indexOf(lowercaseQuery) === 0);
+      };
+
+    }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    $scope.yourmodel=[];
 var self = this;
     
-    self.querySearch = querySearch;
-    self.contacts = [];
-    self.filterSelected = true;
+$scope.querySearch = querySearch;
+
+$scope.contacts = [];
+$scope.filterSelected = true;
 
     /**
      * Search for contacts.
