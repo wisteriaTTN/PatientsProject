@@ -137,7 +137,7 @@ public class UserController {
 		public User userlogged(){
 			
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-			User user = userService.findUserById(7);
+			User user = userService.findUserByUsername(auth.getName());
 	        return user;
 		}
 }

@@ -17,119 +17,128 @@
    
    
    		<!-- Add Treatment -->
-      <div class="col-md-8">
-         <div class="box box-success" style="margin-left:30%">
+      <div class="col-md-12">
+         <div class="box box-success" >
             <div class="box-header with-border">
                <i class="fa fa-warning"></i>
                <h3 class="box-title">Add New Treatment</h3>
             </div>
             <!-- /.box-header -->
-            <form class="form-horizontal">
-               <div class="box-body">
-                  <div class="form-group">
-                     <label class="col-sm-3 control-label">Patient's name<span class="required">*</span></label>
-                     <div class="col-sm-2">
-                        <input class="form-control" ng-model="id" type="text" required>
-                     </div>
-					 <div class="col-sm-4">
-                        <input class="form-control" value={{patient.name}} type="text" required>
-                     </div>
-					 <div class="col-sm-2">
-                        <button class="btn btn-primary" type="button" ng-click="getOnePatient(id)">Search Patient's ID</button>
-                     </div>
-                  </div>
-                  <div class="form-group">
-                     <label class="col-sm-3 control-label">Doctor's name<span class="required">*</label>
-                     <div class="col-sm-9">
-                        <input class="form-control" value={{doctor.name}} ng-model="doctor.name" type="text" required>
-                     </div>
-                  </div>
-                  <div class="form-group">
-                     <label class="col-sm-3 control-label">Diagnotics<span class="required">*</span></label>
-                     <div class="col-sm-9">
-                        <input class="form-control" ng-model="treatment.prescription" type="text" required>
-                     </div>
-                  </div>
-                  <div class="form-group">
-                     <label class="col-sm-3 control-label">Search for medicine<span class="required">*</span></label>
-                     <div class="col-md-9 col-sm-10 col-xs-10" ng-cloak="" layout="column" ng-click="medicineCon()">
-						<md-content class="md-padding autocomplete" layout="column">
-						<md-contact-chips ng-model="ctrl.contacts"
-							md-contacts="ctrl.querySearch($query)" md-contact-name="name"
-							md-contact-image="image" md-contact-email="email"
-							md-require-match="true" md-highlight-flags="i"
-							filter-selected="ctrl.filterSelected" placeholder="To">
-						</md-contact-chips> <md-list class="fixedRows"> <md-subheader
-							class="md-no-sticky">Contacts</md-subheader> <md-list-item
-							class="md-2-line contact-item"
-							ng-repeat="(index, contact) in ctrl.allContacts"
-							ng-if="ctrl.contacts.indexOf(contact) < 0"> <img
-							ng-src="{{contact.image}}" class="md-avatar"
-							alt="{{contact.name}}" />
-						<div class="md-list-item-text compact">
-							<h3>{{contact.name}}</h3>
-							<p>{{contact.email}}</p>
-						</div>
-						</md-list-item> <md-list-item class="md-2-line contact-item selected"
-							ng-repeat="(index, contact) in ctrl.contacts">
-						<img ng-src="{{contact.image}}" class="md-avatar"
-							alt="{{contact.name}}" />
-						<div class="md-list-item-text compact">
-							<h3>{{contact.name}}</h3>
-							<p>{{contact.email}}</p>
-						</div>
-						</md-list-item> </md-list> </md-content>
-					</div>
-                  </div>
-                  <div class="form-group">
-                     <label class="col-sm-3 control-label">Selected Medicines<span class="required">*</span></label>
-                     <div class="col-sm-9" id="starters">
-                        <input class="form-control" type="text" name="selectMedi">
-                     </div>
-                  </div>
-				  <div class="form-group">
-                     <label class="col-sm-3 control-label">Allergic</label>
-                     <div class="col-sm-9">
-                        <input class="form-control" name="allergic" type="text">
-                     </div>
-                  </div>
-				  <div class="form-group">
-                     <label class="col-sm-3 control-label">Selected allergic</label>
-                     <div class="col-sm-9" id="starters">
-                        <input class="form-control"  type="text" name="selectMedi" >
-                     </div>
-                  </div>
-				  <div class="form-group">
-                     <label class="col-sm-3 control-label">Files attached</label>
-                     <div class="col-sm-9" id="starters">
-                        <input class="btn btn-info" type="file" id="file-name" ng-model="img">
-                     </div>
-                  </div>
-               </div>
-               <!-- /.box-body -->
-               <div class="box-footer">
-                  <button type="reset" class="btn btn-default">Reset</button>
-				  <button type="submit" ng-click="createTreatment()" class="btn btn-success pull-right">Create</button>
-                  <button type="submit" ng-click="updateTreatmentDetail()" class="btn btn-primary pull-right">Update</button>
-               </div>
-               <!-- /.box-footer -->
-            </form>
-            <!-- /.box-body -->
-         </div>
-         <!-- /.box -->
-      </div>
-      <!-- /.col -->
-      
-      
-      
-      
-      <!-- List Treatment -->
-      <div class="col-md-12">
-      		<div class="box box-primary">
+            <div class="x_content">
+						<br />
+						<form id="demo-form2" data-parsley-validate name="treatmentform"
+							class="form-horizontal form-label-left">
+
+							<div flex layout="row" ng-cloak>
+								<label class="control-label col-md-3 col-sm-3 col-xs-12"
+									for="patient-name">Patient's name <span
+									class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12" >
+									<md-autocomplete required md-input-name="autocomplete"
+										md-selected-item="selectedPatient" md-search-text="searchText"
+										md-items="item in querySearchAC(searchText)"
+										md-item-text="item.name" md-min-length="0"
+										placeholder="Enter patient name"> 
+										<md-item-template>
+									<span class="item-title"> <span> {{item.name}} </span>
+									</span> <span class="item-metadata"> <span> address: <strong>{{item.address}}</strong>
+									</span> <span> dob: <strong>{{item.dob}}</strong>
+									</span>
+									</span> </md-item-template> <md-not-found> No match found. </md-not-found>
+									<div ng-messages="treatmentform.autocomplete.$error">
+										<div ng-message="required">This field is required</div>
+									</div>
+									</md-autocomplete>
+								</div>
+							</div>
+							<div>[]{{selectedPatient}}</div>
+
+							<div class="form-group">
+								<label for="doctor-name"
+									class="control-label col-md-3 col-sm-3 col-xs-12">Doctor's
+									name<span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<input id="doctor-name" class="form-control col-md-7 col-xs-12"
+										type="text" name="doctor-name" value={{doctor.name}}
+										ng-model="doctor.name" disabled="disabled">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Diagnotics<span
+									class="required">*</span></label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<input id="diagnotics" class="form-control col-md-7 col-xs-12"
+										required type="text" name="diagnotics"
+										ng-model="treatment.prescription">
+								</div>
+							</div>
+
+							<!-- SEARCH MEDICINE FOR PRESCRIPTION -->
+							<div class="form-group">
+								<label class="control-label col-md-3 col-sm-3 col-xs-12">Search
+									for medicine</label>
+								<div class="col-md-8 col-sm-4 col-xs-12" layout="column"
+									ng-cloak>
+
+									<md-content class="md-padding autocomplete" layout="column">
+									<md-contact-chips ng-model="medicines"
+										md-contacts="querySearch($query)" md-contact-name="name"
+										md-require-match="true" md-highlight-flags="i"
+										filter-selected="filterSelected"
+										placeholder="Enter name medicne"> </md-contact-chips> </md-content>
+
+								</div>
+							</div>
+							<div>{{medicines}}</div>
+							<!--END SEARCH MEDICINE FOR PRESCRIPTION -->
+							<!-- SEARCH MEDICINE FOR PRESCRIPTION -->
+
+							<div class="form-group">
+								<label for="allergic"
+									class="control-label col-md-3 col-sm-3 col-xs-12">Allergic
+
+								</label>
+								<div class="col-md-8 col-sm-4 col-xs-12" layout="column"
+									ng-cloak>
+									<md-content class="md-padding autocomplete" layout="column">
+									<md-contact-chips ng-model="allergics"
+										md-contacts="querySearch($query)" md-contact-name="name"
+										md-require-match="true" md-highlight-flags="i"
+										filter-selected="filterSelected"
+										placeholder="Enter name medicne"> </md-contact-chips> </md-content>
+
+								</div>
+							</div>
+							<div>{{allergics}}</div>
+							<!--END SEARCH MEDICINE FOR PRESCRIPTION -->
+							<div class="form-group">
+								<label for="selectAller"
+									class="control-label col-md-3 col-sm-3 col-xs-12">File
+									attacked </label>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<input type="file" id="file-name" ng-model="img">
+								</div>
+							</div>
+
+							<div class="ln_solid"></div>
+							<div class="form-group">
+								<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+									<button class="btn btn-success" type="submit"
+										ng-click="createTreatment()">Add treatment</button>
+									<button class="btn btn-success" type="submit"
+										ng-click=createTreatmentDetail()>Save changes</button>
+								</div>
+
+							</div>
+
+						</form>
+					</div><!-- List Treatment -->
+      <div class="col-md-12 box box-primary">
 				<div class="box-header with-border">
 				   <i class="fa fa-bullhorn"></i>
-				   <h3 class="box-title">List Treatment</h3>
-				</div>
+				   <h3 class="box-title">List Treatment</h3>				</div>
 				
 				<!-- Search -->
 				      <div class="col-md-12 col-sm-12 col-xs-12 ser-medicine" >
@@ -169,7 +178,7 @@
 									<td><button type="button" ng-click="getOne(medicine.id)"
 											class="btn btn-primary" data-toggle="modal"
 											data-target="#MedicineModal">
-											<span><i class="fa fa-wrench" aria-hidden="true"></i></i></span>
+											<span><i class="fa fa-wrench" aria-hidden="true"></i></span>
 										</button>
 										</td>
 									<td><a href="#/treatment/{{treatment.id}}">Detail</a></td>
@@ -179,7 +188,7 @@
 				   </div>
 				   <!-- /.box-body -->
 				   
-			</div>
+			
       </div>
    </div>
 </section>
