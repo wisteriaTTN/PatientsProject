@@ -85,7 +85,7 @@
 									</div>
 								</div>
 								<br>
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label class="control-label col-md-3 col-sm-3 col-xs-12"
 										for="password">Password<span class="required">*</span></label>
 									<div class="col-md-6 col-sm-6 col-xs-12">
@@ -93,14 +93,14 @@
 											id="dosage" name="password" required="required"
 											class="form-control col-md-7 col-xs-12">
 									</div>
-								</div>
+								</div> -->
 
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 								<button type="button"
-									ng-click="updateUser(curentUser.id,curentUser )"
+									ng-click="updateUser(curentUser.id,curentUser )" data-dismiss="modal"
 									class="btn btn-primary">Save changes</button>
 							</div>
 						</div>
@@ -119,7 +119,7 @@
 						</button>
 						
 					</div>
-					<input ng-model="search" class="form-control" type="text"
+					<input ng-model="searchAdmin" class="form-control" type="text"
 						placeholder="Search here...">
 				</div>
 			</div>
@@ -155,7 +155,7 @@
 				</thead>
 				<tbody>
 					<tr
-						dir-paginate="admin in usersAdmin|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
+						dir-paginate="admin in usersAdmin|orderBy:sortKey:reverse|filter:searchAdmin|itemsPerPage:3">
 						<td><a ng-href="#"></a>{{admin.name |uppercase}}</td>
 						<td>{{admin.active}}</td>
 						<td>{{admin.rolesList["0"].roles}}</td>
@@ -188,7 +188,7 @@
 							<i class="fa fa-search" aria-hidden="true"></i>
 						</button>
 					</div>
-					<input ng-model="search" class="form-control" type="text"
+					<input ng-model="searchDoctor" class="form-control" type="text"
 						placeholder="Search here...">
 				</div>
 			</div>
@@ -224,7 +224,7 @@
 				</thead>
 				<tbody>
 					<tr
-						dir-paginate="doctor in usersDoctor|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
+						dir-paginate="doctor in usersDoctor|orderBy:sortKey:reverse|filter:searchDoctor|itemsPerPage:3">
 						<td><a ng-href="#/user/{{user.username}}"></a>{{doctor.name |
 							uppercase}}</td>
 						<td>{{doctor.active}}</td>
@@ -258,7 +258,7 @@
 							<i class="fa fa-search" aria-hidden="true"></i>
 						</button>
 					</div>
-					<input ng-model="search" class="form-control" type="text"
+					<input ng-model="searchNurse" class="form-control" type="text"
 						placeholder="Search here...">
 				</div>
 			</div>
@@ -294,7 +294,7 @@
 				</thead>
 				<tbody>
 					<tr
-						dir-paginate="nurse in usersNurse|orderBy:sortKey:reverse|filter:search|itemsPerPage:3">
+						dir-paginate="nurse in usersNurse|orderBy:sortKey:reverse|filter:searchNurse|itemsPerPage:3">
 						<td><a ng-href="#/user/{{user.username}}"></a>{{nurse.name |
 							uppercase}}</td>
 						<td>{{nurse.active}}</td>

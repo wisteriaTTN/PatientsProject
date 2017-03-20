@@ -214,7 +214,11 @@
 </section>
 
 
-
+<script>
+$('#TypeMedicineModal').submit(function() {
+    $('#TypeMedicineModal').modal('hide');
+    });
+</script>
 <!-- UPDATE TYPE MEDICINE -->
 <div class="modal fade" id="TypeMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 <div class="modal-dialog" role="document">
@@ -240,7 +244,7 @@
             <span><i class="fa fa-refresh" aria-hidden="true"></i></span>
             Clear
             </button>
-            <button type="button" ng-click="updateTypeMedicine(curentTypeMedicine.id,curentTypeMedicine)" class="btn btn-success btn-in-modal">
+            <button type="button" ng-click="updateTypeMedicine(curentTypeMedicine.id,curentTypeMedicine)" data-dismiss="modal" class="btn btn-success btn-in-modal">
             <span><i class="glyphicon glyphicon-floppy-save" aria-hidden="true"></i></span>
             Save changes
             </button>
@@ -311,7 +315,7 @@
             <span><i class="fa fa-refresh" aria-hidden="true"></i></span>
             Clear
             </button>
-            <button type="button" ng-click="updateMedicine(curentMedicine.id,curentMedicine )" class="btn btn-success btn-in-modal">
+            <button type="button" ng-click="updateMedicine(curentMedicine.id,curentMedicine )" data-dismiss="modal" class="btn btn-success btn-in-modal">
             <span><i class="glyphicon glyphicon-floppy-save" aria-hidden="true"></i></span>
             Save changes
             </button>

@@ -56,6 +56,20 @@ app.factory('userService', function($http){
 			return response.data;
 		});
   }
+  ///-----------------get current user----------------
+  var currentUser = function(){
+	  return $http.get("http://localhost:8080/userProfile")
+	  .then(function(response){
+		  return response.data;
+	  });
+  }
+///-----------------Change password----------------
+	  var changePass = function(user){
+		  return $http.put("http://localhost:8080/changePass",user)
+		  .then(function(response){
+			  return response.data;
+		  });
+  }
   return{
 	  getAdmin:getAdmin,
 	  getDoctor:getDoctor,
@@ -64,6 +78,8 @@ app.factory('userService', function($http){
 	  deleteUser:deleteUser,
 	  updateUser:updateUser,
 	  getLoginUser:getLoginUser,
+	  currentUser:currentUser,
+	  changePass:changePass,
   }
   	
 });
