@@ -1,4 +1,4 @@
-//var app = angular.module('myApp');
+
 
 
 var app = angular.module('myApp');
@@ -103,9 +103,9 @@ app.controller('treatmentController', function(
 	
 ////==========Create treatment=========================================
 	$scope.createTreatment = function(){
+		$scope.treatment.patientId = $scope.selectedPatient.id;
+		$scope.treatment.doctorId = $scope.doctor.id;
 		$scope.treatment.date = new Date();
-		$scope.treatment.patientId = $scope.selectedPatient;
-		$scope.treatment.doctorId = $scope.doctor
 		treatmentService.createTreatment($scope.treatment).then(createTreatmentSuccess,createTreatmentError);
 	};
 	var createTreatmentSuccess = function(data) {
@@ -115,5 +115,59 @@ app.controller('treatmentController', function(
 	};
 	var createTreatmentError = function(error) {
 	};
+	
+////==========Create treatment detail==================================
+	$scope.createTreatmentDetail = function(){
+		if($scope.medicines!=null){
+			angular.forEach($scope.medicines, function(value, key){
+				$scope.treatmentDetail.treatmentId = $scope.treatment.id;
+				$scope.treatmentDetail.medicineId =value;
+				$scope.treatmentDetail.diseases =$scope.treatment.prescription;
+				treatmentDetailService.createTreatmentDetail($scope.treatmentDetail)
+				
+			});
+		}
+		else{
+			alert("no medicine")
+		}
+	}
+////==========Get One Treatment ==================================
+	$scope.getOneTreatment = function(id){
+		treatmentService.getOneTreatment(id).then(getOneSuccess,getOneError)
+	};
+	var getOneSuccess = function(data) {
+		$scope.currentTreatment = data;
+		$scope.currentTreatment.date = new Date();
+	};
+	var getOneError = function(error) {
+	};
+////==========Update Treatment ==================================
+	$scope.updateTreatment = function(id,treatment){
+		if($scope.currentTreatment.doctorId.id==$scope.doctor.id){
+			treatmentService.updateTreatment(id,treatment).then(updateSuccess,updateError);
+		}
+		else{
+			alert('You have not permission');
+		}
+	};
+	var updateSuccess = function(data) {
+		alert('update treatment Success:');
+		$scope.getAllTreatment();
+		
+	};
+	var updateError = function(error) {
+		alert('You have not permission');
+	};
+		
+		
+	
+	/*$scope.updateTreatment = function(id,treatment){
+		treatmentService.updateTreatment(id,treatment).then(updateSuccess,updateError)
+	};
+	var updateSuccess = function(data) {
+		alert('update treatment Success:' + data.name);
+		$scope.getAllTreatment();
+		
+	};*/
 	
 });

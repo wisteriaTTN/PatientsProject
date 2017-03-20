@@ -22,11 +22,25 @@ app.factory('treatmentService', function($http){
 				return response.data;
 			});
 	 }
+	 var getOneTreatment = function(id){
+		  return $http.get("http://localhost:8080/treatment/" + id)
+		  .then(function(response){
+				return response.data;
+			});
+	  }
+	 var updateTreatment = function(id,treatment){
+		  return $http.put("http://localhost:8080/treatment/"+id,treatment)
+		  .then(function(response){
+				return response.data;
+			});
+	  }
 	 
 	 return{
 		 createAllergics:createAllergics,
 		 getAllTreatment:getAllTreatment,
 		 createTreatment:createTreatment,
+		 getOneTreatment:getOneTreatment,
+		 updateTreatment:updateTreatment,
 	 }
 	
 });
