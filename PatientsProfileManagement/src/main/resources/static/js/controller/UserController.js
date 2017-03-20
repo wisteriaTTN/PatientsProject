@@ -1,15 +1,29 @@
-var app = angular.module('myApp', ['UserValidation']);
-angular.module('UserValidation', []).directive('validPasswordC', function () {
-    return {
-        require: 'ngModel',
-        link: function (scope, elm, attrs, ctrl) {
-            ctrl.$parsers.unshift(function (viewValue, $scope) {
-                var noMatch = viewValue != scope.myForm.password.$viewValue
-                ctrl.$setValidity('noMatch', !noMatch)
-            })
-        }
-    }
-})
+var app = angular.module('myApp');
+
+app.directive('validPasswordC', function() {
+	  return {
+	    require: 'ngModel',
+	    scope: {
+
+	      reference: '=validPasswordC'
+
+	    },
+	    link: function(scope, elm, attrs, ctrl) {
+	      ctrl.$parsers.unshift(function(viewValue, $scope) {
+
+	        var noMatch = viewValue != scope.reference
+	        ctrl.$setValidity('noMatch', !noMatch);
+	        return (noMatch)?noMatch:!noMatch;
+	      });
+
+	      scope.$watch("reference", function(value) {;
+	        ctrl.$setValidity('noMatch', value === ctrl.$viewValue);
+
+	      });
+	    }
+	  }
+	});
+
 app.controller('userController', function($scope, $interval, $location, userService, $http,$filter) {
 	$scope.user = {
 			id : "",

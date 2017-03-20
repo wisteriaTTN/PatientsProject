@@ -2,6 +2,7 @@ package com.csc.team2.model;
 
 
 import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,11 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
@@ -48,6 +48,7 @@ public class Allergic implements Serializable {
 
 	@JoinColumn(name = "patient_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
+	@JsonBackReference
     private Patient patientId;
 
     public Allergic() {

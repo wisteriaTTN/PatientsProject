@@ -1,4 +1,4 @@
-<div >
+<div>
 
 	<div class="container-fluid">
 		<div class=" row">
@@ -11,8 +11,7 @@
 					<div class="x_content">
 						<br />
 						<form id="demo-form2" data-parsley-validate
-							class="form-horizontal form-label-left"
-							>
+							class="form-horizontal form-label-left">
 
 							<div class="form-group">
 								<label class="control-label col-md-3 col-sm-3 col-xs-6"
@@ -20,8 +19,8 @@
 								</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input type="text" id="patient-name"
-										class="form-control col-md-7 col-xs-12" ng-model="treatment.patientId.name" 
-										disabled="disabled">
+										class="form-control col-md-7 col-xs-12"
+										ng-model="treatment.patientId.name" disabled="disabled">
 								</div>
 
 							</div>
@@ -75,8 +74,8 @@
 								</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<input type="text" id="doctor-name"
-										class="form-control col-md-7 col-xs-12" ng-model="treatment.doctorId.name"
-										disabled="disabled">
+										class="form-control col-md-7 col-xs-12"
+										ng-model="treatment.doctorId.name" disabled="disabled">
 								</div>
 
 							</div>
@@ -118,96 +117,113 @@
 					<div class="x_title">
 						<h2>Prescription Drug List</h2>
 
-						<div class="clearfix"></div>
 					</div>
 
-					<div class="x_content">
 
-						<div class="table-responsive">
-							<table class="table table-striped jambo_table bulk_action">
-								<thead>
-									<tr class="headings">
-										<th class="column-title">Medicine's Name</th>
-										<th class="column-title">Diseases</th>
-										<th class="column-title">Dosage</th>
-
-									</tr>
-								</thead>
-
-								<tbody ng-repeat="treatment in treatment.treatmentDetailList" >
-									<tr class="even pointer">
-										<td>{{treatment.medicineId.name}}</td>
-										<td>{{treatment.diseases}}</td>
-										<td>{{treatment.medicineId.dosage}}</td>
-
-									</tr>
-
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	
-		<div class=" row">
-		
-		<!-- =====================ALLERGIC TABLE============================== -->		
-<div class="col-md-6 col-sm-6 col-xs-6">
-				<div class="x_panel">
-					<div class="x_title ">
-						<h2>Allergic</h2>
-
-					</div>
-					<div >
-						<div class="table-responsive">
-							<table class="table table-striped jambo_table bulk_action">
-								<thead>
-									<tr class="headings">
-										<th class="column-title">Medicine's Name</th>
-
-									</tr>
-								</thead>
-
-								<tbody ng-repeat = "allergic in treatment.patientId.allergicList" >
-									<tr class="even pointer">
-										<td>{{allergic.medicineId.name}}</td>
-									</tr>
-
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-<!-- =====================ALLERGIC TABLE============================== -->	
-			
-			<div class="col-md-6 col-sm-6 col-xs-6">
-				<div class="x_panel">
-					<div class="x_title">
-						<h2>File Attached</h2>
-
-					</div>
-					<div class="x_content">
-						<br />
-						<form id="demo-form2" data-parsley-validate
-							class="form-horizontal form-label-left">
-
-
-						
-							<img id="image" src="../images/Capture.JPG">
+					<div class="table-responsive">
+						<form>
+							<md-content class="md-padding autocomplete col-md-10"
+								layout="column"> <md-contact-chips
+								ng-model="medicines" md-contacts="querySearch($query)"
+								md-contact-name="name" md-require-match="true"
+								md-highlight-flags="i" filter-selected="filterSelected"
+								placeholder="Enter name medicne"> </md-contact-chips> </md-content>
+							<button class="btn btn-success" type="submit"
+								ng-click="createTreatmentDetail()" style="margin-top: 25px">Add</button>
 						</form>
 					</div>
+					<table class="table table-striped jambo_table bulk_action">
+						<thead>
+							<tr class="headings">
+								<th class="column-title">Medicine's Name</th>
+								<th class="column-title">Diseases</th>
+								<th class="column-title">Dosage</th>
+								<th class="col-xs-2 column-title no-link last">Action</th>
+
+							</tr>
+						</thead>
+
+						<tbody ng-repeat="treatmentdt in treatment.treatmentDetailList">
+							<tr class="even pointer">
+								<td>{{treatmentdt.medicineId.name}}</td>
+								<td>{{treatmentdt.diseases}}</td>
+								<td>{{treatmentdt.medicineId.dosage}}</td>
+								<td><button ng-click="deleteTreatmentDetail(treatmentdt.id)"  class="glyphicon glyphicon-trash btn btn-danger" ></button></td>
+
+							</tr>
+
+						</tbody>
+					</table>
 				</div>
-				<div class="ln_solid"></div>
-		<div class="form-group">
-			<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-0">
-				<button type="submit" class="btn btn-success">Submit</button>
 			</div>
 		</div>
-			</div>
-		</div>
-		
 	</div>
+
+	<div class=" row">
+
+		<!-- =====================ALLERGIC TABLE============================== -->
+		<div class="col-md-6 col-sm-6 col-xs-6">
+			<div class="x_panel">
+				<div class="x_title ">
+					<h2>Allergic</h2>
+
+				</div>
+				<div>
+					<div class="table-responsive">
+						<form>
+							<md-content class="md-padding autocomplete col-md-10"
+								layout="column"> <md-contact-chips
+								ng-model="allergics" md-contacts="querySearch($query)"
+								md-contact-name="name" md-require-match="true"
+								md-highlight-flags="i" filter-selected="filterSelected"
+								placeholder="Enter name medicne"> </md-contact-chips> </md-content>
+							<button class="btn btn-success" type="submit"
+								ng-click="createAllergics()" style="margin-top: 25px">Add</button>
+						</form>
+						<table class="table table-striped jambo_table bulk_action">
+							<thead>
+								<tr class="headings">
+									<th class="column-title">Medicine's Name</th>
+									<th class="col-xs-2 column-title no-link last">Action</th>
+
+								</tr>
+							</thead>
+
+							<tbody ng-repeat="allergic in treatment.patientId.allergicList">
+								<tr class="even pointer">
+									<td>{{allergic.medicineId.name}}</td>
+									<td><button ng-click="deleteAllergic(allergic.id)"  class="glyphicon glyphicon-trash btn btn-danger" ></button></td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		<!-- =====================ALLERGIC TABLE============================== -->
+
+		<div class="col-md-6 col-sm-6 col-xs-6">
+			<div class="x_panel">
+				<div class="x_title">
+					<h2>File Attacked</h2>
+
+				</div>
+				<div class="x_content">
+					<br />
+					<form id="demo-form2" data-parsley-validate
+						class="form-horizontal form-label-left">
+					</form>
+				</div>
+			</div>
+			<div class="ln_solid"></div>
+			<div class="form-group">
+				<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-0">
+					<button type="submit" class="btn btn-success">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
 </div>
