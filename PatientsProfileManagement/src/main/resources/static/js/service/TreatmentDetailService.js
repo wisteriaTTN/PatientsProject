@@ -4,7 +4,7 @@ app.factory('treatmentDetailService', function($http){
 	
 	 
 	 var createTreatmentDetail = function(treatment){
-		 return $http.post("http://localhost:8080/treatment",treatment)
+		 return $http.post("http://localhost:8080/treatmentdt",treatment)
 		  .then(function(response){
 				return response.data;
 			});
