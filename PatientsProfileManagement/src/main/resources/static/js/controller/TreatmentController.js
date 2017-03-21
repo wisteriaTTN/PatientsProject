@@ -152,6 +152,7 @@ app.controller('treatmentController', function(
 	};
 	var updateSuccess = function(data) {
 		alert('update treatment Success:');
+		$(".modal").modal("hide");
 		$scope.getAllTreatment();
 		
 	};

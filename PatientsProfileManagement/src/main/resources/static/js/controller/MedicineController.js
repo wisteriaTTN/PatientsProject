@@ -79,6 +79,7 @@ app.controller('medicineController', function(
 	};
 	var updateMedicineSuccess = function(data) {
 		alert('update medicine Success:' + data.name);
+		$(".modal").modal("hide");
 		$scope.getMedicine();
 	};
 	var updateMedicineError = function(error) {
