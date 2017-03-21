@@ -15,24 +15,6 @@
 	password.onchange = validatePassword;
 	confirm_password.onkeyup = validatePassword;
 </script> -->
-
-<script type="text/javascript">
-
-angular.module('UserValidation', []).directive('validPasswordC', function () {
-    return {
-        require: 'ngModel',
-        link: function (scope, elm, attrs, ctrl) {
-            ctrl.$parsers.unshift(function (viewValue, $scope) {
-                var noMatch = viewValue != scope.myForm.password.$viewValue
-                ctrl.$setValidity('noMatch', !noMatch)
-            })
-        }
-    }
-})
-</script>
-
-
-
 </head>
 <body>
 <!-- <form class="pure-form">
@@ -50,9 +32,9 @@ angular.module('UserValidation', []).directive('validPasswordC', function () {
    <form name="myForm">
        
        <label for="password">Password</label>
-       <input type="password" id="password" name="password" ng-model="formData.password" ng-minlength="8" ng-maxlength="20"required  />
+       <input type="password" id="password" name="password" ng-model="formData.password" ng-minlength="5" ng-maxlength="20"required  />
    <span ng-show="myForm.password.$error.required && myForm.password.$dirty">required</span>
-   <span ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">Passwords must be between 8 and 20 characters.</span>
+   <span ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">Passwords must be between 5 and 20 characters.</span>
        <br />
        
        
