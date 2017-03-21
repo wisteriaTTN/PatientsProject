@@ -41,7 +41,10 @@ app.controller('medicineController', function(
 		$scope.medicines = data;   
 	};
 	var getMedicineError = function(error) {
-		$scope.error = "Could not find any data"
+		bootbox.alert({
+			message: "could not find any data!",
+		    size: 'small'
+		});
 	};
 	
 /////----------get one medicine-------------
@@ -82,8 +85,8 @@ app.controller('medicineController', function(
 	};
 	var updateMedicineSuccess = function(data) {
 
-		alert('update medicine Success:' + data.name);
-		$(".modal").modal("hide");
+//		alert('update medicine Success:' + data.name);
+//		$(".modal").modal("hide");
 		$scope.getMedicine();
 
 		bootbox.alert({
@@ -119,7 +122,10 @@ app.controller('medicineController', function(
 		$scope.typemedicines = data;
 	};
 	var getError = function(error) {
-		$scope.error = "Could not find any data"
+		bootbox.alert({
+			message: "could not find any data!",
+		    size: 'small'
+		});
 	};
 
 /////----------get one type medicine-------------
@@ -136,7 +142,10 @@ app.controller('medicineController', function(
 		typeMedicineService.createTypeMedicine($scope.typemedicine).then(createSuccess,createError);
 	};
 	var createSuccess = function(data) {
-		alert('add new type medicine Success:' + data);
+		bootbox.alert({
+			message: "add new type medicine success!",
+		    size: 'small'
+		});
 		$scope.getTypeMedicine();
 	};
 	var createError = function(error) {
@@ -147,7 +156,10 @@ app.controller('medicineController', function(
 		typeMedicineService.updateTypeMedicine(id,typeMedicine).then(updateSuccess,updateError);
 	};
 	var updateSuccess = function(data) {
-		alert('update type medicine Success:' + data.typeName);
+		bootbox.alert({
+			message: "update type medicine success!",
+		    size: 'small'
+		});
 		$scope.getTypeMedicine();
 	};
 	var updateError = function(error) {
@@ -159,7 +171,10 @@ app.controller('medicineController', function(
 		
 	};
 	var deleteSuccess = function(data) {
-		alert('delete type medicine Success:' + data.typeName);
+		bootbox.alert({
+			message: "delete type medicine success!",
+		    size: 'small'
+		});
 		$scope.getTypeMedicine();
 	};
 	var deleteError = function(error) {

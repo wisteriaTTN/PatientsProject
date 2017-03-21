@@ -1,5 +1,6 @@
 package com.csc.team2.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -12,12 +13,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.csc.team2.model.Allergic;
+import com.csc.team2.model.File;
 import com.csc.team2.model.Medicine;
 import com.csc.team2.model.Patient;
+import com.csc.team2.model.Treatment;
 import com.csc.team2.service.AllergicServiceImpl;
 
 @RestController
@@ -51,10 +57,31 @@ public class AllergicController {
 	}
 	
 ////========= Create List Allergic====================================
+	@RequestMapping(value = "/allergicList", method = RequestMethod.POST)
+	public @ResponseBody
+	ResponseEntity<?> createAllergic(@RequestParam("allergics") String allergicList,
+			@RequestParam("patientId") String patientId){
+		
+;
+		//Treatment treatment = getTreatmentById(Integer.parseInt(treatmentId));
+		//File file = new File();
+			//file.setTreatmentId(treatment);
+			//file.setImage(mfile.getBytes());
+			//allergicService.saveAllergicList(allergicList);
+			logger.info("You successfully uploaded file");
+		
+		
+			HttpHeaders headers = new HttpHeaders();
+			return new ResponseEntity<String>(headers, HttpStatus.CREATED);
+		
+	}
+	
+	
+	
 	@RequestMapping(value="/allergic/List", method= RequestMethod.POST)
 	public ResponseEntity<?> createAllergics(@RequestBody List<Allergic> allergicList,@RequestBody Patient patientId, UriComponentsBuilder ucBuilder){
 		logger.info("create New allergic : {}", allergicList);
-		allergicService.saveAllergic(allergicList);
+//		allergicService.saveAllergic(allergicList);
 		
 		HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
