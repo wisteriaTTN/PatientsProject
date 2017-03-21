@@ -1,4 +1,5 @@
 /*! AdminLTE app.js
+
  * ================
  * Main JS application file for AdminLTE v2. This file
  * should be included in all pages. It controls some layout
@@ -10,6 +11,13 @@
  * @version 2.3.12
  * @license MIT <http://opensource.org/licenses/MIT>
  */
+
+jQuery(document).ready(function() {
+	$('.sidebar-menu li').click(function(){ 
+	      $(this).addClass('active').siblings().removeClass('active');
+	   });
+    
+});
 function _init() {
     "use strict";
     $.AdminLTE.layout = {
