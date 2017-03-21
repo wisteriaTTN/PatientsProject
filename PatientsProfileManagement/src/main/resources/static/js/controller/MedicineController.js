@@ -65,7 +65,10 @@ app.controller('medicineController', function(
 		medicineService.createMedicine($scope.medicine).then(createMedicineSuccess,createMedicineError);
 	};
 	var createMedicineSuccess = function(data) {
-		alert('add new medicine Success:' + data.name);
+		bootbox.alert({
+			message: "add medicine success!",
+		    size: 'small'
+		});
 		
 		$scope.getMedicine();
 	};
@@ -78,9 +81,16 @@ app.controller('medicineController', function(
 		medicineService.updateMedicine(id,medicine).then(updateMedicineSuccess,updateMedicineError);
 	};
 	var updateMedicineSuccess = function(data) {
+
 		alert('update medicine Success:' + data.name);
 		$(".modal").modal("hide");
 		$scope.getMedicine();
+
+		bootbox.alert({
+			message: "update medicine success!",
+		    size: 'small'
+		});
+
 	};
 	var updateMedicineError = function(error) {
 	};
@@ -91,7 +101,10 @@ app.controller('medicineController', function(
 		
 	};
 	var deleteMedicineSuccess = function(data) {
-		alert('delete medicine Success:' + data.name);
+		bootbox.alert({
+			message: "delete medicine success!",
+		    size: 'small'
+		});
 		$scope.getMedicine();
 	};
 	var deleteMedicineError = function(error) {

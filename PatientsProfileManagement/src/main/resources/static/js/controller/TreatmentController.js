@@ -86,7 +86,7 @@ app.controller('treatmentController', function(
 	};
 	
 ////==========Get current doctor=======================================
-	$http.get("http://localhost:8080/userlogged").then(function(response) {
+	$http.get("http://localhost:8080/userProfile").then(function(response) {
 		$scope.doctor = response.data;
 	});
 	
@@ -143,12 +143,12 @@ app.controller('treatmentController', function(
 	};
 ////==========Update Treatment ==================================
 	$scope.updateTreatment = function(id,treatment){
-		if($scope.currentTreatment.doctorId.id==$scope.doctor.id){
+		/*if($scope.currentTreatment.doctorId.id==$scope.doctor.id){*/
 			treatmentService.updateTreatment(id,treatment).then(updateSuccess,updateError);
-		}
+/*		}
 		else{
 			alert('You have not permission');
-		}
+		}*/
 	};
 	var updateSuccess = function(data) {
 		alert('update treatment Success:');
@@ -157,7 +157,7 @@ app.controller('treatmentController', function(
 		
 	};
 	var updateError = function(error) {
-		alert('You have not permission');
+		alert('update treatment error');
 	};
 		
 		

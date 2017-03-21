@@ -1,5 +1,7 @@
 package com.csc.team2.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -14,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
- 
+
+import com.csc.team2.model.Medicine;
 import com.csc.team2.model.TreatmentDetail;
 import com.csc.team2.service.ITreatmentDtService;
 import com.csc.team2.util.CustomErrorType;
@@ -53,8 +56,30 @@ public class TreatmentDtController {
         }
         return new ResponseEntity<TreatmentDetail>(treatmentdt, HttpStatus.OK);
     }
- 
-    // -------------------Create a TreatmentDt-------------------------------------------
+    
+ ////====================
+    @RequestMapping(value = "/unAllergic/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getNotAllerggic(@PathVariable("id") int id) {
+        logger.info("Fetching TreatmentDt with id {}", id);
+        List<Object[]> Objects = treatmentdtService.findNotAllergic(id);
+        List<Medicine> medicines = new ArrayList<Medicine>();
+        if (medicines == null) {
+            logger.error(" not found.");
+        }
+        for (Object[] obj : Objects)
+        {
+        	Medicine medicine = new Medicine();
+        	medicine.setId((Integer)obj[0]);
+        	medicine.setName((String)obj[1]);
+        	medicine.setMfg((Date)obj[2]);
+        	medicine.setProducer((String)obj[3]);
+        	medicine.setDosage((String)obj[4]);
+        	medicines.add(medicine);
+        }
+        return new ResponseEntity<List<Medicine>>(medicines, HttpStatus.OK);
+    }
+    
+ //// -------------------Create a TreatmentDt-------------------------------------------
  
     @RequestMapping(value = "/treatmentdt", method = RequestMethod.POST)
     public ResponseEntity<?> createTrearmentDt(@RequestBody TreatmentDetail treatmentdt, UriComponentsBuilder ucBuilder) {
