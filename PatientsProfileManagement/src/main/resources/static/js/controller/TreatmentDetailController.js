@@ -35,12 +35,20 @@ app.controller('treatmentDetailController', function(
 ////=========Create allergics list======================================
 	$scope.createAllergics = function(){
 		if($scope.allergics!=null){
-			allergicService.createAllergics($scope.allergics,$scope.treatment.patientId).then(createAllergicSuccess,createAllergicError)
+			angular.forEach($scope.medicines, function(value, key){
+				$scope.allergic.medicineId =value;
+				$scope.allergic.patientId=$scope.treatment.patientId;
+				allergicService.createAllergic($scope.allergic).then(createAllergicSuccess,createAllergicError)
+			});
+			//allergicService.createAllergics(JSON.stringify($scope.allergics),$scope.treatment.patientId.id);
 		}
+		
 		else{
 			
 		}
 	}
+	
+	
 	var createAllergicSuccess = function(data) {
 		alert('add new treatment Success:');
 		$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
@@ -187,7 +195,7 @@ app.directive('fileModel', ['$parse', function ($parse) {
 } ])
 
     
-    app.service('fileUpload', ['$http', function ($https) {
+app.service('fileUpload', ['$http', function ($https) {
         
     	this.uploadFileToUrl= function(file,myData, uploadUrl){
             var fd = new FormData();
@@ -209,51 +217,24 @@ app.directive('fileModel', ['$parse', function ($parse) {
     
      
  }]);
-//app.controller('contactlistController', function ($scope, $http) {
-//
-//    var formdata = new FormData();
-//    formdata.append('treatmentId', JSON.stringify($scope.treatmentdt));
-//    var filesArray = [];
-//    $scope.getTheFiles = function ($files) {
-//        angular.forEach($files, function (value, key) {
-//        	filesArray.push(value);
-////            formdata.append(key, value);
-//        });
-//        formdata.append('files',filesArray)
-//    };
-//   
-//
-//    // NOW UPLOAD THE FILES.
-//    $scope.uploadFiles = function () {
-//
-//        var request = {
-//            method: 'POST',
-//            url: 'http://localhost:8080/upload',
-//            data: formdata,
-//            headers: {
-//                'Content-Type': undefined
-//            }
-//        };
-//
-//        // SEND THE FILES.
-//        $http(request)
-//            .success(function (d) {
-//                alert(d);
-//            })
-//            .error(function () {
-//            });
-//    }
-//});
-//
-//app.controller('treatmentDetailController', function(
-//        $scope, $interval, $location,$http,$routeParams) {
-//	
-//	$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
-//		$scope.treatment = response.data;
-//	});
-//	
-//	$http.get("http://localhost:8080/treatment").then(function(response) {
-//		$scope.patient = response.data;
-//    });
-//
-//});
+
+app.directive("fileinput", [function() {
+    return {
+        scope: {
+          fileinput: "=",
+          filepreview: "="
+        },
+        link: function(scope, element, attributes) {
+          element.bind("change", function(changeEvent) {
+            scope.fileinput = changeEvent.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(loadEvent) {
+              scope.$apply(function() {
+                scope.filepreview = loadEvent.target.result;
+              });
+            }
+            reader.readAsDataURL(scope.fileinput);
+          });
+        }
+      }
+    }]);
