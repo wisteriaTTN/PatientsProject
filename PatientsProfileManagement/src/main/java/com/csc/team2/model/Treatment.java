@@ -59,12 +59,11 @@ public class Treatment implements Serializable {
     private Date date;
     @Basic(optional = false)
     
-    @Size(min = 1, max = 100)
+
     @Column(name = "file")
     private String file;
     @Basic(optional = false)
-    
-    @Size(min = 1, max = 100)
+   
     @Column(name = "prescription")
     private String prescription;
     @JoinColumn(name = "doctor_id", referencedColumnName = "id")
@@ -72,7 +71,7 @@ public class Treatment implements Serializable {
     private User doctorId;
     @JoinColumn(name = "patient_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-  //@JsonManagedReference
+    //@JsonManagedReference
     private Patient patientId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "treatmentId")
     //@JsonIgnoreProperties("historyList")
