@@ -16,6 +16,12 @@ app.config(function($routeProvider) {
 	}).when('/usersList', {
 		templateUrl : '/views/usersList.html',
 		controller : "userController"
+	}).when('/userProfile', {
+		templateUrl : '/views/userProfile.html',
+		controller : "userController"
+	}).when('/changePass', {
+		templateUrl : '/views/changePass.html',
+		controller : "userController"
 	}).when('/test', {
 		templateUrl : '/views/TestContactList.html',
 		controller : "contactlistController"
@@ -23,10 +29,7 @@ app.config(function($routeProvider) {
 		templateUrl : '/views/treatment.html',
 		controller : "treatmentController"
 	})
-		/*.when('/userProfile', {
-		templateUrl : '/views/userProfile.html',
-		controller : "userController"
-	})*/
+
 	.when('/treatment/:treatmentId', {
 		templateUrl : '/views/treatmentdetail.html',
 		controller : "treatmentDetailController"

@@ -60,11 +60,11 @@ public class TreatmentDtController {
     public ResponseEntity<?> createTrearmentDt(@RequestBody TreatmentDetail treatmentdt, UriComponentsBuilder ucBuilder) {
         logger.info("Creating TreatmentDt : {}", treatmentdt);
  
-        if (treatmentdtService.isTreatmentDtExist(treatmentdt)) {
-            logger.error("Unable to create. A TreatmentDt with ID {} already exist", treatmentdt.getId());
-            return new ResponseEntity(new Error("Unable to create. A TreatmentDt with ID " + 
-            treatmentdt.getId() + " already exist."),HttpStatus.CONFLICT);
-        }
+//        if (treatmentdtService.isTreatmentDtExist(treatmentdt)) {
+//            logger.error("Unable to create. A TreatmentDt with ID {} already exist", treatmentdt.getId());
+//            return new ResponseEntity(new Error("Unable to create. A TreatmentDt with ID " + 
+//            treatmentdt.getId() + " already exist."),HttpStatus.CONFLICT);
+//        }
         treatmentdtService.saveTreatmentDt(treatmentdt);
  
         HttpHeaders headers = new HttpHeaders();

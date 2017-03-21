@@ -171,10 +171,15 @@ CREATE TABLE IF NOT EXISTS `db_ppm`.`allergic` (
   `patient_id` INT(11) NOT NULL,
   `medicine_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_aller_patient_idx` (`patient_id` ASC),
+  INDEX `fk_aller_patient_idx` (`patient_id` ASC),INDEX `fk_aller_medicine_idx` (`medicine_id` ASC),
   CONSTRAINT `fk_aller_patient`
     FOREIGN KEY (`patient_id`)
     REFERENCES `db_ppm`.`patient` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    CONSTRAINT `fk_allergic_medicine`
+    FOREIGN KEY (`medicine_id`)
+    REFERENCES `db_ppm`.`medicine` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
