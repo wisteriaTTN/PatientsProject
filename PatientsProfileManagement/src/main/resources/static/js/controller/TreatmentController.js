@@ -1,9 +1,9 @@
-//var app = angular.module('myApp');
+
 
 
 var app = angular.module('myApp');
 app.controller('treatmentController', function(
-        $scope, $interval, $location,$http,patientService,userService,treatmentService,treatmentDetailService) {
+        $scope, $interval, $location,$http,patientService,userService,treatmentService,treatmentDetailService,allergicService) {
 	
 	$scope.treatment ={
 			date : null,
@@ -15,17 +15,6 @@ app.controller('treatmentController', function(
 			patientId : {
 					
 			}
-	}
-	
-	$scope.treatmentDetail={
-			treatmentId:{
-					
-			},
-			medicineId:{
-				
-			},
-			diseases:null
-			
 	}
 	
 ////////////////autocomplete for patient
@@ -66,45 +55,8 @@ app.controller('treatmentController', function(
 
     }
 	
- ///////////////contacts chip for medicine and allergic
-    $scope.querySearch = querySearch;
-    $scope.medicines = [];
-	$scope.allergics = [];
-	$scope.filterSelected = true;
-
-    function querySearch (query) {
-      var result;
-      if(query) {
-        result = loadAndParseContacts().then(function(data) {
-             return data.filter(createFilterFor(query))
-           })
-      } else {
-        result = []
-      }
-      return result
-    }
-
-    function createFilterFor(query) {
-      var lowercaseQuery = angular.lowercase(query);
-      return function filterFn(contact) {
-        return (contact._lowername.indexOf(lowercaseQuery) != -1);;
-      };
-
-    }
+ ///////////////contacts chip for medicine and allergi
     
-    function parse (data) {
-      return data.data.map(function (c, index) {
-          var contact = {
-            name: c.name,
-            id: c.id,
-          };
-          contact._lowername = contact.name.toLowerCase();
-          return contact;
-        })      
-    }
-    function loadAndParseContacts() {
-      return $http.get('http://localhost:8080/medicine').then(parse)
-    }
     
  //////////////////////////////////////////////////////////////////////
 	
@@ -151,11 +103,10 @@ app.controller('treatmentController', function(
 	
 ////==========Create treatment=========================================
 	$scope.createTreatment = function(){
+		$scope.treatment.patientId = $scope.selectedPatient.id;
+		$scope.treatment.doctorId = $scope.doctor.id;
 		$scope.treatment.date = new Date();
-		$scope.treatment.patientId = $scope.selectedPatient;
-		$scope.treatment.doctorId = $scope.doctor
 		treatmentService.createTreatment($scope.treatment).then(createTreatmentSuccess,createTreatmentError);
-		createTreatmentDetail();
 	};
 	var createTreatmentSuccess = function(data) {
 		alert('add new treatment Success:' + data.name);
@@ -169,7 +120,7 @@ app.controller('treatmentController', function(
 	$scope.createTreatmentDetail = function(){
 		if($scope.medicines!=null){
 			angular.forEach($scope.medicines, function(value, key){
-				$scope.treatmentDetail.treatmentId = $scope.treatment;
+				$scope.treatmentDetail.treatmentId = $scope.treatment.id;
 				$scope.treatmentDetail.medicineId =value;
 				$scope.treatmentDetail.diseases =$scope.treatment.prescription;
 				treatmentDetailService.createTreatmentDetail($scope.treatmentDetail)
@@ -180,6 +131,43 @@ app.controller('treatmentController', function(
 			alert("no medicine")
 		}
 	}
+////==========Get One Treatment ==================================
+	$scope.getOneTreatment = function(id){
+		treatmentService.getOneTreatment(id).then(getOneSuccess,getOneError)
+	};
+	var getOneSuccess = function(data) {
+		$scope.currentTreatment = data;
+		$scope.currentTreatment.date = new Date();
+	};
+	var getOneError = function(error) {
+	};
+////==========Update Treatment ==================================
+	$scope.updateTreatment = function(id,treatment){
+		if($scope.currentTreatment.doctorId.id==$scope.doctor.id){
+			treatmentService.updateTreatment(id,treatment).then(updateSuccess,updateError);
+		}
+		else{
+			alert('You have not permission');
+		}
+	};
+	var updateSuccess = function(data) {
+		alert('update treatment Success:');
+		$scope.getAllTreatment();
+		
+	};
+	var updateError = function(error) {
+		alert('You have not permission');
+	};
+		
+		
 	
+	/*$scope.updateTreatment = function(id,treatment){
+		treatmentService.updateTreatment(id,treatment).then(updateSuccess,updateError)
+	};
+	var updateSuccess = function(data) {
+		alert('update treatment Success:' + data.name);
+		$scope.getAllTreatment();
+		
+	};*/
 	
 });

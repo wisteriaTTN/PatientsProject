@@ -71,7 +71,7 @@ public class Patient implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dob;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patientId")
-    @JsonIgnoreProperties("patientId")
+    //@JsonIgnoreProperties("patientId")
     //@JsonBackReference
     
     private List<Allergic> allergicList;
