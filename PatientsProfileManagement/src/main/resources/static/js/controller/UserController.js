@@ -147,7 +147,7 @@ app.controller('userController', function($scope, $interval, $location, userServ
 		userService.updateUser(id,user).then(updateSuccess,updateError);
 	};
 	var updateSuccess = function(data) {
-		alert('update User Success:');
+		$(".modal").modal("hide");
 		$scope.getAdmin();
 		$scope.getDoctor();
 		$scope.getNurse();

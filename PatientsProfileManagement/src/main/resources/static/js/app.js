@@ -19,9 +19,6 @@ app.config(function($routeProvider) {
 	}).when('/userProfile', {
 		templateUrl : '/views/userProfile.html',
 		controller : "userController"
-	}).when('/changePass', {
-		templateUrl : '/views/changePass.html',
-		controller : "userController"
 	}).when('/test', {
 		templateUrl : '/views/TestContactList.html',
 		controller : "contactlistController"
