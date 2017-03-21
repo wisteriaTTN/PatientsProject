@@ -47,6 +47,10 @@ app.controller('treatmentDetailController', function(
 	}
 	var createAllergicSuccess = function(data) {
 		alert('add new treatment Success:');
+		$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
+			$scope.treatment = response.data;
+			$scope.treatment.patientId.dob = new Date(response.data.patientId.dob);
+		})
 	};
 	var createAllergicError = function(error) {
 	};
@@ -61,19 +65,26 @@ app.controller('treatmentDetailController', function(
 				$scope.treatmentDetail.diseases =$scope.treatment.prescription;
 				treatmentDetailService.createTreatmentDetail($scope.treatmentDetail).then(createTreatmentDetailSuccess,createTreatmentDetailError)
 				
+				
 			});
 		}
 		else{
 			
 		}
+		
 	}
-	
 	var createTreatmentDetailSuccess = function(data) {
 		alert('add new treatment Success:');
+		$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
+			$scope.treatment = response.data;
+			$scope.treatment.patientId.dob = new Date(response.data.patientId.dob);
+		});
 	};
 	var createTreatmentDetailError = function(error) {
 		alert("wrong hreee");
 	};
+	
+	
 	
 ////==========delete treatment detail=================================
 	$scope.deleteTreatmentDetail = function(id){
@@ -81,6 +92,10 @@ app.controller('treatmentDetailController', function(
 	}
 	var deleteTreatmentDetailSuccess = function(data) {
 		alert('delete treatment Success:');
+		$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
+			$scope.treatment = response.data;
+			$scope.treatment.patientId.dob = new Date(response.data.patientId.dob);
+		});
 	};
 	var deleteTreatmentDetailError = function(error) {
 	};
@@ -91,6 +106,10 @@ app.controller('treatmentDetailController', function(
 	}
 	var deleteAllergicSuccess = function(data) {
 		alert('delete allergic Success:');
+		$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
+			$scope.treatment = response.data;
+			$scope.treatment.patientId.dob = new Date(response.data.patientId.dob);
+		})
 	};
 	var deleteAllergiclError = function(error) {
 	};

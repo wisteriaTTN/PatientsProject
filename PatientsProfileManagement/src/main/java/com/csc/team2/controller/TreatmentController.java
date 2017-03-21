@@ -80,11 +80,11 @@ public class TreatmentController {
  
         Treatment currentTreatment = treatmentService.findById(id);
  
-        if (currentTreatment == null) {
+        /*if (currentTreatment == null) {
             logger.error("Unable to update. Treatment with id {} not found.", id);
             return new ResponseEntity(new Error("Unable to upate. Treatment with id " + id + " not found."),
                     HttpStatus.NOT_FOUND);
-        }
+        }*/
  
         currentTreatment.setId(treatment.getId());
         currentTreatment.setPatientId(treatment.getPatientId());

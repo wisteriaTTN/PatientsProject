@@ -53,7 +53,7 @@ public class AllergicController {
 	@RequestMapping(value="/addAllergicList", method= RequestMethod.POST)
 	public ResponseEntity<?> createAllergics(@RequestBody List<Allergic> allergicList,UriComponentsBuilder ucBuilder){
 		logger.info("create New allergic : {}", allergicList);
-		allergicService.saveAllergic(allergicList);;
+		allergicService.saveAllergic(allergicList);
 		
 		HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
@@ -63,7 +63,7 @@ public class AllergicController {
 	@RequestMapping(value="/addAllergic", method= RequestMethod.POST)
 	public ResponseEntity<?> createAllergics(@RequestBody Allergic allergic,UriComponentsBuilder ucBuilder){
 		logger.info("create New allergic : {}", allergic);
-		allergicService.saveAllergic(allergic);;
+		allergicService.saveAllergic(allergic);
 		
 		HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/allergic/{id}").buildAndExpand(allergic.getId()).toUri());

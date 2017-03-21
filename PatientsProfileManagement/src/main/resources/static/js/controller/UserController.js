@@ -88,7 +88,7 @@ app.controller('userController', function($scope, $interval, $location, userServ
     });
 	/////------------get All User Admin -----------------
 	$scope.getAdmin = function(data){
-		userService.getAdmin().then(getAdminSuccess,getAdminSuccess);
+		userService.getAdmin().then(getAdminSuccess,getAdminError);
 	}
 	var getAdminSuccess = function(data) {
 		$scope.usersAdmin = data;
@@ -99,7 +99,7 @@ app.controller('userController', function($scope, $interval, $location, userServ
 	
 /////------------get All User Doctor -----------------
 	$scope.getDoctor = function(data){
-		userService.getDoctor().then(getDoctorSuccess,getDoctorSuccess);
+		userService.getDoctor().then(getDoctorSuccess,getDoctorError);
 	}
 	var getDoctorSuccess = function(data) {
 		$scope.usersDoctor = data;
@@ -110,7 +110,7 @@ app.controller('userController', function($scope, $interval, $location, userServ
 	
 /////------------get All User Nurse -----------------
 	$scope.getNurse = function(data){
-		userService.getNurse().then(getNurseSuccess,getNurseSuccess);
+		userService.getNurse().then(getNurseSuccess,getNurseError);
 	}
 	var getNurseSuccess = function(data) {
 		$scope.usersNurse = data;
