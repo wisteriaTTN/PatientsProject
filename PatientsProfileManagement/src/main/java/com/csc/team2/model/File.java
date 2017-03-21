@@ -37,9 +37,9 @@ public class File implements Serializable {
    @Column(name = "image")
    private byte[] image;
    
-   @JoinColumn(name = "treatmentdt_id", referencedColumnName = "id")
+   @JoinColumn(name = "treatment_id", referencedColumnName = "id")
    @ManyToOne(optional = false)
-   private TreatmentDetail treatmentdtId;
+   private Treatment treatmentId;
 
    public File() {
    }
@@ -64,12 +64,12 @@ public class File implements Serializable {
        this.image = image;
    }
 
-   public TreatmentDetail getTreatmentdtId() {
-       return treatmentdtId;
+   public Treatment getTreatmentId() {
+       return treatmentId;
    }
 
-   public void setTreatmentdtId(TreatmentDetail treatmentdtId) {
-       this.treatmentdtId = treatmentdtId;
+   public void setTreatmentId(Treatment treatmentId) {
+       this.treatmentId = treatmentId;
    }
 
    @Override

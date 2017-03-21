@@ -55,7 +55,7 @@ public class AllergicServiceImpl implements IAllergicService {
 	}
 
 	@Override
-	public void saveAllergic(List<Allergic> allergicList) {
+	public void saveAllergicList(List<Allergic> allergicList) {
 		for( Allergic allergic :allergicList){
 			saveAllergic(allergic);
 		}

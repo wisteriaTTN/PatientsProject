@@ -3,6 +3,8 @@ package com.csc.team2.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -74,7 +76,7 @@ public class Patient implements Serializable {
     //@JsonIgnoreProperties("patientId")
     //@JsonBackReference
     
-    private List<Allergic> allergicList;
+    private Set<Allergic> allergicList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patientId")
     //@JsonIgnoreProperties("patientId")
     @JsonBackReference
@@ -137,11 +139,11 @@ public class Patient implements Serializable {
     }
 
     @XmlTransient
-    public List<Allergic> getAllergicList() {
+    public Set<Allergic> getAllergicList() {
         return allergicList;
     }
 
-    public void setAllergicList(List<Allergic> allergicList) {
+    public void setAllergicList(Set<Allergic> allergicList) {
         this.allergicList = allergicList;
     }
 

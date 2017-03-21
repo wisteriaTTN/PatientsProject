@@ -17,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.csc.team2.model.Allergic;
 import com.csc.team2.model.Medicine;
+import com.csc.team2.model.Patient;
 import com.csc.team2.service.AllergicServiceImpl;
 
 @RestController
@@ -50,8 +51,8 @@ public class AllergicController {
 	}
 	
 ////========= Create List Allergic====================================
-	@RequestMapping(value="/addAllergicList", method= RequestMethod.POST)
-	public ResponseEntity<?> createAllergics(@RequestBody List<Allergic> allergicList,UriComponentsBuilder ucBuilder){
+	@RequestMapping(value="/allergic/List", method= RequestMethod.POST)
+	public ResponseEntity<?> createAllergics(@RequestBody List<Allergic> allergicList,@RequestBody Patient patientId, UriComponentsBuilder ucBuilder){
 		logger.info("create New allergic : {}", allergicList);
 		allergicService.saveAllergic(allergicList);
 		

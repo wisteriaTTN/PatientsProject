@@ -52,7 +52,15 @@ public class Treatment implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
+    public List<File> getFileList() {
+		return fileList;
+	}
+
+	public void setFileList(List<File> fileList) {
+		this.fileList = fileList;
+	}
+
+	@Basic(optional = false)
     
     @Column(name = "date")
     @Temporal(TemporalType.DATE)
@@ -79,6 +87,9 @@ public class Treatment implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "treatmentId")
     //@JsonIgnoreProperties("treatmentDetailList")
     private List<TreatmentDetail> treatmentDetailList;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "treatmentId")
+    private List<File> fileList;
 
     public Treatment() {
     }

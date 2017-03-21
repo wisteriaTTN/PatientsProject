@@ -52,9 +52,6 @@ public class TreatmentDetail implements Serializable {
     @Column(name = "diseases")
     private String diseases;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "treatmentdtId")
-    private List<File> fileList;
-    
     @JoinColumn(name = "treatment_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     //@JsonBackReference

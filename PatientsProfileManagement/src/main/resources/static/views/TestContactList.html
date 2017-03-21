@@ -17,4 +17,22 @@
        
    <button type="submit" class="btn" ng-disabled="!myForm.$valid">Submit</button>
 	</form>
+	<div >
+
+        <input type="file" id="file1" name="file" multiple
+            ng-files="getTheFiles($files)" />
+
+        <input type="button" ng-click="uploadFiles()" value="Upload" />
+    </div>
+    
+	<form name="uploadingForm" enctype="multipart/form-data" action="/uploadfile" method="POST">
+            <p>
+                <input id="fileInput" type="file" name="uploadingFiles" onchange="updateSize();" multiple>
+                selected files: <span id="fileNum">0</span>;
+                total size: <span id="fileSize">0</span>
+            </p>
+            <p>
+                <input type="submit" value="Upload files">
+            </p>
+        </form>
    </div>

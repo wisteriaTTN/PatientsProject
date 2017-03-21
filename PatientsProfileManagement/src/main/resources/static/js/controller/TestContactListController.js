@@ -1,34 +1,61 @@
-var app = angular.module('myApp',[]);
-
-app.directive('validPasswordC', function() {
-	  return {
-	    require: 'ngModel',
-	    scope: {
-
-	      reference: '=validPasswordC'
-
-	    },
-	    link: function(scope, elm, attrs, ctrl) {
-	      ctrl.$parsers.unshift(function(viewValue, $scope) {
-
-	        var noMatch = viewValue != scope.reference
-	        ctrl.$setValidity('noMatch', !noMatch);
-	        return (noMatch)?noMatch:!noMatch;
-	      });
-
-	      scope.$watch("reference", function(value) {;
-	        ctrl.$setValidity('noMatch', value === ctrl.$viewValue);
-
-	      });
-	    }
-	  }
-	});
-
-app.controller('contactlistController', function($scope) {
+var app = angular.module('myApp');
 
 
 
+//app.controller('contactlistController', function($scope) {
+//
+//
+//
+//
+//});
 
+app.directive('ngFiles', ['$parse', function ($parse) {
+
+    function fn_link(scope, element, attrs) {
+        var onChange = $parse(attrs.ngFiles);
+        element.on('change', function (event) {
+            onChange(scope, { $files: event.target.files });
+        });
+    };
+
+    return {
+        link: fn_link
+    }
+} ])
+app.controller('contactlistController', function ($scope, $http) {
+
+    var formdata = new FormData();
+    formdata.append('treatmentId', JSON.stringify($scope.treatmentdt));
+    var filesArray = [];
+    $scope.getTheFiles = function ($files) {
+        angular.forEach($files, function (value, key) {
+        	filesArray.push(value);
+//            formdata.append(key, value);
+        });
+        formdata.append('files',filesArray)
+    };
+   
+
+    // NOW UPLOAD THE FILES.
+    $scope.uploadFiles = function () {
+
+        var request = {
+            method: 'POST',
+            url: 'http://localhost:8080/upload',
+            data: formdata,
+            headers: {
+                'Content-Type': undefined
+            }
+        };
+
+        // SEND THE FILES.
+        $http(request)
+            .success(function (d) {
+                alert(d);
+            })
+            .error(function () {
+            });
+    }
 });
 //app.controller('contactlistController', function(
 //        $scope, $interval, $location,medicineService, typeMedicineService,$http,$log) {
@@ -134,4 +161,3 @@ app.controller('contactlistController', function($scope) {
 //      return $http.get('http://localhost:8080/medicine').then(parse)
 //    }
 //
-});
