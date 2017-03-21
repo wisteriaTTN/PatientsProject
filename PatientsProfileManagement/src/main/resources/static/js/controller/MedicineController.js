@@ -81,10 +81,16 @@ app.controller('medicineController', function(
 		medicineService.updateMedicine(id,medicine).then(updateMedicineSuccess,updateMedicineError);
 	};
 	var updateMedicineSuccess = function(data) {
+
+		alert('update medicine Success:' + data.name);
+		$(".modal").modal("hide");
+		$scope.getMedicine();
+
 		bootbox.alert({
 			message: "update medicine success!",
 		    size: 'small'
 		});
+
 	};
 	var updateMedicineError = function(error) {
 	};

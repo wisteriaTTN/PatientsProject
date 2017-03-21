@@ -44,20 +44,21 @@ app.controller('patientController', function(
 	/////-----------create Patient ------------
 	$scope.createPatient = function(){
 		patientService.createPatient($scope.patient).then(createSuccess,createError);
-		//reset();
+		
 	}
 	
-	/*reset = function(){
+	reset = function(){
 		$scope.patient = {
 				name : "",
 				address : "",
-				sex : "male",
-				dob : "",
+				sex : "",
+				dob : ""
 			};
-	};*/
+	};
 	
 	var createSuccess = function(data) {
-		alert('add new patient Success:' + data.name);
+		reset();
+		$(".modal").modal("hide");
 		$scope.getPatient();
 	};
 	var createError = function(error) {
@@ -68,7 +69,8 @@ app.controller('patientController', function(
 		patientService.updatePatient(id,patient).then(updateSuccess,updateError);
 	};
 	var updateSuccess = function(data) {
-		alert('update patient Success:' + data.name);
+		reset();
+		$(".modal").modal("hide");
 		$scope.getPatient();
 	};
 	var updateError = function(error) {
