@@ -2,8 +2,8 @@ var app = angular.module('myApp');
 
 app.factory('allergicService', function($http){
 	
-	 var createAllergics = function(allergics){
-		  return $http.post("http://localhost:8080/addAllergicList",allergics)
+	 var createAllergics = function(allergics,treatmentId){
+		  return $http.post("http://localhost:8080/allergic/List",allergics,treatmentId)
 		  .then(function(response){
 				return response.data;
 			});
