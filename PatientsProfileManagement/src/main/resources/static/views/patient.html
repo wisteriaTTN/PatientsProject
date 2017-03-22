@@ -156,7 +156,7 @@
             <span><i class="fa fa-refresh" aria-hidden="true"></i></span>
             Clear
             </button>
-            <button type="submit" ng-click="updatePatient(curentPatient.id,curentPatient)" class="btn btn-success btn-in-modal">
+            <button type="submit" ng-click="updatePatient(curentPatient.id,curentPatient)" data-dismiss="modal" class="btn btn-success btn-in-modal">
             <span><i class="glyphicon glyphicon-floppy-save" aria-hidden="true"></i></span>
             Submit
             </button>
@@ -227,7 +227,7 @@
             <span><i class="fa fa-refresh" aria-hidden="true"></i></span>
             Clear
             </button>
-            <button type="submit" ng-click="createPatient()" ng-disabled="createPatienta.$pristine || (createPatienta.$dirty && createPatienta.$invalid)" class="btn btn-success btn-in-modal">
+            <button type="submit" ng-click="createPatient()" data-dismiss="modal" ng-disabled="createPatienta.$pristine || (createPatienta.$dirty && createPatienta.$invalid)" class="btn btn-success btn-in-modal">
             <span><i class="glyphicon glyphicon-floppy-save" aria-hidden="true"></i></span>
             Submit
             </button>
