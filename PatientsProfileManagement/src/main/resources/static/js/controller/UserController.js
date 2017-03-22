@@ -76,7 +76,6 @@ app.controller('userController', function($scope, $interval, $location, userServ
 	$http.get("http://localhost:8080/userbyrole/1").then(function(response) {
 		$scope.usersAdmin = response.data;
     });
-
 	$http.get("http://localhost:8080/userbyrole/2").then(function(response) {
 		$scope.usersDoctor = response.data;
     });
@@ -89,34 +88,34 @@ app.controller('userController', function($scope, $interval, $location, userServ
     });
 	/////------------get All User Admin -----------------
 	$scope.getAdmin = function(data){
-		userService.getAdmin().then(getSuccess,getSuccess);
+		userService.getAdmin().then(getAdminSuccess,getAdminError);
 	}
-	var getSuccess = function(data) {
+	var getAdminSuccess = function(data) {
 		$scope.usersAdmin = data;
 	};
-	var getError = function(error) {
+	var getAdminError = function(error) {
 		$scope.error = "Could not find any data"
 	};
 	
 /////------------get All User Doctor -----------------
 	$scope.getDoctor = function(data){
-		userService.getDoctor().then(getSuccess,getSuccess);
+		userService.getDoctor().then(getDoctorSuccess,getDoctorError);
 	}
-	var getSuccess = function(data) {
+	var getDoctorSuccess = function(data) {
 		$scope.usersDoctor = data;
 	};
-	var getError = function(error) {
+	var getDoctorError = function(error) {
 		$scope.error = "Could not find any data"
 	};
 	
 /////------------get All User Nurse -----------------
 	$scope.getNurse = function(data){
-		userService.getNurse().then(getSuccess,getSuccess);
+		userService.getNurse().then(getNurseSuccess,getNurseError);
 	}
-	var getSuccess = function(data) {
+	var getNurseSuccess = function(data) {
 		$scope.usersNurse = data;
 	};
-	var getError = function(error) {
+	var getNurseError = function(error) {
 		$scope.error = "Could not find any data"
 	};
 	
@@ -148,10 +147,13 @@ app.controller('userController', function($scope, $interval, $location, userServ
 		userService.updateUser(id,user).then(updateSuccess,updateError);
 	};
 	var updateSuccess = function(data) {
-		alert('update User Success:');
+		$(".modal").modal("hide");
 		$scope.getAdmin();
 		$scope.getDoctor();
 		$scope.getNurse();
+		$http.get("http://localhost:8080/userProfile").then(function(response) {
+			$scope.userLogged = response.data;
+	    });
 	};
 	var updateError = function(error) {
 	};
@@ -166,12 +168,12 @@ app.controller('userController', function($scope, $interval, $location, userServ
 	};
 ///--------------------Get current User---------------
 	$scope.getCurrentUser = function(){
-		userService.currentUser().then(getSuccess, getError)
+		userService.currentUser().then(getCSuccess, getCError)
 	};
-	var getSuccess = function(data){
+	var getCSuccess = function(data){
 		$scope.curentUser = data;
 	};
-	var getError = function(error){
+	var getCError = function(error){
 		
 	};
 	

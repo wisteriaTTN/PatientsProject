@@ -109,8 +109,10 @@ app.controller('treatmentController', function(
 		treatmentService.createTreatment($scope.treatment).then(createTreatmentSuccess,createTreatmentError);
 	};
 	var createTreatmentSuccess = function(data) {
-		alert('add new treatment Success:' + data.name);
-		
+		bootbox.alert({
+			message: "add new treatment success!",
+		    size: 'small'
+		});
 		$scope.getAllTreatment();
 	};
 	var createTreatmentError = function(error) {
@@ -128,7 +130,6 @@ app.controller('treatmentController', function(
 			});
 		}
 		else{
-			alert("no medicine")
 		}
 	}
 ////==========Get One Treatment ==================================
@@ -143,20 +144,27 @@ app.controller('treatmentController', function(
 	};
 ////==========Update Treatment ==================================
 	$scope.updateTreatment = function(id,treatment){
-		if($scope.currentTreatment.doctorId.id==$scope.doctor.id){
+		/*if($scope.currentTreatment.doctorId.id==$scope.doctor.id){*/
 			treatmentService.updateTreatment(id,treatment).then(updateSuccess,updateError);
-		}
+/*		}
 		else{
 			alert('You have not permission');
-		}
+		}*/
 	};
 	var updateSuccess = function(data) {
-		alert('update treatment Success:');
+		bootbox.alert({
+			message: "update treatment success!",
+		    size: 'small'
+		});
+		//$(".modal").modal("hide");
 		$scope.getAllTreatment();
 		
 	};
 	var updateError = function(error) {
-		alert('You have not permission');
+		bootbox.alert({
+			message: "update treatment error!",
+		    size: 'small'
+		});
 	};
 		
 		

@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.csc.team2.controller.UploadingController;
 
 @SpringBootApplication
-public class DemoApplication {
+public class DemoApplication {	
 
 	public static void main(String[] args) {
 		new File(UploadingController.uploadingdir).mkdirs();
