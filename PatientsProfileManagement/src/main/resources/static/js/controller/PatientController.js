@@ -49,12 +49,18 @@ app.controller('patientController', function(
 	
 	var createSuccess = function(data) {
 		bootbox.alert({
-			message: "add patient success!",
+			message: "Add Patient Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		$scope.getPatient();
 	};
 	var createError = function(error) {
+		bootbox.alert({
+			message: "Add Patient Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 	/////-----------update patient-------------
@@ -63,12 +69,18 @@ app.controller('patientController', function(
 	};
 	var updateSuccess = function(data) {
 		bootbox.alert({
-			message: "update patient success!",
+			message: "Update Patient Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		$scope.getPatient();
 	};
 	var updateError = function(error) {
+		bootbox.alert({
+			message: "Update Patient Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 	/////-----------delete patient-------------
@@ -78,12 +90,18 @@ app.controller('patientController', function(
 	};
 	var deleteSuccess = function(data) {
 		bootbox.alert({
-			message: "delete patient success!",
+			message: "Delete Patient Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		$scope.getPatient();
 	};
 	var deleteError = function(error) {
+		bootbox.alert({
+			message: "Delete Patient Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 	/////----------get one patient-------------
