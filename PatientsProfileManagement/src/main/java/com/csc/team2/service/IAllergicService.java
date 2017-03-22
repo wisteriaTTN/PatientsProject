@@ -9,7 +9,7 @@ public interface IAllergicService {
  
     void saveAllergic(Allergic allergic);
     
-    void saveAllergic(List<Allergic> allergicList);
+    void saveAllergicList(List<Allergic> allergicList);
  
     void updateAllergic(Allergic allergic);
  

@@ -22,6 +22,7 @@
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 	<script type="text/javascript" th:src="@{/js/wow.min.js}"></script>
 	<script type="text/javascript" th:src="@{/js/handle.js}"></script>
+	<script type="text/javascript" th:src="@{/js/bootbox.min.js}"></script>
 	<script>
 	  $.widget.bridge('uibutton', $.ui.button);
 	</script>
@@ -59,7 +60,7 @@
                             <ul class="dropdown-menu">
                                 <!-- <li class="header"><i class="fa fa-fw fa-user"></i> Profile</li> -->
 								<li class="header"><a href="#/userProfile"><i class="fa fa-fw fa-user"></i> Profile</a></li>
- 								<li class="header"><a href="#/changePass"><i class="fa fa-fw fa-user"></i> Change Password</a></li>
+ 								<!-- <li class="header"><a href="#/changePass"><i class="fa fa-fw fa-user"></i> Change Password</a></li> -->
                                 <li >
                                     <form th:action="@{/logout}" method="get" >
 										<button class="astext" name="logout" type="submit"> 
@@ -99,7 +100,7 @@
 					<li><a href="#/patient"><i class="fa fa-wheelchair"></i> <span>Patient</span></a></li>
 					<li><a href="#/medicine"><i class="fa fa-plus"></i> <span>Medicine</span></a></li>
 					<li><a href="#/treatment"><i class="fa fa-table"></i> <span>Treatment</span></a></li>
-					<li><a href="#/test"><i class="fa fa-table"></i> <span>Test</span></a></li>
+					
 					
 					
 					

@@ -2,6 +2,7 @@ package com.csc.team2.service;
 
 import java.util.List;
 
+import com.csc.team2.model.Medicine;
 import com.csc.team2.model.TreatmentDetail;
 
 public interface ITreatmentDtService  {
@@ -19,6 +20,8 @@ public interface ITreatmentDtService  {
     void deleteAllTreatmentDt();
  
     List<TreatmentDetail> findAllTreatmentDt();
+    
+    List<Object[]> findNotAllergic(int id);
  
     boolean isTreatmentDtExist(TreatmentDetail treatmentdt);
 

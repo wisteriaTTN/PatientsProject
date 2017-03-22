@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
     @NamedQuery(name = "Allergic.findAll", query = "SELECT a FROM Allergic a")
     , @NamedQuery(name = "Allergic.findById", query = "SELECT a FROM Allergic a WHERE a.id = :id")
     , @NamedQuery(name = "Allergic.findByMedicineId", query = "SELECT a FROM Allergic a WHERE a.medicineId = :medicineId")})
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@allergicId")
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@allergicId", scope= Allergic.class)
 
 public class Allergic implements Serializable {
 

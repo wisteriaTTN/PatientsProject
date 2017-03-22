@@ -213,7 +213,22 @@ AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
 
+CREATE TABLE IF NOT EXISTS `db_ppm`.`file` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `treatment_id` INT(11) NOT NULL,
+  `image` blob NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_treat_idx` (`treatment_id` ASC),
+  CONSTRAINT `fk_treat_file`
+    FOREIGN KEY (`treatment_id`)
+    REFERENCES `db_ppm`.`treatment` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 10
+DEFAULT CHARACTER SET = utf8
 
+COLLATE = utf8_unicode_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
