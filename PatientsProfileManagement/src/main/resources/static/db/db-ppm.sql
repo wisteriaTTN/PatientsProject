@@ -213,6 +213,9 @@ AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
 
+-- -----------------------------------------------------
+-- Table `db_ppm`.`file`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_ppm`.`file` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `treatment_id` INT(11) NOT NULL,
