@@ -61,7 +61,7 @@ public class TreatmentServiceTest extends TestCase {
 		mockMvc = MockMvcBuilders.standaloneSetup(treatmentController).addFilters(new CorsFilter()).build();
 
 	}
-
+	// --------------Test Function FindAllTreatment------------
 	@Test
 	public void testGetAllTreatment() throws Exception {
 		List<Treatment> treatments = Arrays.asList(new Treatment(1, new Date("2017-02-10"), "", "nhiem trung mat"),
@@ -72,14 +72,19 @@ public class TreatmentServiceTest extends TestCase {
 
 		mockMvc.perform(get("/treatment")).andExpect(status().isOk())
 				.andExpect((ResultMatcher) content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-				// .andExpect(jsonPath("$", hasSize(2))
-				.andExpect(jsonPath("$[0].id", is(1))).andExpect(jsonPath("$[0].date", is(new Date("2017-02-10"))))
+				//.andExpect(jsonPath("$", hasSize(3))
+				.andExpect(jsonPath("$[0].id", is(1)))
+				.andExpect(jsonPath("$[0].date", is(new Date("2017-02-10"))))
 				.andExpect(jsonPath("$[0].file", is("")))
-				.andExpect(jsonPath("$[0].prescription", is("nhiem trung mat"))).andExpect(jsonPath("$[1].id", is(2)))
-				.andExpect(jsonPath("$[1].date", is(new Date("2017-02-10")))).andExpect(jsonPath("$[1].file", is("")))
-				.andExpect(jsonPath("$[1].prescription", is("tim mach"))).andExpect(jsonPath("$[1].id", is(3)))
-				.andExpect(jsonPath("$[1].date", is(new Date("2017-02-10")))).andExpect(jsonPath("$[1].file", is("")))
-				.andExpect(jsonPath("$[1].prescription", is("tram cam")));
+				.andExpect(jsonPath("$[0].prescription", is("nhiem trung mat")))
+				.andExpect(jsonPath("$[1].id", is(2)))
+				.andExpect(jsonPath("$[1].date", is(new Date("2017-02-10"))))
+				.andExpect(jsonPath("$[1].file", is("")))
+				.andExpect(jsonPath("$[1].prescription", is("tim mach")))
+				.andExpect(jsonPath("$[2].id", is(3)))
+				.andExpect(jsonPath("$[2].date", is(new Date("2017-02-10"))))
+				.andExpect(jsonPath("$[2].file", is("")))
+				.andExpect(jsonPath("$[2].prescription", is("tram cam")));
 
 		verify(treatmentService, times(1)).findAllTreatment();
 		verifyNoMoreInteractions(treatmentService);
