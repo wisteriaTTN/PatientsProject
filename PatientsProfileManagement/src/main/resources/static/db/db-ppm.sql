@@ -114,7 +114,6 @@ CREATE TABLE IF NOT EXISTS `db_ppm`.`history` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `treatment_id` INT(11) NOT NULL,
   `datetime` DATETIME NOT NULL,
-  `contentchange` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_his_treat_idx` (`treatment_id` ASC),
   CONSTRAINT `fk_his_treat`
@@ -255,8 +254,7 @@ LIMIT 0, 1000
 INSERT INTO `user` (`id`,`name`,`username`,`password`,`specialist`,`address`,`sex`) VALUES (1,'Phan Van Hanh','hanhpv','hanhpv','than kinh','123 Nguyen Trai, Q1, Tp.HCM','male');
 INSERT INTO `user` (`id`,`name`,`username`,`password`,`specialist`,`address`,`sex`) VALUES (2,'Tran Thi Lai','laitt','laitt','tai-mui-hong','234 Hong Bang, Q.Binh Tan, Tp.HCM','female');
 INSERT INTO `user` (`id`,`name`,`username`,`password`,`specialist`,`address`,`sex`) VALUES (3,'Nguyen Van An','annv','annv','tim mach','23/2/8 Nguyen Thien Thuat, Q.4, Tp.HCM','male');
-INSERT INTO `user` (`id`,`name`,`username`,`password`,`specialist`,`address`,`sex`	) VALUES (4,'Nguyen Thi Lanh','lanhnt','lanhnt','tim','567/12/13 Hoang Hoa Tham, Q.8, Tp.HCM','female');
-INSERT INTO `user` (`id`,`name`,`username`,`password`,`specialist`,`address`,`sex`) VALUES (5,'Pham Van Khoa','khoapv','khoapv','mat','34 Nguyen Van Cu, Q.5, Tp.HCM','male');
+
 
 /*
 -- Query: SELECT * FROM db_ppm.patient
@@ -281,7 +279,7 @@ INSERT INTO `treatment` (`id`,`patient_id`,`doctor_id`,`date`,`file`,`prescripti
 LIMIT 0, 1000
 -- Date: 2017-03-07 16:32
 */
-INSERT INTO `history` (`id`,`treatment_id`,`datetime`,`contentchange`) VALUES (1,1,'2017-02-10 00:00:00','doi thuoc');
+INSERT INTO `history` (`id`,`treatment_id`,`datetime`,`contentchange`) VALUES (1,1,'2017-02-10 00:00:00');
 
 
 /*
