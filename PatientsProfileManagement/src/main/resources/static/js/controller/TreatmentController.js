@@ -110,12 +110,18 @@ app.controller('treatmentController', function(
 	};
 	var createTreatmentSuccess = function(data) {
 		bootbox.alert({
-			message: "add new treatment success!",
+			message: "Add New Treatment Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		$scope.getAllTreatment();
 	};
 	var createTreatmentError = function(error) {
+		bootbox.alert({
+			message: "Add Treatment Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 ////==========Create treatment detail==================================
@@ -153,7 +159,8 @@ app.controller('treatmentController', function(
 	};
 	var updateSuccess = function(data) {
 		bootbox.alert({
-			message: "update treatment success!",
+			message: "Update Treatment Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		//$(".modal").modal("hide");
@@ -162,7 +169,8 @@ app.controller('treatmentController', function(
 	};
 	var updateError = function(error) {
 		bootbox.alert({
-			message: "update treatment error!",
+			message: "Update Treatment Error!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 	};

@@ -35,7 +35,7 @@ app.controller('treatmentDetailController', function(
 ////=========Create allergics list======================================
 	$scope.createAllergics = function(){
 		if($scope.allergics!=null){
-			angular.forEach($scope.medicines, function(value, key){
+			angular.forEach($scope.allergics, function(value, key){
 				$scope.allergic.medicineId =value;
 				$scope.allergic.patientId=$scope.treatment.patientId;
 				allergicService.createAllergic($scope.allergic).then(createAllergicSuccess,createAllergicError)
@@ -50,13 +50,22 @@ app.controller('treatmentDetailController', function(
 	
 	
 	var createAllergicSuccess = function(data) {
-		alert('add new treatment Success:');
+		bootbox.alert({
+			message: "Add New Allergic Success!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 		$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
 			$scope.treatment = response.data;
 			$scope.treatment.patientId.dob = new Date(response.data.patientId.dob);
 		})
 	};
 	var createAllergicError = function(error) {
+		bootbox.alert({
+			message: "Add Allergic Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 	
@@ -78,14 +87,22 @@ app.controller('treatmentDetailController', function(
 		
 	}
 	var createTreatmentDetailSuccess = function(data) {
-		alert('add new treatment Success:');
+		bootbox.alert({
+			message: "Add New Treatment Detail Success!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 		$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
 			$scope.treatment = response.data;
 			$scope.treatment.patientId.dob = new Date(response.data.patientId.dob);
 		});
 	};
 	var createTreatmentDetailError = function(error) {
-		alert("wrong hreee");
+		bootbox.alert({
+			message: "Add Treatment Detail Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 	
@@ -95,13 +112,22 @@ app.controller('treatmentDetailController', function(
 		treatmentDetailService.deleteTreatmentDetail(id).then(deleteTreatmentDetailSuccess,deleteTreatmentDetailError)
 	}
 	var deleteTreatmentDetailSuccess = function(data) {
-		alert('delete treatment Success:');
+		bootbox.alert({
+			message: "Delete Treatment Detail Success!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 		$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
 			$scope.treatment = response.data;
 			$scope.treatment.patientId.dob = new Date(response.data.patientId.dob);
 		});
 	};
 	var deleteTreatmentDetailError = function(error) {
+		bootbox.alert({
+			message: "Delete Treatment Detail Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 ////==========delete allergic==========================================
@@ -109,13 +135,22 @@ app.controller('treatmentDetailController', function(
 		allergicService.dleteAllergic(id).then(deleteAllergicSuccess,deleteAllergiclError)
 	}
 	var deleteAllergicSuccess = function(data) {
-		alert('delete allergic Success:');
+		bootbox.alert({
+			message: "Delete Allergic Success!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 		$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
 			$scope.treatment = response.data;
 			$scope.treatment.patientId.dob = new Date(response.data.patientId.dob);
 		})
 	};
 	var deleteAllergiclError = function(error) {
+		bootbox.alert({
+			message: "Delete Allergic Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 ////==========contact chips for prescription and allergics=============	
@@ -207,11 +242,19 @@ app.service('fileUpload', ['$http', function ($https) {
             })
          
             .success(function(){
-         	alert("ok");
+            	bootbox.alert({
+        			message: "Upload File Success!",
+        			title: "MESSAGE",
+        		    size: 'small'
+        		});
             })
          
             .error(function(){
-            	alert("error");
+            	bootbox.alert({
+        			message: "Can't Upload File!",
+        			title: "MESSAGE",
+        		    size: 'small'
+        		});
             });
          }
     
