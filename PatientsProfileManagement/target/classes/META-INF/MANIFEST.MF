@@ -1,9 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: PatientsProfile
 Implementation-Version: 0.0.1-SNAPSHOT
-
-Built-By: Tran Thien Nhu
-
+Built-By: training
 Implementation-Vendor-Id: com.csc.team2
 Build-Jdk: 1.8.0_121
 Implementation-URL: http://projects.spring.io/spring-boot/PatientsProf
