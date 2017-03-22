@@ -86,7 +86,7 @@ app.controller('treatmentController', function(
 	};
 	
 ////==========Get current doctor=======================================
-	$http.get("http://localhost:8080/userlogged").then(function(response) {
+	$http.get("http://localhost:8080/userProfile").then(function(response) {
 		$scope.doctor = response.data;
 	});
 	
