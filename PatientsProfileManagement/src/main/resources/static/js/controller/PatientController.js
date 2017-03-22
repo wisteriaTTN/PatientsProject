@@ -5,7 +5,7 @@ app.controller('patientController', function(
 	$scope.patient = {
 			name : "",
 			address : "",
-			sex : "",
+			sex : "male",
 			dob : "",
 		};
 	
@@ -47,18 +47,11 @@ app.controller('patientController', function(
 		
 	}
 	
-	reset = function(){
-		$scope.patient = {
-				name : "",
-				address : "",
-				sex : "",
-				dob : ""
-			};
-	};
-	
 	var createSuccess = function(data) {
-		reset();
-		$(".modal").modal("hide");
+		bootbox.alert({
+			message: "add patient success!",
+		    size: 'small'
+		});
 		$scope.getPatient();
 	};
 	var createError = function(error) {
@@ -69,8 +62,10 @@ app.controller('patientController', function(
 		patientService.updatePatient(id,patient).then(updateSuccess,updateError);
 	};
 	var updateSuccess = function(data) {
-		reset();
-		$(".modal").modal("hide");
+		bootbox.alert({
+			message: "update patient success!",
+		    size: 'small'
+		});
 		$scope.getPatient();
 	};
 	var updateError = function(error) {
@@ -82,7 +77,10 @@ app.controller('patientController', function(
 		
 	};
 	var deleteSuccess = function(data) {
-		alert('delete patient Success:' + data.name);
+		bootbox.alert({
+			message: "delete patient success!",
+		    size: 'small'
+		});
 		$scope.getPatient();
 	};
 	var deleteError = function(error) {

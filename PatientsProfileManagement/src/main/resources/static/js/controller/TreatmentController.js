@@ -109,8 +109,10 @@ app.controller('treatmentController', function(
 		treatmentService.createTreatment($scope.treatment).then(createTreatmentSuccess,createTreatmentError);
 	};
 	var createTreatmentSuccess = function(data) {
-		alert('add new treatment Success:' + data.name);
-		
+		bootbox.alert({
+			message: "add new treatment success!",
+		    size: 'small'
+		});
 		$scope.getAllTreatment();
 	};
 	var createTreatmentError = function(error) {
@@ -128,7 +130,6 @@ app.controller('treatmentController', function(
 			});
 		}
 		else{
-			alert("no medicine")
 		}
 	}
 ////==========Get One Treatment ==================================
@@ -151,13 +152,19 @@ app.controller('treatmentController', function(
 		}*/
 	};
 	var updateSuccess = function(data) {
-		alert('update treatment Success:');
-		$(".modal").modal("hide");
+		bootbox.alert({
+			message: "update treatment success!",
+		    size: 'small'
+		});
+		//$(".modal").modal("hide");
 		$scope.getAllTreatment();
 		
 	};
 	var updateError = function(error) {
-		alert('update treatment error');
+		bootbox.alert({
+			message: "update treatment error!",
+		    size: 'small'
+		});
 	};
 		
 		

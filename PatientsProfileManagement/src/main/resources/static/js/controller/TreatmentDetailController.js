@@ -1,6 +1,6 @@
 var app = angular.module('myApp');
 app.controller('treatmentDetailController', function(
-        $scope, $interval, $location,$http,$routeParams,treatmentDetailService,allergicService) {
+        $scope, $interval, $location,$http,$routeParams,treatmentDetailService,allergicService,fileUpload) {
 	
 	
 	
@@ -35,16 +35,20 @@ app.controller('treatmentDetailController', function(
 ////=========Create allergics list======================================
 	$scope.createAllergics = function(){
 		if($scope.allergics!=null){
-			angular.forEach($scope.allergics,function(value, key){
-				$scope.allergic.medicineId = value;
-				$scope.allergic.patientId  =  $scope.treatment.patientId;
+			angular.forEach($scope.medicines, function(value, key){
+				$scope.allergic.medicineId =value;
+				$scope.allergic.patientId=$scope.treatment.patientId;
 				allergicService.createAllergic($scope.allergic).then(createAllergicSuccess,createAllergicError)
 			});
+			//allergicService.createAllergics(JSON.stringify($scope.allergics),$scope.treatment.patientId.id);
 		}
+		
 		else{
 			
 		}
 	}
+	
+	
 	var createAllergicSuccess = function(data) {
 		alert('add new treatment Success:');
 		$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
@@ -153,18 +157,84 @@ app.controller('treatmentDetailController', function(
     function loadAndParseContacts() {
       return $http.get('http://localhost:8080/unAllergic/'+$scope.treatment.patientId.id).then(parse)
     }
+   
+ ////===================upload file=========================================
+   
+
+   
+
+    // NOW UPLOAD THE FILES.
+    $scope.uploadFiles = function () {
+    	var fd = new FormData();
+    	var file = $scope.myFile;
+//        fd.append('file', file);
+//        fd.append('description',$scope.treatment);
+        var uploadUrl ="/uploadMultipleFile";
+        console.log(typeof($scope.treatment));
+        	fileUpload.uploadFileToUrl(file,$scope.treatment.id, uploadUrl) 
+
+    }
 
 });
-//
-//app.controller('treatmentDetailController', function(
-//        $scope, $interval, $location,$http,$routeParams) {
-//	
-//	$http.get("http://localhost:8080/treatment/" +$routeParams.treatmentId).then(function(response) {
-//		$scope.treatment = response.data;
-//	});
-//	
-//	$http.get("http://localhost:8080/treatment").then(function(response) {
-//		$scope.patient = response.data;
-//    });
-//
-//});
+
+
+app.directive('fileModel', ['$parse', function ($parse) {
+	return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var model = $parse(attrs.fileModel);
+            var modelSetter = model.assign;
+            
+            element.bind('change', function(){
+                scope.$apply(function(){
+                    modelSetter(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
+} ])
+
+    
+app.service('fileUpload', ['$http', function ($https) {
+        
+    	this.uploadFileToUrl= function(file,myData, uploadUrl){
+            var fd = new FormData();
+            fd.append('files', file);
+            fd.append('treatmentId',myData);
+            $https.post(uploadUrl, fd, {
+               transformRequest: angular.identity,
+               headers: {'Content-Type': undefined}
+            })
+         
+            .success(function(){
+         	alert("ok");
+            })
+         
+            .error(function(){
+            	alert("error");
+            });
+         }
+    
+     
+ }]);
+
+app.directive("fileinput", [function() {
+    return {
+        scope: {
+          fileinput: "=",
+          filepreview: "="
+        },
+        link: function(scope, element, attributes) {
+          element.bind("change", function(changeEvent) {
+            scope.fileinput = changeEvent.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(loadEvent) {
+              scope.$apply(function() {
+                scope.filepreview = loadEvent.target.result;
+              });
+            }
+            reader.readAsDataURL(scope.fileinput);
+          });
+        }
+      }
+    }]);

@@ -58,7 +58,7 @@
                </div>
                <!-- /.box-body -->
                <div class="box-footer">
-                  <button type="reset" class="btn btn-default">Reset</button>
+                  <button type="reset" ng-click="getMedicine()" class="btn btn-default">Reset</button>
                   <button type="submit" ng-click="createMedicine()" class="btn btn-success pull-right">Create</button>
                </div>
                <!-- /.box-footer -->
@@ -89,7 +89,7 @@
                </div>
                <!-- /.box-body -->
                <div class="box-footer">
-                  <button type="reset" class="btn btn-default">Reset</button>
+                  <button type="reset" class="btn btn-default" ng-click="getTypeMedicine()">Reset</button>
                   <button type="submit" ng-click="createTypeMedicine()" class="btn btn-success pull-right">Create</button>
                </div>
                <!-- /.box-footer -->
@@ -307,7 +307,7 @@
             </div>
          </div>
          <div class="modal-footer">
-            <button ng-click="getPatient()" class="btn btn-primary btn-in-modal" type="reset">
+            <button ng-click="getMedicine()" class="btn btn-primary btn-in-modal" type="reset">
             <span><i class="fa fa-refresh" aria-hidden="true"></i></span>
             Clear
             </button>

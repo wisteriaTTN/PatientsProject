@@ -135,7 +135,10 @@ app.controller('userController', function($scope, $interval, $location, userServ
 		
 	};
 	var deleteSuccess = function(data) {
-		alert('delete User Success:' + data.name);
+		bootbox.alert({
+			message: "delete user success!",
+		    size: 'small'
+		});
 		$scope.getAdmin();
 		$scope.getDoctor();
 		$scope.getNurse();
@@ -147,7 +150,10 @@ app.controller('userController', function($scope, $interval, $location, userServ
 		userService.updateUser(id,user).then(updateSuccess,updateError);
 	};
 	var updateSuccess = function(data) {
-		$(".modal").modal("hide");
+		bootbox.alert({
+			message: "update user success!",
+		    size: 'small'
+		});
 		$scope.getAdmin();
 		$scope.getDoctor();
 		$scope.getNurse();
@@ -162,7 +168,10 @@ app.controller('userController', function($scope, $interval, $location, userServ
 		userService.changePass($scope.user).then(changePassSuccess,updateError);
 	};
 	var changePassSuccess = function(data) {
-		alert('Change Password Success:');
+		bootbox.alert({
+			message: "Change password success!",
+		    size: 'small'
+		});
 	};
 	var updateError = function(error) {
 	};
