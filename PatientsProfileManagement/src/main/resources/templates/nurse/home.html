@@ -3,7 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" class="no-js">
 
 <head>
-	<title>Admin Page</title>
+	<title>Nurse Page</title>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,9 +22,11 @@
 	<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 	<script type="text/javascript" th:src="@{/js/wow.min.js}"></script>
 	<script type="text/javascript" th:src="@{/js/handle.js}"></script>
+	<script type="text/javascript" th:src="@{/js/bootbox.min.js}"></script>
 	<script>
 	  $.widget.bridge('uibutton', $.ui.button);
 	</script>
+
 
 </head>
 
@@ -142,8 +144,10 @@
 		<script type="text/javascript" th:src="@{/js/service/UserService.js}"></script>
 		<script type="text/javascript" th:src="@{/js/service/MedicineService.js}"></script>
 		<script type="text/javascript" th:src="@{/js/service/TypeMedicineService.js}"></script>
+		<script type="text/javascript" th:src="@{/js/service/TreatmentService.js}"></script>
+		<script type="text/javascript" th:src="@{/js/service/TreatmentDetailService.js}"></script>
+		<script type="text/javascript" th:src="@{/js/service/AllergicService.js}"></script>
 	
-		
 		<script type="text/javascript" th:src="@{/js/controller/Home.js}"></script>
 		<script type="text/javascript" th:src="@{/js/controller/PatientController.js}"></script>
 		<script type="text/javascript" th:src=@{/js/controller/MedicineController.js}></script>
