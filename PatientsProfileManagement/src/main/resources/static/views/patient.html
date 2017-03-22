@@ -10,6 +10,22 @@
    </ol>
 </section>
 
+<span th:text="${#authorization.expression('isAuthenticated()')} ? 
+               'the user is logged in' : 
+               'the user is NOT logged in'">
+</span>
+<div sec:authentication="name">fasdf</div> <!-- works fine -->
+<div sec:authentication="principal.authorities">fdsa</div> <!-- works fine -->
+
+<div sec:authorize="isAuthenticated()">
+  This content is only shown to authenticated users.
+</div>
+<div sec:authorize="hasAuthority('[admin]')">
+  This content is only shown to administrators.
+</div>
+<div sec:authorize="hasAuthority('[doctor]')">
+  This content is only shown to users.
+</div>
 <!-- Main content -->
 <section class="content">
    <div class="x_panel">

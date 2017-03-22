@@ -42,7 +42,8 @@ app.controller('medicineController', function(
 	};
 	var getMedicineError = function(error) {
 		bootbox.alert({
-			message: "could not find any data!",
+			message: "Could Not Find Any Data!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 	};
@@ -69,13 +70,19 @@ app.controller('medicineController', function(
 	};
 	var createMedicineSuccess = function(data) {
 		bootbox.alert({
-			message: "add medicine success!",
+			message: "Add Medicine Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		
 		$scope.getMedicine();
 	};
 	var createMedicineError = function(error) {
+		bootbox.alert({
+			message: "Add Medicine Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 /////-----------update Medicine-------------
@@ -90,12 +97,18 @@ app.controller('medicineController', function(
 		$scope.getMedicine();
 
 		bootbox.alert({
-			message: "update medicine success!",
+			message: "Update Medicine Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 
 	};
 	var updateMedicineError = function(error) {
+		bootbox.alert({
+			message: "Update Medicine Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 	/////-----------delete medicine-------------
@@ -105,12 +118,18 @@ app.controller('medicineController', function(
 	};
 	var deleteMedicineSuccess = function(data) {
 		bootbox.alert({
-			message: "delete medicine success!",
+			message: "Delete Medicine Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		$scope.getMedicine();
 	};
 	var deleteMedicineError = function(error) {
+		bootbox.alert({
+			message: "Delete Medicine Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 	
@@ -123,7 +142,8 @@ app.controller('medicineController', function(
 	};
 	var getError = function(error) {
 		bootbox.alert({
-			message: "could not find any data!",
+			message: "Could Not Find Any Data!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 	};
@@ -143,12 +163,18 @@ app.controller('medicineController', function(
 	};
 	var createSuccess = function(data) {
 		bootbox.alert({
-			message: "add new type medicine success!",
+			message: "Add New Type Medicine Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		$scope.getTypeMedicine();
 	};
 	var createError = function(error) {
+		bootbox.alert({
+			message: "Add Type Treatment Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 /////-----------update Type Medicine-------------
@@ -157,12 +183,18 @@ app.controller('medicineController', function(
 	};
 	var updateSuccess = function(data) {
 		bootbox.alert({
-			message: "update type medicine success!",
+			message: "Update Type Medicine Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		$scope.getTypeMedicine();
 	};
 	var updateError = function(error) {
+		bootbox.alert({
+			message: "Update Type Treatment Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 	
 	/////-----------delete Type medicine-------------
@@ -172,11 +204,17 @@ app.controller('medicineController', function(
 	};
 	var deleteSuccess = function(data) {
 		bootbox.alert({
-			message: "delete type medicine success!",
+			message: "Delete Type Medicine Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		$scope.getTypeMedicine();
 	};
 	var deleteError = function(error) {
+		bootbox.alert({
+			message: "Delete Type Medicine Error!",
+			title: "MESSAGE",
+		    size: 'small'
+		});
 	};
 });

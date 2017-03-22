@@ -240,7 +240,7 @@
 						</div>
 						<div class="form-group">
 							<div class="col-md-6">
-								<input id="file" type="file" fileinput="file"
+								<input id="file" type="file" fileinput="file" name="file" onchange="ValidateSingleInput(this)"
 									filepreview="filepreview" file-model="myFile" />
 								<button ng-click="uploadFiles()">upload me</button>
 							</div>
@@ -261,19 +261,62 @@
 		</div>
 		<!-- /.col -->
 	</div>
-	<div class="row">
+<script>
+var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];    
+function ValidateSingleInput(oInput) {
+    if (oInput.type == "file") {
+        var sFileName = oInput.value;
+         if (sFileName.length > 0) {
+            var blnValid = false;
+            for (var j = 0; j < _validFileExtensions.length; j++) {
+                var sCurExtension = _validFileExtensions[j];
+                if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                    blnValid = true;
+                    break;
+                }
+            }
+             
+            if (!blnValid) {
+            	bootbox.alert({
+        			message: "Sorry, " + sFileName + " is invalid, allowed extensions are: "+ _validFileExtensions.join(", "),
+        			title: "MESSAGE",
+        		    size: 'small'
+        		});
+                oInput.value = "";
+                return false;
+            }
+        }
+    }
+    return true;
+}
+</script>	
+<div class="row">
 		<div class="box-header with-border">
 			<i class="fa fa-file-image-o"></i>
 			<h3 class="box-title">File</h3>
 		</div>
-		<div data-role="page" class="col-md-3 pr" ng-repeat="photo in treatment.fileList">
-				<a href="#"> <img
-					class="img-rounded" ng-src="data:image/JPEG;base64,{{photo.image}}"
-					class="img-rounded" alt="Cinque Terre" height="263" width="90%"></a>
+		<div data-role="page" class="col-md-4 pr" ng-repeat="photo in treatment.fileList">
 
-		
-		</div>
+<a  data-toggle="modal" data-target=".dialog{{photo.id}}">
+           <img ng-src="data:image/JPEG;base64,{{photo.image}}" width="300" class="img-responsive img-rounded center-block" alt="" />
+       </a>
+       
+       <div class="modal fade dialog{{photo.id}}" tabindex="-1">
+           <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                   </div>
+                   <div class="modal-body active">
+                       <img ng-src="data:image/JPEG;base64,{{photo.image}}" style="height:700" class="img-responsive img-rounded center-block" alt="" />
+                   </div>
+               </div>
+           </div>
+       </div>
+</div>
 
 	</div>
+	
+	
 </section>
 

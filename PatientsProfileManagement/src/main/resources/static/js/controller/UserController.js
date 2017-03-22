@@ -136,7 +136,8 @@ app.controller('userController', function($scope, $interval, $location, userServ
 	};
 	var deleteSuccess = function(data) {
 		bootbox.alert({
-			message: "delete user success!",
+			message: "Delete User Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		$scope.getAdmin();
@@ -151,7 +152,8 @@ app.controller('userController', function($scope, $interval, $location, userServ
 	};
 	var updateSuccess = function(data) {
 		bootbox.alert({
-			message: "update user success!",
+			message: "Update User Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 		$scope.getAdmin();
@@ -169,7 +171,8 @@ app.controller('userController', function($scope, $interval, $location, userServ
 	};
 	var changePassSuccess = function(data) {
 		bootbox.alert({
-			message: "Change password success!",
+			message: "Change Password Success!",
+			title: "MESSAGE",
 		    size: 'small'
 		});
 	};
